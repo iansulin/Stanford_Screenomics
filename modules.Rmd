@@ -1,0 +1,265 @@
+---
+title: "Module Documentation"
+author: "M. Power"
+output: html_document
+---
+
+# Overview
+
+This document provides detailed information on various modules and their functionalities, including dependencies, internal classes, methods, and permissions required for operation.
+
+## List of Modules
+
+1. [Power](#module-power)
+2. [Battery](#module-battery)
+3. [Network](#module-network)
+4. [Activities](#module-activities)
+
+---
+
+# Module: Power
+
+Power is p[ower ]Power is p[ower ]Power is p[ower ]Power is p[ower ]
+
+## Module Dependencies
+
+- `TextBasedEventsDatabase.EventOperationManager`
+- `modulemanager.ModuleCharacteristics.getPowerScreenOnOffCharacteristics()`
+
+## Internal Dependencies
+
+- `android.content.BroadcastReceiver`
+- `android.content.Context`
+- `android.content.Intent`
+- `android.os.PowerManager`
+- `java.util.HashMap`
+
+## Class: ScreenOnOffStatusCapture
+
+### Overview
+
+The `ScreenOnOffStatusCapture` class is an Android `BroadcastReceiver` that monitors and logs changes in the device's screen state.
+
+### Functionality
+
+It operates in an event-based manner to respond to screen state changes as they occur, making it efficient in resource usage. The class listens for broadcast actions like `ACTION_SCREEN_ON`, `ACTION_SCREEN_OFF`, and `ACTION_USER_PRESENT`. Upon receiving these events, it uses the `PowerManager` to determine if the screen activation is due to user interaction or a notification. Relevant information is logged using a `HashMap`, capturing the screen state and notification status, which is sent to the `EventOperationManager`.
+
+### Permissions Required
+
+- **WAKE_LOCK**: Allows the app to prevent the device from going to sleep, enabling it to keep the CPU running even when the screen is off.
+- **RECEIVE_BOOT_COMPLETED**: Allows the app to receive a broadcast when the device has completed booting.
+- **READ_PHONE_STATE**: Allows the app to access the device's current state, including information about incoming and ongoing calls.
+
+### Constructors
+
+#### `ScreenOnOffStatusCapture()`
+
+Initializes a new instance of the `ScreenOnOffStatusCapture` class.
+
+### Methods
+
+#### `public void onReceive(Context context, Intent intent)`
+
+The primary callback method of the `BroadcastReceiver`, invoked whenever the receiver detects a broadcast message.
+
+- **Parameters**:
+  - **Context context**: Provides access to application-specific resources and classes.
+  - **Intent intent**: Represents the intent that triggered the broadcast.
+
+#### `private void handleScreenOnEvent(Context context)`
+
+Called when the screen is turned on.
+
+- **Parameters**:
+  - **Context context**: Provides access to application-specific resources and services.
+
+#### `private void logEvent(boolean screenOn, boolean Notification, Context context)`
+
+Constructs a `HashMap` to store the state of the screen and whether the activation was due to a notification.
+
+- **Parameters**:
+  - **boolean screenOn**: Indicates whether the screen is currently on or off.
+  - **boolean Notification**: Indicates whether the screen activation was due to a notification.
+  - **Context context**: Provides access to application resources for logging.
+
+---
+
+# Module: Battery
+
+## Module Dependencies
+
+- `TextBasedEventsDatabase.EventOperationManager`
+- `modulemanager.ModuleCharacteristics.getBatteryStateEventCharacteristics()`
+
+## Internal Dependencies
+
+- `android.content.BroadcastReceiver`
+- `android.content.Context`
+- `android.content.Intent`
+- `android.content.IntentFilter`
+- `android.os.BatteryManager`
+- `android.util.Log`
+
+## Class: BatteryStatusCapture
+
+### Overview
+
+The `BatteryStatusCapture` class is a `BroadcastReceiver` designed to monitor and respond to battery-related events.
+
+### Functionality
+
+It listens for specific broadcast actions and logs relevant information using a `HashMap`.
+
+### Permissions Required
+
+- **BATTERY_STATS**: Allows the app to access battery statistics and information.
+
+### Constructors
+
+#### `BatteryStatusCapture()`
+
+Initializes a new instance of the `BatteryStatusCapture` class.
+
+### Methods
+
+#### `public void onReceive(Context context, Intent intent)`
+
+Invoked whenever a broadcast matching the registered intents is received.
+
+- **Parameters**:
+  - **Context context**: Provides access to system services.
+  - **Intent intent**: Represents the broadcast intent that triggered the method.
+
+#### `public static int getBatteryPercentage(Context context)`
+
+Retrieves the current battery percentage by listening for the `ACTION_BATTERY_CHANGED` broadcast.
+
+- **Parameters**:
+  - **Context context**: Provides access to system resources.
+
+---
+
+# Module: Network
+
+## Module Dependencies
+
+- `TextBasedEventsDatabase.EventOperationManager`
+- `modulemanager.ModuleCharacteristics.getNetworkEventCharacteristics()`
+- `modulemanager.ModuleController`
+
+## Internal Dependencies
+
+- `android.content.BroadcastReceiver`
+- `android.content.Context`
+- `android.content.Intent`
+- `android.net.ConnectivityManager`
+- `android.net.NetworkInfo`
+- `android.util.Log`
+- `java.util.HashMap`
+
+## Class: NetworkStatusCapture
+
+### Overview
+
+The `NetworkStatusCapture` class monitors changes in network connectivity on a device.
+
+### Functionality
+
+It listens for network state changes and logs relevant information.
+
+### Permissions Required
+
+- **ACCESS_NETWORK_STATE**: Allows the app to access information about networks.
+- **INTERNET**: Necessary if the app intends to make network requests.
+
+### Constructors
+
+#### `NetworkStatusCapture()`
+
+Initializes a new instance of the `NetworkStatusCapture` class.
+
+### Methods
+
+#### `public void onReceive(Context context, Intent intent)`
+
+Called when a broadcast message is received.
+
+- **Parameters**:
+  - **Context context**: Provides access to the `ConnectivityManager`.
+  - **Intent intent**: Encapsulates details about the broadcast message.
+
+#### `private void checkConnection(Context context)`
+
+Checks the current network connection status.
+
+- **Parameters**:
+  - **Context context**: Provides access to the `ConnectivityManager`.
+
+---
+
+# Module: Activities
+
+## Module Dependencies
+
+- `TextBasedEventsDatabase.EventOperationManager`
+- `modulemanager.EventTimestamp`
+- `modulemanager.ModuleCharacteristics.getStepCountEventCharacteristics()`
+
+## Internal Dependencies
+
+- `android.content.Context`
+- `android.hardware.Sensor`
+- `android.hardware.SensorEvent`
+- `android.hardware.SensorEventListener`
+- `android.hardware.SensorManager`
+- `android.os.Handler`
+- `android.util.Log`
+- `java.util.HashMap`
+
+## Class: UserStepCapture
+
+### Overview
+
+The `UserStepCapture` class tracks and logs user steps using the device's step counter sensor.
+
+### Functionality
+
+It captures step counts and provides methods to start and stop tracking.
+
+### Permissions Required
+
+- **ACTIVITY_RECOGNITION**: Allows the app to access physical activity data.
+
+### Constructors
+
+#### `UserStepCapture(Context context, long intervalMillis)`
+
+Initializes the `UserStepCapture` instance.
+
+- **Parameters**:
+  - **Context context**: Provides the application context.
+  - **long intervalMillis**: Defines the time interval for periodic step logging.
+
+### Methods
+
+#### `public void start()`
+
+Registers the sensor listener and starts periodic step counting.
+
+#### `public void stop()`
+
+Unregisters the sensor listener and stops tracking.
+
+#### `public void onSensorChanged(SensorEvent event)`
+
+Updates the total step count when the sensor detects a change.
+
+- **Parameters**:
+  - **SensorEvent event**: Contains the sensor data values.
+
+#### `private void sendStepsToDatabase(int steps)`
+
+Simulates sending the step count to a database.
+
+- **Parameters**:
+  - **int steps**: Represents the number of steps counted in the current interval.
