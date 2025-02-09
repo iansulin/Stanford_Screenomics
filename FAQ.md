@@ -4,15 +4,6 @@
 ## What is the [NO IMAGE] in the Data and How Does It Happen?
 When the app takes a screenshot, it needs time to process the image and save it to local storage. During this process, the app temporarily stores a large amount of image data in memory. If another screenshot attempt is made before the first one finishes, the system may not be ready to handle the new request. This can lead to increased memory usage, causing slowdowns or even app crashes. To address this, the Screenomics app implemented a mechanism to manage screenshots by allowing only one screenshot to be processed at a time. This approach prevents memory congestion and system overload by rejecting additional capture requests until the previous screenshot is fully processed, resulting in a "no image" log for attempts made during that time.
 
-### How This Helps:
-- **Avoiding Memory Overload**: By limiting to one screenshot at a time, the app prevents memory spikes and potential crashes.
-  
-- **Efficient Buffer Use**: Releasing the lock with `imageReaderMutex.release()` ensures that images are processed sequentially, preventing the buffer from overflowing and avoiding the "no image" problem.
-
-- **Handling Errors Gracefully**: The app catches exceptions (like `FileNotFoundException` and `IllegalStateException`) to handle errors without crashing. If a screenshot fails, the issue is logged, allowing the app to continue running smoothly.
-
-- **Conserving Storage and System Resources**: Before taking screenshots, the app checks available storage using `hasEnoughSpaceForScreenshot()`. If storage is insufficient, it stops attempts and logs the event instead of crashing.
-
 ## Common Scenarios Leading to "No Image"
 1. **ImageReader Buffer Overload**: If the screenshot queue is full because the first screenshot is still processing, a second request may not find space to capture anything.
   
