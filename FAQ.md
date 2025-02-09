@@ -5,26 +5,17 @@
 When the app takes a screenshot, it needs time to process the image and save it to local storage. During this process, the app temporarily stores a large amount of image data in memory. If another screenshot attempt is made before the first one finishes, the system may not be ready to handle the new request. This can lead to increased memory usage, causing slowdowns or even app crashes. To address this, the Screenomics app implemented a mechanism to manage screenshots by allowing only one screenshot to be processed at a time. This approach prevents memory congestion and system overload by rejecting additional capture requests until the previous screenshot is fully processed, resulting in a "no image" log for attempts made during that time.
 
 ## Common Scenarios Leading to "No Image"
-1. **ImageReader Buffer Overload**: If the screenshot queue is full because the first screenshot is still processing, a second request may not find space to capture anything.
-  
-2. **Concurrency Issue**: The app uses a lock (`imageReaderMutex.acquire()`) to ensure only one screenshot is processed at a time. If the first task hasn’t released the lock, the second attempt may fail.
-
-3. **File Writing Delay**: If saving the first screenshot is slow, any follow-up request may miss the chance to capture an image, leading to "No Image."
+1. **Buffer and Concurrency Issues**: If the app is busy processing a screenshot and a new request comes in, the system might not have enough space or resources to capture the new image. This can lead to failures in processing the second request because the system isn't ready to handle it.
+2. **File Writing Delay**: If saving a screenshot takes too long, any new requests may miss the chance to capture an image, resulting in "No Image."
 
 ## Factors Influencing the "No Image" Issue
-1. **Processing Power and Speed**: Devices with faster processors and more RAM handle tasks more efficiently. High-end devices are less likely to encounter "no image" issues compared to low-end devices.
-
-2. **Storage Speed and Capacity**: Fast storage options (like SSDs) allow quicker file writes, reducing the chances of "no image." Slow storage can delay saving, increasing failure chances.
-
-3. **Available RAM**: Limited RAM can prevent allocation for large image buffers. Devices with plenty of RAM can handle multiple images without problems.
-
-4. **Screen Size and Resolution**: Larger screens with higher resolutions create bigger image files, making processing slower. Smaller screens generally have fewer "no image" issues.
-
-5. **System Load**: If many apps are running in the background, the device may struggle to keep up with screenshot requests.
+1. **Device Speed**: Faster devices with better processors can handle tasks more efficiently. High-end devices are less likely to encounter "no image" issues compared to low-end devices.
+2. **Storage Speed**: Devices with faster storage can save images more quickly, reducing the chances of "no image." Slower storage may delay saving, increasing failure chances.
+3. **Available Memory**: If a device has limited memory, it may struggle to process large images. Devices with more memory can handle multiple images better.
+4. **Screen Size and Resolution**: Larger screens create bigger image files, which take longer to process. Smaller screens generally have fewer "no image" issues.
+5. **System Load**: If many apps are running at once, especially resource-intensive applications like video games, the device may have trouble keeping up with screenshot requests. This issue typically arises not from the Screenomics app itself, but from the overall demand on the device's resources.
 
 ## How to Reduce "No Image" Frequencies
-1. **Lower the Sampling Frequency**: Taking screenshots less frequently gives the system more time to process and save images. For example, changing the interval from every 1 second to every 5 seconds can significantly reduce issues.
-
-2. **Lower the Image Quality**: Capturing smaller or lower-quality images can reduce processing time and memory usage, helping to avoid "no image" problems.
-
-3. **Ensure Sufficient Storage Space and Memory Checks**: Always check that the device has enough space and available memory before taking a screenshot to avoid errors and prevent memory overload.
+1. **Lower the Sampling Frequency**: Increase the screenshot sampling interval using the dynamic parameter "screenshot-interval." For example, changing it from 1000 milliseconds (1 second) to 5000 milliseconds (5 seconds) gives the system more time to process and save images, reducing potential issues.
+2. **Lower the Image Quality**: Reduce image quality by adjusting the dynamic parameter "forced-image-quality." For example, lowering it from 100 to 50 can significantly decrease processing time and memory usage.
+3. **Ensure Sufficient Storage Space and Performance Memory Checks**: Ensure the user device has enough storage and available memory before onboarding to avoid errors and prevent memory overload.
