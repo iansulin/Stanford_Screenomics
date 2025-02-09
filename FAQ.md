@@ -1,29 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-  <div class="container mt-5">
-    <h1>FAQ</h1>
-    <div class="accordion" id="faqAccordion">
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-            What is this project about?
-          </button>
-        </h2>
-        <div id="faq1" class="accordion-collapse collapse">
-          <div class="accordion-body">
-            This project is designed to help users accomplish XYZ.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#
 
-<details> <summary>What is the [NO IMAGE] issue in the data, and how does it occur?</summary> <p> The "[NO IMAGE]" issue arises when the app struggles to process multiple screenshot requests simultaneously. Here’s how it happens: </p> <ul> <li> <strong>Memory Overload:</strong> When a screenshot is captured, it temporarily stores a large amount of image data in memory before saving it. If another screenshot request is made before the first one finishes, memory usage spikes, potentially leading to slowdowns or crashes. </li> <li> <strong>Buffer Overload:</strong> The ImageReader component has a buffer to queue screenshot data. If the buffer fills up, new images are rejected until existing ones are processed. </li> <li> <strong>Concurrency Issues:</strong> To prevent multiple screenshots from being processed simultaneously, the app uses a locking mechanism (e.g., `imageReaderMutex.acquire()`). This ensures one image is handled at a time, preventing congestion. </li> <li> <strong>Storage Delays:</strong> Slow or insufficient storage can delay image saving, causing subsequent screenshot attempts to fail. </li> </ul> <p> The frequency of this issue varies by device specifications: </p> <ul> <li><strong>High-spec devices:</strong> Rarely experience "[NO IMAGE]" due to better memory, faster storage, and efficient processors.</li> <li><strong>Low-spec devices:</strong> More prone to issues due to slower processing, limited RAM, and storage constraints.</li> </ul> <p> <strong>How to mitigate it:</strong> </p> <ol> <li>Lower the sampling frequency to give the system more time to process each screenshot.</li> <li>Reduce image resolution or quality to minimize memory usage and speed up saving.</li> <li>Ensure sufficient available storage and memory before capturing screenshots.</li> </ol> <p> These optimizations reduce memory congestion, prevent buffer overflows, and improve overall system stability. </p> </details>
+# FAQ: Understanding the [NO IMAGE] Issue in Screenshot Captures
+
+## What is the [NO IMAGE] in the Data and How Does It Happen?
+When the app takes a screenshot, it needs time to process the image and save it to local storage. During this process, the app temporarily stores a large amount of image data in memory. If another screenshot attempt is made before the first one finishes, the system may not be ready to handle the new request. This can lead to increased memory usage, causing slowdowns or even app crashes. To address this, the Screenomics app implemented a mechanism to manage screenshots by allowing only one screenshot to be processed at a time. This approach prevents memory congestion and system overload by rejecting additional capture requests until the previous screenshot is fully processed, resulting in a "no image" log for attempts made during that time.
+
+### How This Helps:
+- **Avoiding Memory Overload**: By limiting to one screenshot at a time, the app prevents memory spikes and potential crashes.
+  
+- **Efficient Buffer Use**: Releasing the lock with `imageReaderMutex.release()` ensures that images are processed sequentially, preventing the buffer from overflowing and avoiding the "no image" problem.
+
+- **Handling Errors Gracefully**: The app catches exceptions (like `FileNotFoundException` and `IllegalStateException`) to handle errors without crashing. If a screenshot fails, the issue is logged, allowing the app to continue running smoothly.
+
+- **Conserving Storage and System Resources**: Before taking screenshots, the app checks available storage using `hasEnoughSpaceForScreenshot()`. If storage is insufficient, it stops attempts and logs the event instead of crashing.
+
+## Common Scenarios Leading to "No Image"
+1. **ImageReader Buffer Overload**: If the screenshot queue is full because the first screenshot is still processing, a second request may not find space to capture anything.
+  
+2. **Concurrency Issue**: The app uses a lock (`imageReaderMutex.acquire()`) to ensure only one screenshot is processed at a time. If the first task hasn’t released the lock, the second attempt may fail.
+
+3. **File Writing Delay**: If saving the first screenshot is slow, any follow-up request may miss the chance to capture an image, leading to "No Image."
+
+## Factors Influencing the "No Image" Issue
+1. **Processing Power and Speed**: Devices with faster processors and more RAM handle tasks more efficiently. High-end devices are less likely to encounter "no image" issues compared to low-end devices.
+
+2. **Storage Speed and Capacity**: Fast storage options (like SSDs) allow quicker file writes, reducing the chances of "no image." Slow storage can delay saving, increasing failure chances.
+
+3. **Available RAM**: Limited RAM can prevent allocation for large image buffers. Devices with plenty of RAM can handle multiple images without problems.
+
+4. **Screen Size and Resolution**: Larger screens with higher resolutions create bigger image files, making processing slower. Smaller screens generally have fewer "no image" issues.
+
+5. **System Load**: If many apps are running in the background, the device may struggle to keep up with screenshot requests.
+
+## How to Reduce "No Image" Frequencies
+1. **Lower the Sampling Frequency**: Taking screenshots less frequently gives the system more time to process and save images. For example, changing the interval from every 1 second to every 5 seconds can significantly reduce issues.
+
+2. **Lower the Image Quality**: Capturing smaller or lower-quality images can reduce processing time and memory usage, helping to avoid "no image" problems.
+
+3. **Ensure Sufficient Storage Space and Memory Checks**: Always check that the device has enough space and available memory before taking a screenshot to avoid errors and prevent memory overload.
