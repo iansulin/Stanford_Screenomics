@@ -13,7 +13,7 @@ Below is a list of all dynamic parameters that are configurable per-group or per
 | `data-text-upload-interval` | Millisecond (ms) | 1 - infinite [5000] | The interval at which the app starts uploading a new batch of text-based data, assuming the previous upload round finished. |
 | `data-nontext-upload-interval` | Millisecond (ms) | 1 - infinite [5000] | The interval at which the app starts uploading a new batch of non-text-based data, assuming the previous upload round finished. |
 
-- It’s important to note that decreasing this interval won’t really make screenshots upload “faster,” because whether or not screenshots accumulate in storage is strictly dependent on connection speed. For instance, if the number of bytes/sec of screenshot images being captured is greater than the bytes/sec of the netwofk connection speed, we can expect screenshots to accumulate on the user’s phone regardless of the value of this setting.
+- It’s important to note that decreasing the values of `data-text-upload-interval` and `data-nontext-upload-interval` won’t really make screenshots upload “faster,” because whether or not screenshots accumulate in storage is strictly dependent on connection speed. For instance, if the number of bytes/sec of screenshot images being captured is greater than the bytes/sec of the netwofk connection speed, we can expect screenshots to accumulate on the user’s phone regardless of the value of this setting.
 
 | Parameter Name | Unit | Range [Default] | Description |
 |---|---|---|---|
