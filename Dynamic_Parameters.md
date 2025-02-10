@@ -6,6 +6,7 @@ Below is a list of all dynamic parameters that are configurable per-group or per
 
 | Parameter Name       | Unit      | Range     | Description                           |
 |--------------------|----------------------|----------|---------------------------------------|
-| `settings-group-override` | Yes/No  | 1/0  | Whether or not the user's group profile takes priority over individual profile settings. |
-| GPS Data           | `gps-frequency`      | Seconds  | Frequency for GPS data collection    |
+| `settings-refresh-interval` | Millisecond (ms) | 1 - infinite  | The interval at which dynamic parametert values in the settings_profile will be reloaded from Firestore and used by the app. If the settings are changed for a participant or study group     |
+| `settings-group-override` | Yes/No  | 1/0  | Whether or not a participant's study group profile takes priority over individual participant profile settings. |
+
 | Image Quality      | `image-quality`      | Integer  | Quality of image capture (1 to 100)  |
