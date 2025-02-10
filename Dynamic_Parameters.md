@@ -15,18 +15,10 @@ Below is a list of all dynamic parameters that are configurable per-group or per
 | `screenshot-interval` | Millisecond (ms) | 1 - infinite [100000 (10 seconds)] | The interval at which screenshots are taken. |
 | `screenshot-absolute-timing` | True(Yes)/False(No) | 1/0 | Whether or not the app should use an
 absolute interval for the timing of screenshots. |
-| If this setting is enabled, the app uses absolute timing, and screenshots will always be
-taken on the interval they were on when the app first started. For example, suppose
-screenshots are taken every 5 seconds, and when the app started screenshots were being
-taken at times xx:xx:04 and xx:xx:09. Then, the app will continue screenshotting at
-timestamps with seconds values ending in 4 and 9, throughout the lifetime of the app.
-(This isn’t entirely true, as there is some imprecision in Android’s timing system, but
-that’s the idea.)
-If this setting is disabled, screen-onset relative timing is used. This means a new interval
-is started every time the user turns on the screen. The first screenshot in the interval will
-be taken at the moment of screen onset. Assuming a 5-second capture interval, the next
-screenshot will be 5 seconds after onset, the following one 10 seconds after onset, etc.
-Regardless of the value of this setting, a screenshot is always taken immediately when the
-screen is turned on. In the case that this setting is enabled, said screenshot will occur in
-addition to the regularly scheduled interval. This setting is enabled by default.|
+
+If this setting is enabled, the app uses absolute timing, and screenshots will always be taken on the interval they were on when the app first started. For example, suppose screenshots are taken every 5 seconds, and when the app started screenshots were being taken at times xx:xx:04 and xx:xx:09. Then, the app will continue screenshotting at
+timestamps with seconds values ending in 4 and 9, throughout the lifetime of the app. (This isn’t entirely true, as there is some imprecision in Android’s timing system, but that’s the idea.) 
+
+If this setting is disabled, screen-onset relative timing is used. This means a new interval is started every time the user turns on the screen. The first screenshot in the interval will be taken at the moment of screen onset. Assuming a 5-second capture interval, the next screenshot will be 5 seconds after onset, the following one 10 seconds after onset, etc. Regardless of the value of this setting, a screenshot is always taken immediately when the screen is turned on. In the case that this setting is enabled, said screenshot will occur in addition to the regularly scheduled interval. This setting is enabled by default.
+
 | Image Quality      | `image-quality`      | Integer  | Quality of image capture (1 to 100)  |
