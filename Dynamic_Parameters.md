@@ -2,7 +2,7 @@
 
 The Stanford Screenomics offers researchers the flexibility to customize features and adapt to changing study needs without involving participants. Using the Firestore [settings_profiles] collection, researchers can define and update key parameters such as sampling intervals, data collection preferences, and network usage directly via the Firebase console. The app periodically retrieves these updates at intervals specified by the "settings-refresh-interval" setting, enabling efficient adjustments while balancing device considerations like battery life, storage, and privacy.
 
-Below is **a list of all dynamic parameters** (total thirteen, as of Feb 2025) that are configurable per-group or per-user through the settings framework.
+Below is **a list of all dynamic parameters** (total sixteen, as of Feb 2025) that are configurable per-group or per-user through the settings framework.
 
 | Parameter Name | Unit | Range [Default] | Description |
 |---|---|---|---|
