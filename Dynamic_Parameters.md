@@ -6,7 +6,7 @@ Below is a list of all dynamic parameters that are configurable per-group or per
 
 | Parameter Name | Unit | Range [Default] | Description |
 |---|---|---|---|
-| `settings-refresh-interval` | Millisecond (ms) | 1 - infinite [300000] | The interval at which dynamic parametert values in the settings_profile will be reloaded from Firestore and used by the app. If the parameter values are changed for a participant or a study group, this is the longest amount of time you can expect it to take for the new settings to take effect. |
+| `settings-refresh-interval` | Millisecond (ms) | 1 - infinite [300000] | The interval at which dynamic parametert values in the `settings_profile` will be reloaded from Firestore and used by the app. If the parameter values are changed for a participant or a study group, this is the longest amount of time you can expect it to take for the new settings to take effect. |
 | `settings-group-override` | True(Yes)/False(No) | 1/0 [0] | Whether or not a participant's study group profile takes priority over individual participant profile settings. |
 | `data-text-upload-wifi-only` | True(Yes)/False(No) | 1/0 [0] | Whether or not text-based data uploads should only be done over Wi-Fi. |
 | `data-nontext-upload-wifi-only` | True(Yes)/False(No) | 1/0 [0] | Whether or not non-text-based data uploads should only be done over Wi-Fi. |
@@ -31,7 +31,16 @@ Below is a list of all dynamic parameters that are configurable per-group or per
 
 - It is important to note that the value (10-100) is not a direct percentage of the file size but rather a measure of compression quality. While a lower value may result in a smaller file, the reduction is not always linear or predictable because Android's compression algorithms analyze image content, and the compression efficiency depends on the image's format, color patterns and details. Generally, JPEG images and smoother visuals tend to compress better than PNG images or complex, detailed graphics.
 
+| Parameter Name | Unit | Range [Default] | Description |
+|---|---|---|---|
+| `gps-enabled` | True(Yes)/False(No) | 1/0 [1] | Whether or not GPS data is gathered for this participant. If enabled, the participant will be asked for location permissions when they first set up the app, and `GPSLocationEvents` will be collected at `gps-location-interval`. During permission granting, participants can select between: 1. Precise location (participant's exact location; ideal for studies requiring detailed positioning) or 2. Approximate location (a general, coarse location within an area, with accuracy between 1 to 3 kilometers; suitable for studies that only need a broad understanding of participant locations or have high privacy concerns). If disabled, the participant will not be asked for location permissions, and GPS data will not be collected. 
 
+
+
+
+
+
+| `kill-switch` | True(On)/False(No) | 1/0 [0] | This value is used to immediately force close the app on participants' phones. If the kill-switch is off, the app behaves normally. If the kill-switch is turned on, the app will terminate itself as soon as it synchronizes profile settings with the database. The affected participant(s) will be unable to start up the app manually until the kill-switch is turned off again. This could be useful if a participant wants to stop data collection but cannot figure out how to uninstall the app, or if a malicious user is found for whatever reason. |
 
 
 
