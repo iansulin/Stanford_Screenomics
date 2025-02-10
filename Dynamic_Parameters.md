@@ -34,12 +34,12 @@ Below is a list of all dynamic parameters that are configurable per-group or per
 | Parameter Name | Unit | Range [Default] | Description |
 |---|---|---|---|
 | `gps-enabled` | True(Yes)/False(No) | 1/0 [1] | Whether or not GPS data is gathered at `gps-location-interval` for this participant. |
-| `gps-location-interval` | Millisecond (ms) | 1 - infinite [300000] | The interval in ms at which new GPS positions are recorded. This is the interval at which we can expect to see GPSLocationEvents being recorded in Firestore, although Android will skip reporting events if it determines that the user hasn’t
-moved since the last event. A smaller value will mean we have more frequent data, but at the expense of battery life. |
+| `gps-location-interval` | Millisecond (ms) | 1 - infinite [300000] | The interval in ms at which new GPS positions are recorded. This is the interval at which we can expect to see GPSLocationEvents being recorded in Firestore. |
 
-- Regardless of the value of `gps-enabled`, the participant will be asked for location permissions when they first set up the app, if the location module is activated in the app compilation.
-- During permission granting, participants can select between: 1. Precise location (participant's exact location; ideal for studies requiring detailed positioning) or 2. Approximate location (a general, coarse location within an area, with accuracy between 1 to 3 kilometers; suitable for studies that only need a broad understanding of participant locations or have high privacy concerns).
-
+- Regardless of the value of `gps-enabled`, participants will be asked for location permissions during the initial app setup if the location module was activated during app compilation.
+- During permission granting, participants can choose between: 1. Precise location (participant's exact location; ideal for studies requiring detailed positioning) or 2. Approximate location (a general, coarse location within an area, with accuracy between 1 to 3 kilometers; suitable for studies that only need a broad understanding of participant locations or have high privacy concerns).
+- Regardless of the value of `gps-location-interval`, Android will skip reporting events if it determines that the participant hasn’t moved since the last event.
+- A smaller value of `gps-location-interval` will provide richier (more frequent) data, but at the cost of increased battery uwage.
 
 
 
