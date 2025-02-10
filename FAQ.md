@@ -5,7 +5,7 @@
 When the app takes a screenshot, it needs time to process the image and save it to local storage. During this process, the app temporarily stores a large amount of image data in memory. If another screenshot attempt is made before the first one finishes, the system may not be ready to handle the new request. This can lead to increased memory usage, causing slowdowns or even app crashes. To address this, the Screenomics app implemented a mechanism to manage screenshots by allowing only one screenshot to be processed at a time. This approach prevents memory congestion and system overload by rejecting additional capture requests until the previous screenshot is fully processed, resulting in a "no image" log for attempts made during that time.
 
 ### Common Scenarios Leading to "No Image"
-1. **Buffer and Concurrency Issues**: If the app is busy processing a screenshot and a new request comes in, the system might not have enough space or resources to capture the new image. This can lead to failures in processing the second request because the system isn't ready to handle it.
+* **Buffer and Concurrency Issues**: If the app is busy processing a screenshot and a new request comes in, the system might not have enough space or resources to capture the new image. This can lead to failures in processing the second request because the system isn't ready to handle it.
 2. **File Writing Delay**: If saving a screenshot takes too long, any new requests may miss the chance to capture an image, resulting in "No Image."
 
 ### Factors Influencing the "No Image" Issue
