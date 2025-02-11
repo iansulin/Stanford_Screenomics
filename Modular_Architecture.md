@@ -1,4 +1,4 @@
-## Modular Architecture of the Stanford Screenomics Data Collection App
+## Overview of the Stanford Screenomics Data Collection App's Modular Architecture 
 
 The Stanford Screenomics Data Collection App features a modular architecture that streamlines data collection across various device aspects, enabling developers to easily enable or disable functionalities for greater flexibility and scalability. It consists of two core base modules—Module Manager and Database Manager—which provide the essential framework for the app’s operations and facilitate the integration of additional data collection modules. These base modules handle critical tasks like data structure management and database setup, creating a robust foundation that simplifies the development and integration of new modules. Developers can leverage existing functionalities from the base modules, ensuring their custom modules align seamlessly with the app’s architecture. Currently, the app includes eight built-in data collection modules, each tailored to specific needs and utilizing features from the base modules. This design encourages collaborative enhancements, allowing multiple developers to contribute to the evolution of the app by collectively updating the base modules, improving data collection methodologies, and reinforcing security measures. As a result, this modular setup not only enhances usability and adaptability but also positions the app to evolve efficiently with changing data collection requirements while maintaining a secure and robust environment.
 
@@ -12,7 +12,21 @@ The data collection modules consist of eight distinct components, each responsib
 
 ### Base Module 1. Module Manager
 
+**Class 1. EventTimestamp**
+The EventTimestamp class manages timestamps in an Android app, providing both system and server time references. It initializes a timestamp using the system clock and can anchor it to a reference server time for accuracy. The class includes methods to retrieve formatted time strings: standard strings for precise, machine-readable formats (e.g., yyyyMMddHHmmssSSS) and friendly strings that are more human-readable (e.g., yyyy-MM-dd HH:mm:ss). Additionally, it can return the real-world time, typically based on a server reference or UTC, as well as local device time in milliseconds since the epoch. The class also tracks elapsed time since the system boot, providing insight into how long the app has been running. It implements Serializable, allowing timestamps to be saved across application sessions.
 
+| Methods | Description |
+|---|---|
+| `EventTimestamp()` | Initializes the timestamp, sets the elapsed time, and generates the system clock timestamp. It also calls `refresh()` to derive real-world time if the server time is set. |
+| `refresh()` | Updates the real-world time based on the server time if it is known. This method should be called before serialization to ensure the timestamp remains accurate. |
+| `getTimestring()` | Returns a string representation of the timestamp using the best available method, either the server time or the system clock time. |
+| `getTimestringFriendly()` | Returns a formatted string representation of the current date and time in the Los Angeles time zone. |
+| `getSystemClockTimestring()` | Returns a string representing the local timestamp based on the device's system clock. |
+| `getRealTimestring()` | Returns a string representation of the timestamp in real-world time, adjusted to GMT. |
+| `getRealTimestringFriendly()` | Returns a friendly formatted string of the real-world timestamp in the Los Angeles time zone. |
+| `getRealTimeMillis() | Returns the real-world time of the timestamp in milliseconds since epoch UTC, calculating it based on the server time if needed. |
+| `isServerTimeSet()` | Checks if the server time has been set. |
+| `toString()` | Overrides the default `toString()` method to return the string representation of the timestamp using `getTimestring()`. |
 
 
 
