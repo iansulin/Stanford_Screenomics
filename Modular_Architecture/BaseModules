@@ -1,0 +1,91 @@
+Base Modules
+
+### Base Module 1. Module Manager
+
+**Class 1. EventTimestamp** The `EventTimestamp` class manages timestamps in an Android app, providing both system and server time references. It initializes a timestamp using the system clock and can anchor it to a reference server time for accuracy. The class includes methods to retrieve formatted time strings: standard strings for precise, machine-readable formats (e.g., `yyyyMMddHHmmssSSS`) and friendly strings that are more human-readable (e.g., `yyyy-MM-dd HH:mm:ss`). Additionally, it can return the real-world time, typically based on a server reference or UTC, as well as local device time in milliseconds since the epoch. The class also tracks elapsed time since the system boot, providing insight into how long the app has been running. It implements Serializable, allowing timestamps to be saved across application sessions.
+
+| Methods | Description |
+|---|---|
+| `EventTimestamp()` | Initializes the timestamp, sets the elapsed time, and generates the system clock timestamp. It also calls `refresh()` to derive real-world time if the server time is set. |
+| `refresh()` | Updates the real-world time based on the server time if it is known. This method should be called before serialization to ensure the timestamp remains accurate. |
+| `getTimestring()` | Returns a string representation of the timestamp using the best available method, either the server time or the system clock time. |
+| `getTimestringFriendly()` | Returns a formatted string representation of the current date and time in the Los Angeles time zone. |
+| `getSystemClockTimestring()` | Returns a string representing the local timestamp based on the device's system clock. |
+| `getRealTimestring()` | Returns a string representation of the timestamp in real-world time, adjusted to GMT. |
+| `getRealTimestringFriendly()` | Returns a friendly formatted string of the real-world timestamp in the Los Angeles time zone. |
+| `getRealTimeMillis() | Returns the real-world time of the timestamp in milliseconds since epoch UTC, calculating it based on the server time if needed. |
+| `isServerTimeSet()` | Checks if the server time has been set. |
+| `toString()` | Overrides the default `toString()` method to return the string representation of the timestamp using `getTimestring()`. |
+
+**Class 2. ModuleCharacteristics** The `ModuleCharacteristics` class provides static methods to generate characteristics for various event types in an application, such as location updates, screen on/off events, and battery state changes. Each method returns a `HashMap` containing attributes like class name, event type, a unique ID, and timestamps. This structure allows for centralized management of event details, enabling easy retrieval and consistent handling of different modules within the application. Additionally, it includes flags to control whether certain events should update a ticker display.
+
+| Methods | Description |
+|---|---|
+| `public static HashMap<String, String> getLocationEventCharacteristics()` | Retrieves characteristics for location events, useful for GPS-related functionalities. |
+| `public static HashMap<String, String> getPowerScreenOnOffCharacteristics()` | Provides details for screen on/off events, which can be used to track when the screen state changes. |
+| `public static HashMap<String, String> getInteractionEventCharacteristics()` | Gathers characteristics for accessibility interaction events, allowing the app to respond to user interactions. |
+| `public static HashMap<String, String> getNetworkEventCharacteristics()` | Fetches details related to network events, which can help monitor internet connectivity and related actions. |
+| `public static HashMap<String, String> getStepCountEventCharacteristics()` | Retrieves characteristics for step count events, useful for fitness tracking and activity monitoring. |
+| `public static HashMap<String, String> getBatteryStateEventCharacteristics()` | Provides characteristics related to battery state changes, helping manage power usage and notifications. |
+| `public static HashMap<String, String> getBatteryChargingEventCharacteristics()` | Fetches details about battery charging events, enabling the app to respond to changes in charging status. |
+| `public static HashMap<String, String> getScreenshotFailureCharacteristics()` | Retrieves characteristics for screenshot failure events to help in debugging or error handling. |
+| `public static HashMap<String, String> getScreenshotEventCharacteristics()` | Provides characteristics for successful screenshot events, allowing the app to track or manage screenshots. |
+| `public static HashMap<String, String> getScreenshotUploadEventCharacteristics()` | Retrieves characteristics for screenshot upload events, useful for tracking uploads and managing data. |
+| `public static HashMap<String, String> getForegroundAppModuleCharacteristics()` | Gathers characteristics of the currently active foreground application, useful for monitoring app usage. |
+| `public static HashMap<String, String> getCaptureStartupCharacteristics()` | Provides details for capture startup events, which can be used to initialize capturing functionality. |
+| `public static HashMap<String, String> getLowMemoryEventCharacteristics()` | Retrieves characteristics for low memory events to help the app respond to memory constraints. |
+| `public static HashMap<String, String> getSystemPowerEventCharacteristics()` | Provides characteristics of system power events, which can be useful for managing energy consumption. |
+| `public static HashMap<String, String> getAlarmManagerCharacteristics()` | Retrieves details for alarm manager notification events, useful for scheduling and managing alarms. |
+
+**Class 3. ModuleController** The `ModuleController` class primarily consists of static boolean fields (`true` [module = activated]/`false` [module = deactivated]) that act as flags to activate or deactivate modules in the application. There are no methods defined in this class; it serves mainly as a configuration holder for module activation states.
+
+```
+// Fields
+public static boolean ENABLE_ACTIVITIES = true;
+public static boolean ENABLE_SCREENSHOTS = true;
+public static boolean ENABLE_APPS = true;
+public static boolean ENABLE_INTERACTIONS = true;
+public static boolean ENABLE_LOCATIONS = true;
+public static boolean ENABLE_NETWORK = true;
+public static boolean ENABLE_POWER = true;
+public static boolean ENABLE_SPECS = true;
+public static boolean ENABLE_BATTERY = true;
+```
+
+---
+
+### Base Module 2. Database Manager
+
+**Class 1. DatabaseHelper - InterCommunicationPreference** This class manages communication-related preferences, such as tracking notification states, device power status, and which activity started a service. It enables different components of the application to share and access state information efficiently.
+
+**Class 2. Database Helper - LogInPreference** This class handles user login information, allowing the app to store and retrieve credentials like group code, user ID, study ID, and password. It provides methods for setting, getting, and clearing user-related data, streamlining the login process and maintaining user sessions.
+
+
+
+
+
+
+**Class 3 to Class 9 will be added - currently updating codes**
+
+
+
+
+
+
+
+
+
+**Class 10. EventMapBuilder** The `EventMapBuilder` class creates a complete map of event data by combining default fields with additional parameters. The `buildCompleteMap` method generates timestamps and initializes a HashMap with the event type and these timestamps, merging any extra fields provided, such as user ID, event source, or error messages. This utility simplifies the construction of event data for logging or reporting in applications.
+
+**Class 11. EventTimestamp** This class manages timestamps in an Android app, providing both system and server time references. It initializes a timestamp using the system clock and can anchor it to a reference server time for accuracy. The class includes methods to retrieve formatted time strings: standard strings for precise, machine-readable formats (e.g., `yyyyMMddHHmmssSSS`) and friendly strings that are more human-readable (e.g., `yyyy-MM-dd HH:mm:ss`). Additionally, it can return the real-world time, typically based on a server reference or UTC, as well as local device time in milliseconds since the epoch. The class also tracks elapsed time since the system boot, providing insight into how long the app has been running. It implements Serializable, allowing timestamps to be saved across application sessions.
+
+**Class 12. UploadEventsToFireStore** The `UploadEventsToFireStore` class manages the uploading of events to Firebase Firestore in an Android application. It contains methods to upload offline events from a local database, directly upload single events with unique identifiers, and log ticker events for tracking purposes. The class also updates the most recent event time in Firestore and generates simple class names for events by appending a timestamp and a random UUID. This functionality ensures efficient synchronization of event data while maintaining user-specific organization in the Firestore database.
+
+
+
+
+
+
+
+
+
