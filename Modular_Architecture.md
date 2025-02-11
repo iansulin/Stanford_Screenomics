@@ -12,9 +12,9 @@ The data collection modules consist of eight distinct components, each responsib
 
 ### Base Module 1. Module Manager
 
-**Class 1. `EventTimestamp`**
+**Class 1. EventTimestamp**
 
-The EventTimestamp class manages timestamps in an Android app, providing both system and server time references. It initializes a timestamp using the system clock and can anchor it to a reference server time for accuracy. The class includes methods to retrieve formatted time strings: standard strings for precise, machine-readable formats (e.g., yyyyMMddHHmmssSSS) and friendly strings that are more human-readable (e.g., yyyy-MM-dd HH:mm:ss). Additionally, it can return the real-world time, typically based on a server reference or UTC, as well as local device time in milliseconds since the epoch. The class also tracks elapsed time since the system boot, providing insight into how long the app has been running. It implements Serializable, allowing timestamps to be saved across application sessions.
+The `EventTimestamp` class manages timestamps in an Android app, providing both system and server time references. It initializes a timestamp using the system clock and can anchor it to a reference server time for accuracy. The class includes methods to retrieve formatted time strings: standard strings for precise, machine-readable formats (e.g., yyyyMMddHHmmssSSS) and friendly strings that are more human-readable (e.g., yyyy-MM-dd HH:mm:ss). Additionally, it can return the real-world time, typically based on a server reference or UTC, as well as local device time in milliseconds since the epoch. The class also tracks elapsed time since the system boot, providing insight into how long the app has been running. It implements Serializable, allowing timestamps to be saved across application sessions.
 
 | Methods | Description |
 |---|---|
@@ -29,9 +29,9 @@ The EventTimestamp class manages timestamps in an Android app, providing both sy
 | `isServerTimeSet()` | Checks if the server time has been set. |
 | `toString()` | Overrides the default `toString()` method to return the string representation of the timestamp using `getTimestring()`. |
 
-**Class 2. `ModuleCharacteristics`**
+**Class 2. ModuleCharacteristics**
 
-The ModuleCharacteristics class provides static methods to generate characteristics for various event types in an application, such as location updates, screen on/off events, and battery state changes. Each method returns a HashMap containing attributes like class name, event type, a unique ID, and timestamps. This structure allows for centralized management of event details, enabling easy retrieval and consistent handling of different modules within the application. Additionally, it includes flags to control whether certain events should update a ticker display.
+The `ModuleCharacteristics` class provides static methods to generate characteristics for various event types in an application, such as location updates, screen on/off events, and battery state changes. Each method returns a `HashMap` containing attributes like class name, event type, a unique ID, and timestamps. This structure allows for centralized management of event details, enabling easy retrieval and consistent handling of different modules within the application. Additionally, it includes flags to control whether certain events should update a ticker display.
 
 | Methods | Description |
 |---|---|
@@ -51,10 +51,11 @@ The ModuleCharacteristics class provides static methods to generate characterist
 | `public static HashMap<String, String> getSystemPowerEventCharacteristics()` | Provides characteristics of system power events, which can be useful for managing energy consumption. |
 | `public static HashMap<String, String> getAlarmManagerCharacteristics()` | Retrieves details for alarm manager notification events, useful for scheduling and managing alarms. |
 
-**Class 3. 1ModuleController1**
-The ModuleController class primarily consists of static boolean fields (true [module=on]/false [module=off]) that act as flags to enable or disable various modules in the application. There are no methods defined in this class; it serves mainly as a configuration holder for module states.
-Fields
+**Class 3. ModuleController**
+The `ModuleController` class primarily consists of static boolean fields (`true` [module = activated]/`false` [module = deactivated]) that act as flags to activate or deactivate modules in the application. There are no methods defined in this class; it serves mainly as a configuration holder for module activation states.
+
 ```
+// Fields
 public static boolean ENABLE_ACTIVITIES = true;
 public static boolean ENABLE_SCREENSHOTS = true;
 public static boolean ENABLE_APPS = true;
