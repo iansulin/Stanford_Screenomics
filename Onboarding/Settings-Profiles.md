@@ -1,0 +1,23 @@
+## Settings Profiles
+
+Settings profiles enable the creation of groups of settings values to apply to large numbers of users. Settings profiles are recorded in the `settings_profiles` collection in Firestore (one of the top level collections). 
+
+Profiles are named according to study groups (the three-letter codes that users sign up with). When a user signs up with a specific study group, the app copies all of the settings profile values from the profile with that study group name. For example, if there is a `settings_profile` named *CON* users who sign up with this code will receive the values of the settings in `/settings_profiles/CON/` in Firestore. 
+
+The *_default_* settings profile contain default values for all of the settings. If a user signs up with a group code for which a settings profile does not exist, they will receive exactly the settings listed in the *_default_* profile. The *_default_* profile also means it's NOT necessary to specify values for ALL settings in named settings profiles. This is because, for a new user, settings not explicitly listed in their settings profile will be drawn from the defaults instead.
+
+Below are some example scenario to explain what settings new users receive. Suppose the `settings_profiles` section of the database contains the following:
+
+```
+_default_
+  gps-enabled = 0
+  data-nontext-upload-wifi-only: 1
+  // other settings excluded for simplicity
+
+CON
+  gps-enabled = 1
+```
+
+Suppose a new user signs up with the group code CON. This user will have GPS enabled, and will upload non-text-based data over Wi-Fi only. This is because they took the `gps-enabled` value from the CON settings profile, but received the default value for `data-nontext-upload-wifi-only` since this setting isn't mentioned in the CON profile. 
+
+Alternatively, say a new user signs up with a group code *INT*. This code doesn't have an associated settings profile, so the user receives entirely the default settings. This means they will have GPS disabled, but will upload non-text-based data over Wi-Fi only. 
