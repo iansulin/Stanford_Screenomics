@@ -12,7 +12,8 @@ The data collection modules consist of eight distinct components, each responsib
 
 ### Base Module 1. Module Manager
 
-**Class 1. EventTimestamp**
+**Class 1. `EventTimestamp`**
+
 The EventTimestamp class manages timestamps in an Android app, providing both system and server time references. It initializes a timestamp using the system clock and can anchor it to a reference server time for accuracy. The class includes methods to retrieve formatted time strings: standard strings for precise, machine-readable formats (e.g., yyyyMMddHHmmssSSS) and friendly strings that are more human-readable (e.g., yyyy-MM-dd HH:mm:ss). Additionally, it can return the real-world time, typically based on a server reference or UTC, as well as local device time in milliseconds since the epoch. The class also tracks elapsed time since the system boot, providing insight into how long the app has been running. It implements Serializable, allowing timestamps to be saved across application sessions.
 
 | Methods | Description |
@@ -28,6 +29,42 @@ The EventTimestamp class manages timestamps in an Android app, providing both sy
 | `isServerTimeSet()` | Checks if the server time has been set. |
 | `toString()` | Overrides the default `toString()` method to return the string representation of the timestamp using `getTimestring()`. |
 
+**Class 2. `ModuleCharacteristics`**
+
+The ModuleCharacteristics class provides static methods to generate characteristics for various event types in an application, such as location updates, screen on/off events, and battery state changes. Each method returns a HashMap containing attributes like class name, event type, a unique ID, and timestamps. This structure allows for centralized management of event details, enabling easy retrieval and consistent handling of different modules within the application. Additionally, it includes flags to control whether certain events should update a ticker display.
+
+| Methods | Description |
+|---|---|
+| `public static HashMap<String, String> getLocationEventCharacteristics()` | Retrieves characteristics for location events, useful for GPS-related functionalities. |
+| `public static HashMap<String, String> getPowerScreenOnOffCharacteristics()` | Provides details for screen on/off events, which can be used to track when the screen state changes. |
+| `public static HashMap<String, String> getInteractionEventCharacteristics()` | Gathers characteristics for accessibility interaction events, allowing the app to respond to user interactions. |
+| `public static HashMap<String, String> getNetworkEventCharacteristics()` | Fetches details related to network events, which can help monitor internet connectivity and related actions. |
+| `public static HashMap<String, String> getStepCountEventCharacteristics()` | Retrieves characteristics for step count events, useful for fitness tracking and activity monitoring. |
+| `public static HashMap<String, String> getBatteryStateEventCharacteristics()` | Provides characteristics related to battery state changes, helping manage power usage and notifications. |
+| `public static HashMap<String, String> getBatteryChargingEventCharacteristics()` | Fetches details about battery charging events, enabling the app to respond to changes in charging status. |
+| `public static HashMap<String, String> getScreenshotFailureCharacteristics()` | Retrieves characteristics for screenshot failure events to help in debugging or error handling. |
+| `public static HashMap<String, String> getScreenshotEventCharacteristics()` | Provides characteristics for successful screenshot events, allowing the app to track or manage screenshots. |
+| `public static HashMap<String, String> getScreenshotUploadEventCharacteristics()` | Retrieves characteristics for screenshot upload events, useful for tracking uploads and managing data. |
+| `public static HashMap<String, String> getForegroundAppModuleCharacteristics()` | Gathers characteristics of the currently active foreground application, useful for monitoring app usage. |
+| `public static HashMap<String, String> getCaptureStartupCharacteristics()` | Provides details for capture startup events, which can be used to initialize capturing functionality. |
+| `public static HashMap<String, String> getLowMemoryEventCharacteristics()` | Retrieves characteristics for low memory events to help the app respond to memory constraints. |
+| `public static HashMap<String, String> getSystemPowerEventCharacteristics()` | Provides characteristics of system power events, which can be useful for managing energy consumption. |
+| `public static HashMap<String, String> getAlarmManagerCharacteristics()` | Retrieves details for alarm manager notification events, useful for scheduling and managing alarms. |
+
+**Class 3. 1ModuleController1**
+The ModuleController class primarily consists of static boolean fields (true [module=on]/false [module=off]) that act as flags to enable or disable various modules in the application. There are no methods defined in this class; it serves mainly as a configuration holder for module states.
+Fields
+```
+public static boolean ENABLE_ACTIVITIES = true;
+public static boolean ENABLE_SCREENSHOTS = true;
+public static boolean ENABLE_APPS = true;
+public static boolean ENABLE_INTERACTIONS = true;
+public static boolean ENABLE_LOCATIONS = true;
+public static boolean ENABLE_NETWORK = true;
+public static boolean ENABLE_POWER = true;
+public static boolean ENABLE_SPECS = true;
+public static boolean ENABLE_BATTERY = true;
+```
 
 
 
