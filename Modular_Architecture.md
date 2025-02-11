@@ -75,7 +75,7 @@ public static boolean ENABLE_BATTERY = true;
 
 
 
-
+**Class 3 to Class 9 will be added - currently updating codes**
 
 
 
