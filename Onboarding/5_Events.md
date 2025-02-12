@@ -52,13 +52,13 @@ see it once every 5 seconds.
 * `**ScreenshotFailureEvent**`: Recorded when a screenshot fails to be taken, or a screenshot-related error occurs in the app. Some of these are entirely benign, and some may require attention.
   * `filename`: The filename this screenshot would’ve had if it had succeeded.
   * `error` : The type of error that occurred. Possible errors:
-   * `StorageLimitReached`: The user has <50 MB of storage space remaining on their phone, so the app has refused to take a screenshot in order to prevent space from filling up completely.
-   * `ExtraneousScreenshotInterval`: Tried to take a screenshot too quickly.
-   * `RestartingCaptureInterval`: Stopped taking screenshots.
-   * `ImageReaderNull`: Occurs when screen orientation changes.
-   * `WriteFailure`: Screenshot taken but not written to storage.
-   * `FileNotFoundException`: Screenshot taken but not created.
-   * `ScreenNotOn`: Tried to take a screenshot while the screen was off.
+    * `StorageLimitReached`: The user has <50 MB of storage space remaining on their phone, so the app has refused to take a screenshot in order to prevent space from filling up completely.
+    * `ExtraneousScreenshotInterval`: The app tried to take a screenshot too quickly. These result from the finnicky-ness of Android’s timing system, and can be safely ignored.
+    * `RestartingCaptureInterval`: We stopped taking screenshots for whatever reason; the app noticed this, and started them back up again. These result from the finnicky-ness of Android’s timing system, and can be safely ignored.
+    * `ImageReaderNull`: This may occur if the user changes their screen orientation from portrait to landscape exactly as a screenshot is being taken. It explains the absence of a screenshot in this instant; it can be safely ignored.
+    * `WriteFailure`: Screenshot taken but not written to storage.
+    * `FileNotFoundException`: Screenshot taken but not created.
+    * `ScreenNotOn`: Tried to take a screenshot while the screen was off.
 
 
 
