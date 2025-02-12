@@ -83,11 +83,16 @@ an individual image.
   * `package`: The Android package name of the app that the user just switched to. For example, Facebook’s package name is com.facebook.katana (I don’t know exactly how Japanese swords are relevant to social networks). For third-party apps, package names should usually be consistent across all devices. For native apps, such as the SMS messaging app, it can vary from device to device. The home screen is also generally considered an app, and thus the user switching to the home screen will typically generate a `NewForegroundAppEvent`. The package
 name for the home screen also varies between devices, but will often contain the word “launcher.”
 
-#### Module 4. Location
+#### Module 3. User-Smartphone Interactions 
 
 
 
-#### Module 5. 
+#### Module 3. Location
+
+* **`GPSLocationEvent`**: Records the current GPS coordinates of the user. This will only be recorded for users who have `gps-enabled` set to _true_ (1) in their settings. The frequency with which a new location is recorded is also a user-specific setting, located in `gps-location-interval`.
+  * lat: The user’s latitude.
+  * lng: The user’s longitude.
+
 
 
 
