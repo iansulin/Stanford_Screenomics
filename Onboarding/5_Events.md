@@ -61,7 +61,7 @@ ignored; repeated occurrences should involve contacting the user.
     * `FileNotFoundException`: The screenshot was taken but could not be created in storage. This likely will not happen. A one-time occurrence can be ignored; repeated occurrences should involve contacting the user.
     * `ScreenNotOn`: The app tried to take a screenshot while the screen was off. This is unlikely to happen, and can be safely ignored if it does.
 
-* **`ScreenshotUploadEvent`**: Records events relevant to the uploading of screenshots. This includes when uploading starts (or doesn’t start because e.g. the user isn’t on Wi-Fi), uploading finishes, and when errors are encountered in the upload process. A new upload process is attempted every 5 minutes by default.
+* **`ScreenshotUploadEvent`**: Records events relevant to the uploading of screenshots. This includes when uploading starts (or doesn’t start because e.g. the user isn’t on Wi-Fi), uploading finishes, and when errors are encountered in the upload process. A new upload process is attempted at a fixed interval defined by the `settings_profiles` - `data-nontext-upload-interval` parameter.
   * `phase`: The phase of the upload process in which this event was generated. A value of “start” indicates the event relates to the upload starting up. A value of “complete” means this event signifies an upload completed successfully. A value of “image” means this event is reporting on an error that occurred when uploading
 an individual image.
   * `error`: A yes/no value of whether this event is reporting an error. The word “error” is used very loosely here. Any ScreenshotUploadEvent that suggests an upload didn’t fully happen will have “yes” as the error value. For example, this field will be “yes” in the case of an upload not starting because the user wasn’t connected to Wi-Fi (even though this isn’t a critical app error).
@@ -69,9 +69,9 @@ an individual image.
   * `remaining-bytes`: In all ScreenshotUploadEvents, this field indicates the amount of remaining storage space on the user’s device, in bytes. While not specifically related to uploading, this can be useful for debugging, or monitoring whether users will soon run out of space.
   * `message`: A detailed message explaining the circumstances this event is reporting on. Common values:
     * `starting upload now` : The upload process is now starting.
-    * `user not connected to internet...`: The upload is not starting because the user has no internet connection (i.e. neither Wi-Fi nor data plan)     * "user online but not on wifi…”: The user has a cell-data connection but
-isn’t on Wi-Fi, and this user is set to only upload images over Wi-Fi. Therefore, the upload is not being started.
-    * `Upload already in progress...` : The previous upload process is still running. A new process will not be started until the previous one is complete. We should expect to see these if the user is on a somewhat slow Wi-Fi connection. The app attempts to start a new upload process depends on the value of dynamic parameter `data-nontext-upload-interval` defined in `settings_profiles`, but sometimes one process will take more than 5 minutes to complete.
+    * `user not connected to internet...`: The upload is not starting because the user has no internet connection (i.e. neither Wi-Fi nor data plan)
+    * `user online but not on wifi...`: The user has a cell-data connection but isn’t on Wi-Fi, and this user is set to only upload images over Wi-Fi. Therefore, the upload is not being started.
+    * `Upload already in progress...` : The previous upload process is still running. A new process will not be started until the previous one is complete. We should expect to see these if the user is on a somewhat slow Wi-Fi connection. The app attempts to start a new upload process depends on the value of dynamic parameter `data-nontext-upload-interval` defined in `settings_profiles`, but sometimes one process will take more than the defined interval to complete.
 Values not specifically mentioned above are system errors, and may be a cause for concern. Contact the user or the app developer about any such errors.
 
 
