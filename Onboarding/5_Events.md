@@ -39,9 +39,9 @@ All events record the following fields in the database:
 Below are listed all of the types of events recorded by Screenomics, grouped by the purpose they serve. All events have the metadata in the above section; any additional metadata will be listed here for each event type. 
 
 #### Module 1. Screenshots
-| Event Type | Description | Metadata |
-|---|---|---|
-| **ScreenshotEvent** | Recorded when a screenshot is successfully captured by the app and saved to local storage. This is a common event. | - **`filename`**: The name of the file saved to the device for this screenshot. <br> - **`screenshot-ordered-time`**: The time screenshot capture order was made by the app, in GMT time `YYYYMMDDHHMMSSsss`. <br> - **`screenshot-ordered-time-local`**: The time screenshot capture order was made by the app, in user device's system time `YYYYMMDDHHMMSSsss`. |
+| Event Type: Description | Metadata |
+|---|---|
+| **`ScreenshotEvent`**: Recorded when a screenshot is successfully captured by the app and saved to local storage. This is a common event. | - **`filename`**: The name of the file saved to the device for this screenshot. <br> - **`screenshot-ordered-time`**: The time screenshot capture order was made by the app, in GMT time `YYYYMMDDHHMMSSsss`. <br> - **`screenshot-ordered-time-local`**: The time screenshot capture order was made by the app, in user device's system time `YYYYMMDDHHMMSSsss`. |
 
 
 * Unlike other event captures, screenshot capture often takes longer from the moment the app orders the screenshot to the actual moment it is captured. The time taken can be significantly longer compared to other types of data captures, like screen on/off events, which are typically instant and rely on a simple binary state change. The screenshot capture process involves several additional steps, including rendering the current screen state and executing the capture through the operating system. Due to this time difference, we introduced extra entries `screenshot-ordered-time` and `screenshot-ordered-time-local` in the Screenshot module. These entries represent the time when the screenshot capture order was made by the app, while the `time` and `time-local` entries represent the actual time when the screenshot was taken. 
