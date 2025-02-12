@@ -56,15 +56,12 @@ see it once every 5 seconds.
     * `ExtraneousScreenshotInterval`: The app tried to take a screenshot too quickly. These result from the finnicky-ness of Android’s timing system, and can be safely ignored.
     * `RestartingCaptureInterval`: We stopped taking screenshots for whatever reason; the app noticed this, and started them back up again. These result from the finnicky-ness of Android’s timing system, and can be safely ignored.
     * `ImageReaderNull`: This may occur if the user changes their screen orientation from portrait to landscape exactly as a screenshot is being taken. It explains the absence of a screenshot in this instant; it can be safely ignored.
-    * `WriteFailure`: Screenshot taken but not written to storage.
-    * `FileNotFoundException`: Screenshot taken but not created.
-    * `ScreenNotOn`: Tried to take a screenshot while the screen was off.
+    * `WriteFailure`: The screenshot was taken but could not be written to storage. This would happen if space is full, or some external force is disallowing the app from saving files. A one-time occurrence can be
+ignored; repeated occurrences should involve contacting the user.
+    * `FileNotFoundException`: The screenshot was taken but could not be created in storage. This likely will not happen. A one-time occurrence can be ignored; repeated occurrences should involve contacting the user.
+    * `ScreenNotOn`: The app tried to take a screenshot while the screen was off. This is unlikely to happen, and can be safely ignored if it does.
 
-
-
-
-
-| **ScreenshotUploadEvent** | Records events relevant to the uploading of screenshots.                                                          | - Includes when uploading starts (or doesn’t start due to conditions like not being on Wi-Fi), finishes, and when errors are encountered. A new upload process is attempted every 5 minutes by default.                                                                                                                                                                 |
+* `**ScreenshotUploadEvent**`: Records events relevant to the uploading of screenshots. This includes when uploading starts (or doesn’t start because e.g. the user isn’t on Wi-Fi), uploading finishes, and when errors are encountered in the upload process. A new upload process is attempted every 5 minutes by default.
 
 
 
