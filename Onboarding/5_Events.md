@@ -1,0 +1,53 @@
+## Users
+
+All text-based data streams about user behavior/activity defined in data collection modules are recorded as events. An event represents a discrete action that happened at a particular point in time. Sometimes, data streams translate very well to this interpretation. For example, “a screenshot was taken” or “an error
+occurred” are both things that happen at a particular instant. Sometimes the translation is less
+intuitive, but events are still almost always the best way to record these given data streams. For
+example, GPS location is not really an event per-se, but since we’re sampling location at discrete
+intervals, one could consider the event to be “a GPS location was recorded.”
+
+Events are recorded as entries in the Firestore database under `users` - `events` collection. All events have at least a `type` and a `timestamp`. Many events then contain additional metadata that is specific to the type of event. 
+
+---
+
+### Event Syncing
+
+The Screenomics app syncs events with the Firebase in near real-time. Syncing will occur over
+either Wi-Fi or data plan (5G or LTE), depending on how user's network preference is defined in the **Settings-Profiles**. Syncing over data plan should use negligible amounts of mobile data allowances, since event data is entirely a text-based stream. 
+
+If the user does not have an internet connection when the app attempts to sync, events will be temporarily stored in a hidden, local storage on the user’s phone, until an internet connection is available. This way, all the events they’ve recorded are saved until they can be synced successfully. The data recorded for a user should remain in Firestore indefinitely, and thus data processing can occur at any time.
+
+---
+
+### Data Processing
+
+In Firestore, cocuments are grouped into collections, which can be thought of as nested arrays of JSON objects, which is not terribly useful for analysis. A tool for converting Firestore events into downloadable CSV files (more apt for analysis) is available on request: iank@stanford.edu 
+
+---
+
+### General Metadata Tags
+
+All events record the following fields in the database:
+* **time**: The time at which this event occurred, in GMT time. This timestamp synchronizes
+with server-based time, and thus will be accurate even if the user’s device clock is not, such as when the user is traveling across different time zones.
+* **time-local**: The time at which this event occurred, in the user device’s system time (so usually
+in the user’s timezone).
+* **type**: A name for this type of event. This specific naming convention here (e.g. screenshot-upload) is not often used. Rather, the camel-case convention (e.g. ScreenshotUploadEvent) is more common.
+
+---
+
+### Event Types
+
+Below are listed all of the types of events recorded by Screenomics, grouped by the purpose they serve. All events have the metadata in the above section; any additional metadata will be listed here for each event type. 
+
+
+
+
+
+
+
+
+
+
+
+
