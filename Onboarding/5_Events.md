@@ -79,24 +79,19 @@ an individual image.
 
 #### Module 2. App Uage 
 
-* **`NewForegroundAppEvent`**: Recorded anytime the user switches to a new app. For example, a `NewForegroundAppEvent` will be recorded when the user opens Facebook from the home screen or app drawer, or when they use the recent app switcher to switch from Facebook to Google Maps. `NewForegroundAppEvents` have a temporal resolution defined in `settings_profiles` - `foreground-app-check-interval` (1000 milliseconds [= 1 second] is recommended). The Screenomics app checks the current foreground at the defined resolution, and reports an event when the foreground app has changed. That means the timestamp reported in the event may be off by up to 1 second.
-*
-* package: The Android package name of the app that the user just switched to. For
-example, Facebook’s package name is com.facebook.katana (I don’t know exactly
-how Japanese swords are relevant to social networks). For third-party apps,
-package names should usually be consistent across all devices. For native apps,
-such as the SMS messaging app, it can vary from device to device. The home
-screen is also generally considered an app, and thus the user switching to the
-home screen will typically generate a NewForegroundAppEvent. The package
-name for the home screen also varies between devices, but will often contain the
-word “launcher.”
+* **`NewForegroundAppEvent`**: Recorded anytime the user switches to a new app. For example, a `NewForegroundAppEvent` will be recorded when the user opens Facebook from the home screen or app drawer, or when they use the recent app switcher to switch from Facebook to Google Maps. `NewForegroundAppEvents` have a temporal resolution defined in the `settings_profiles` - `foreground-app-check-interval`. A recommended interval is 1000 milliseconds (1 second). The Screenomics app checks the current foreground at this defined resolution, and reports an event when the foreground app has changed. That means the timestamp reported in the event may be off by up to 1 second.
+  * `package`: The Android package name of the app that the user just switched to. For example, Facebook’s package name is com.facebook.katana (I don’t know exactly how Japanese swords are relevant to social networks). For third-party apps, package names should usually be consistent across all devices. For native apps, such as the SMS messaging app, it can vary from device to device. The home screen is also generally considered an app, and thus the user switching to the home screen will typically generate a `NewForegroundAppEvent`. The package
+name for the home screen also varies between devices, but will often contain the word “launcher.”
+
+#### Module 4. Location
 
 
 
+#### Module 5. 
 
 
 
-
+#### Module 3. Lifecycle
 
 
 
