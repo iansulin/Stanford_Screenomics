@@ -74,7 +74,7 @@ an individual image.
     * `Upload already in progress...`: The previous upload process is still running. A new process will not be started until the previous one is complete. We should expect to see these if the user is on a somewhat slow internet connection. The app attempts to start a new upload process at a `data-nontext-upload-interval`, but sometimes one process will take more than the defined interval to complete.
     * Values not specifically mentioned above are system errors, and may be a cause for concern. Contact the user or the app developer about any such errors.
 
-- - -
+* * *
 
 #### Module 2. App Uage 
 
