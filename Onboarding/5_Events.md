@@ -39,16 +39,28 @@ All events record the following fields in the database:
 Below are listed all of the types of events recorded by Screenomics, grouped by the purpose they serve. All events have the metadata in the above section; any additional metadata will be listed here for each event type. 
 
 #### Module 1. Screenshots
-| Event Type: Description | Metadata |
+| Event Type | Metadata |
 |---|---|
 | **`ScreenshotEvent`**: Recorded when a screenshot is successfully captured by the app and saved to local storage. This is a common event. | - **`filename`**: The name of the file saved to the device for this screenshot. <br> - **`screenshot-ordered-time`**: The time screenshot capture order was made by the app, in GMT time `YYYYMMDDHHMMSSsss`. <br> - **`screenshot-ordered-time-local`**: The time screenshot capture order was made by the app, in user device's system time `YYYYMMDDHHMMSSsss`. |
 
-
 * Unlike other event captures, screenshot capture often takes longer from the moment the app orders the screenshot to the actual moment it is captured. The time taken can be significantly longer compared to other types of data captures, like screen on/off events, which are typically instant and rely on a simple binary state change. The screenshot capture process involves several additional steps, including rendering the current screen state and executing the capture through the operating system. Due to this time difference, we introduced extra entries `screenshot-ordered-time` and `screenshot-ordered-time-local` in the Screenshot module. These entries represent the time when the screenshot capture order was made by the app, while the `time` and `time-local` entries represent the actual time when the screenshot was taken. 
 
+| Event Type | Metadata |
+|---|---|
+| **`ScreenshotFailureEvent`**: Recorded when a screenshot fails to be taken or a screenshot-related error occurs. | - **`filename`**: The filename this screenshot would’ve had if it had succeeded. <br> - **`error`**: The type of error that occurred. | 
+* Possible errors:
+  * **`StorageLimitReached`**: User has <50 MB of storage space remaining.
+  * **`ExtraneousScreenshotInterval`**: Tried to take a screenshot too quickly.
+  * **`RestartingCaptureInterval`**: Stopped taking screenshots.
+  * **`ImageReaderNull`**: Occurs when screen orientation changes.
+  * **`WriteFailure`**: Screenshot taken but not written to storage.
+  * **`FileNotFoundException`**: Screenshot taken but not created.
+  * **`ScreenNotOn`**: Tried to take a screenshot while the screen was off.
 
 
-| **ScreenshotFailureEvent** | Recorded when a screenshot fails to be taken or a screenshot-related error occurs.                                 | - **filename**: The filename this screenshot would’ve had if it had succeeded.  <br> - **error**: The type of error that occurred. Possible errors: <br>  - **StorageLimitReached**: User has <50 MB of storage space remaining. <br>  - **ExtraneousScreenshotInterval**: Tried to take a screenshot too quickly. <br>  - **RestartingCaptureInterval**: Stopped taking screenshots. <br>  - **ImageReaderNull**: Occurs when screen orientation changes. <br>  - **WriteFailure**: Screenshot taken but not written to storage. <br>  - **FileNotFoundException**: Screenshot taken but not created. <br>  - **ScreenNotOn**: Tried to take a screenshot while the screen was off. |
+
+
+
 | **ScreenshotUploadEvent** | Records events relevant to the uploading of screenshots.                                                          | - Includes when uploading starts (or doesn’t start due to conditions like not being on Wi-Fi), finishes, and when errors are encountered. A new upload process is attempted every 5 minutes by default.                                                                                                                                                                 |
 
 
