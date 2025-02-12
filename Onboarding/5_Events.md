@@ -68,7 +68,11 @@ an individual image.
   * `remaining-imgs`: In all ScreenshotUploadEvents, this field contains the number of screenshots stored locally on the user’s device that haven’t been uploaded yet. In theory, when phase is “start,” this will be the number of images about to be uploaded; and when phase is “complete” this will be 0.
   * `remaining-bytes`: In all ScreenshotUploadEvents, this field indicates the amount of remaining storage space on the user’s device, in bytes. While not specifically related to uploading, this can be useful for debugging, or monitoring whether users will soon run out of space.
   * `message`: A detailed message explaining the circumstances this event is reporting on. Common values:
-
+    * `starting upload now` : The upload process is now starting.
+    * `user not connected to internet...`: The upload is not starting because the user has no internet connection (i.e. neither Wi-Fi nor data plan)     * "user online but not on wifi…”: The user has a cell-data connection but
+isn’t on Wi-Fi, and this user is set to only upload images over Wi-Fi. Therefore, the upload is not being started.
+    * `Upload already in progress...` : The previous upload process is still running. A new process will not be started until the previous one is complete. We should expect to see these if the user is on a somewhat slow Wi-Fi connection. The app attempts to start a new upload process depends on the value of dynamic parameter `data-nontext-upload-interval` defined in `settings_profiles`, but sometimes one process will take more than 5 minutes to complete.
+Values not specifically mentioned above are system errors, and may be a cause for concern. Contact the user or the app developer about any such errors.
 
 
 
