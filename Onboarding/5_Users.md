@@ -28,11 +28,11 @@ In addition to crash reports, Crashlytics provides insights into non-fatal issue
 
 The app maintains a "crashes" node in the database, which records any significant issues encountered by users. For each crash or significant error, an entry is created with relevant details, including:
 * **App Crash**: When the app crashes and is terminated.
-> * **Exception Class**: The type of Java exception that occurred.
-> * **Exception Message**: A description of the exception.
+  * **Exception Class**: The type of Java exception that occurred.
+  * **Exception Message**: A description of the exception.
 * **Background Service Termination**: Android will occasionally kill off background services that have been running for a long time, and Screenomics is not exempt from this. If the Android system kills the Screenomics app, Crashlytics captures this event as well.
-> * **Message**: A predefined message indicating that the service has been restarted (e.g., "MediaProjection was null on startup…").
-> * **Tag**: Identifies the service affected (e.g., "CaptureUploadService").
+  * **Message**: A predefined message indicating that the service has been restarted (e.g., "MediaProjection was null on startup…").
+  * **Tag**: Identifies the service affected (e.g., "CaptureUploadService").
 These entries are generally benign and can be safely ignored, as the app automatically restarts itself, which is a normal part of its operation.
 
 
