@@ -40,7 +40,7 @@ Below are listed all of the types of events recorded by Screenomics, grouped by 
 
 #### Module 1. Screenshots
 
-* `ScreenshotEvent`: Recorded when a screenshot is successfully captured by the app and
+* `**ScreenshotEvent**`: Recorded when a screenshot is successfully captured by the app and
 saved to local storage. This is one of the most common event types, as we can expect to
 see it once every 5 seconds.
   * `filename`: The name of the file saved to the device for this screenshot.
@@ -49,10 +49,10 @@ see it once every 5 seconds.
 
 > Unlike other event captures, screenshot capture often takes longer from the moment the app orders the screenshot to the actual moment it is captured. The time taken can be significantly longer compared to other types of data captures, like screen on/off events, which are typically instant and rely on a simple binary state change. The screenshot capture process involves several additional steps, including rendering the current screen state and executing the capture through the operating system. Due to this time difference, we introduced extra entries `screenshot-ordered-time` and `screenshot-ordered-time-local` in the Screenshot module. These entries represent the time when the screenshot capture order was made by the app, while the `time` and `time-local` entries represent the actual time when the screenshot was taken. 
 
-* `ScreenshotFailureEvent`: Recorded when a screenshot fails to be taken or a screenshot-related error occurs.
-  * `filename`: The filename this screenshot would’ve had if it had succeeded. <br> - **`error`**: The type of error that occurred. | 
- * Possible errors:
-   * `StorageLimitReached`: User has <50 MB of storage space remaining.
+* `**ScreenshotFailureEvent**`: Recorded when a screenshot fails to be taken, or a screenshot-related error occurs in the app. Some of these are entirely benign, and some may require attention.
+  * `filename`: The filename this screenshot would’ve had if it had succeeded.
+  * `error` : The type of error that occurred. Possible errors:
+   * `StorageLimitReached`: The user has <50 MB of storage space remaining on their phone, so the app has refused to take a screenshot in order to prevent space from filling up completely.
    * `ExtraneousScreenshotInterval`: Tried to take a screenshot too quickly.
    * `RestartingCaptureInterval`: Stopped taking screenshots.
    * `ImageReaderNull`: Occurs when screen orientation changes.
