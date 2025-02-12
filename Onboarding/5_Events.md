@@ -40,7 +40,7 @@ Below are listed all of the types of events recorded by Screenomics, grouped by 
 
 #### Module 1. Screenshots
 
-* `**ScreenshotEvent**`: Recorded when a screenshot is successfully captured by the app and
+* **`ScreenshotEvent`**: Recorded when a screenshot is successfully captured by the app and
 saved to local storage. This is one of the most common event types, as we can expect to
 see it once every 5 seconds.
   * `filename`: The name of the file saved to the device for this screenshot.
@@ -49,7 +49,7 @@ see it once every 5 seconds.
 
 > Unlike other event captures, screenshot capture often takes longer from the moment the app orders the screenshot to the actual moment it is captured. The time taken can be significantly longer compared to other types of data captures, like screen on/off events, which are typically instant and rely on a simple binary state change. The screenshot capture process involves several additional steps, including rendering the current screen state and executing the capture through the operating system. Due to this time difference, we introduced extra entries `screenshot-ordered-time` and `screenshot-ordered-time-local` in the Screenshot module. These entries represent the time when the screenshot capture order was made by the app, while the `time` and `time-local` entries represent the actual time when the screenshot was taken. 
 
-* `**ScreenshotFailureEvent**`: Recorded when a screenshot fails to be taken, or a screenshot-related error occurs in the app. Some of these are entirely benign, and some may require attention.
+* **`ScreenshotFailureEvent`** : Recorded when a screenshot fails to be taken, or a screenshot-related error occurs in the app. Some of these are entirely benign, and some may require attention.
   * `filename`: The filename this screenshot would’ve had if it had succeeded.
   * `error` : The type of error that occurred. Possible errors:
     * `StorageLimitReached`: The user has <50 MB of storage space remaining on their phone, so the app has refused to take a screenshot in order to prevent space from filling up completely.
@@ -61,9 +61,13 @@ ignored; repeated occurrences should involve contacting the user.
     * `FileNotFoundException`: The screenshot was taken but could not be created in storage. This likely will not happen. A one-time occurrence can be ignored; repeated occurrences should involve contacting the user.
     * `ScreenNotOn`: The app tried to take a screenshot while the screen was off. This is unlikely to happen, and can be safely ignored if it does.
 
-* `**ScreenshotUploadEvent**`: Records events relevant to the uploading of screenshots. This includes when uploading starts (or doesn’t start because e.g. the user isn’t on Wi-Fi), uploading finishes, and when errors are encountered in the upload process. A new upload process is attempted every 5 minutes by default.
-
-
+* **`ScreenshotUploadEvent`**: Records events relevant to the uploading of screenshots. This includes when uploading starts (or doesn’t start because e.g. the user isn’t on Wi-Fi), uploading finishes, and when errors are encountered in the upload process. A new upload process is attempted every 5 minutes by default.
+  * `phase`: The phase of the upload process in which this event was generated. A value of “start” indicates the event relates to the upload starting up. A value of “complete” means this event signifies an upload completed successfully. A value of “image” means this event is reporting on an error that occurred when uploading
+an individual image.
+  * `error`: A yes/no value of whether this event is reporting an error. The word “error” is used very loosely here. Any ScreenshotUploadEvent that suggests an upload didn’t fully happen will have “yes” as the error value. For example, this field will be “yes” in the case of an upload not starting because the user wasn’t connected to Wi-Fi (even though this isn’t a critical app error).
+  * `remaining-imgs`: In all ScreenshotUploadEvents, this field contains the number of screenshots stored locally on the user’s device that haven’t been uploaded yet. In theory, when phase is “start,” this will be the number of images about to be uploaded; and when phase is “complete” this will be 0.
+  * `remaining-bytes`: In all ScreenshotUploadEvents, this field indicates the amount of remaining storage space on the user’s device, in bytes. While not specifically related to uploading, this can be useful for debugging, or monitoring whether users will soon run out of space.
+  * `message`: A detailed message explaining the circumstances this event is reporting on. Common values:
 
 
 
