@@ -1,4 +1,4 @@
-## Users
+## Events
 
 All text-based data streams about user behavior/activity defined in data collection modules are recorded as events. An event represents a discrete action that happened at a particular point in time. Sometimes, data streams translate very well to this interpretation. For example, “a screenshot was taken” or “an error
 occurred” are both things that happen at a particular instant. Sometimes the translation is less
@@ -40,7 +40,14 @@ in the user’s timezone).
 
 Below are listed all of the types of events recorded by Screenomics, grouped by the purpose they serve. All events have the metadata in the above section; any additional metadata will be listed here for each event type. 
 
+|---|---|---|
 
+
+| Event Type               | Description                                                                                                         | Properties                                                                                                                                                                                                                                                                                                                                                                   |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ScreenshotEvent**      | Recorded when a screenshot is successfully captured by the app and saved to local storage. This is a common event. | - **filename**: The name of the file saved to the device for this screenshot.                                                                                                                                                                                                                                                                                             |
+| **ScreenshotFailureEvent** | Recorded when a screenshot fails to be taken or a screenshot-related error occurs.                                 | - **filename**: The filename this screenshot would’ve had if it had succeeded.  <br> - **error**: The type of error that occurred. Possible errors: <br>  - **StorageLimitReached**: User has <50 MB of storage space remaining. <br>  - **ExtraneousScreenshotInterval**: Tried to take a screenshot too quickly. <br>  - **RestartingCaptureInterval**: Stopped taking screenshots. <br>  - **ImageReaderNull**: Occurs when screen orientation changes. <br>  - **WriteFailure**: Screenshot taken but not written to storage. <br>  - **FileNotFoundException**: Screenshot taken but not created. <br>  - **ScreenNotOn**: Tried to take a screenshot while the screen was off. |
+| **ScreenshotUploadEvent** | Records events relevant to the uploading of screenshots.                                                          | - Includes when uploading starts (or doesn’t start due to conditions like not being on Wi-Fi), finishes, and when errors are encountered. A new upload process is attempted every 5 minutes by default.                                                                                                                                                                 |
 
 
 
