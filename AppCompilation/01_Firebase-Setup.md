@@ -6,12 +6,12 @@ a. **Go to Firebase Console**:
 
 b. **Add a New Project**:
    - Click **Add project**.
-   - Enter a project name (e.g., "MyScreenomicsApp").
+   - Enter a project name (e.g., "YourStudyName").
    - Optionally enable Google Analytics.
    - Click **Create Project** and then **Continue**.
 
 > When setting up your Firebase project, think of a clear and descriptive name that reflects the purpose of your app or the project itself. In Firebase, the project name is a human-readable identifier you choose when creating a new Firebase project. Here are some key points about the project name:
-> * **Purpose**: It helps you identify your project in the Firebase Console, especially if you have multiple projects. For example, you might name it after your app or its functionality (e.g., "MyScreenomicsApp").
+> * **Purpose**: It helps you identify your project in the Firebase Console, especially if you have multiple projects. For example, you might name it after your app or its functionality (e.g., "YourStudyName").
 > * **Flexibility**: You can choose any name that meets your needs, and it can include letters, numbers, and spaces.
 > * **Not Unique**: The project name does not have to be unique across all Firebase projects. However, the project ID, which is generated automatically, must be unique within Firebase.
 > * **Visibility**: The project name is visible to you and anyone else who has access to your Firebase Console, making it easier to manage and organize your projects.
@@ -21,19 +21,19 @@ b. **Add a New Project**:
 ### 01.2. Add Android App to Firebase
 a. **Register Your App**:
    - In the Firebase project dashboard, click the Android icon.
-   - Enter your app's package name (e.g., `com.example.myscreenomicsapp`).
+   - Enter your app's package name (e.g., `edu.stanford.**mystudyapp**.screenomics`).
    - Optionally, add an app nickname and SHA-1 fingerprint.
    - Click **Register app**.
 
-> The app package name is a unique identifier for your Android application, and it serves several important purposes:
-> * **Uniqueness**: The package name must be unique across all applications on the Google Play Store. It helps distinguish your app from others. For example, com.example.myapp is a typical format.
-> * **Naming Convention**: Package names are usually structured in a reverse domain format:
->   * **Domain**: If you own a domain (like example.com), you might use that as part of your package name.
->   * **App Name**: Include the application name or a relevant identifier at the end (e.g., `com.example.myscreenomicsapp`).
+**App Package Name**
+* The original package name of the Screenomics app is `edu.stanford.communication.screenomics`. Typically, the package name follows a 3-level hierarchical format, such as `edu.stanford.yourstudyname`, where each segment represents a different level: `edu` indicates the top-level domain, `stanford` can represent your organization or project, and `mystudyapp` is the specific application name. In the case of the Screenomics app, the package is organized into four levels: `edu`, `stanford`, `communication`, and `screenomics`.
+* Changing multiple levels of the package hierarchy can be quite complex and is not advisable for those with limited experience, as it may lead to various configuration issues throughout the project. **The suggested action is to replace the `communication` part with your chosen study name in lowercase without spacing (e.g., `yourstudyname`), resulting in your new package name format of `edu.stanford.yourstudyname.screenomics`.** This keeps the overall structure intact while minimizing complexity and allowing you to personalize the app for your needs.
+> * **Uniqueness**: The app package name is a unique identifier for your Android application, so it is essential to choose a distinctive study name. Therefore, the package name must be unique across all applications on the Google Play Store. It helps distinguish your app from others. 
 > * **Not the App Name**: The app package name is not the same as the app's display name (the name users see on their device). The display name is set in your app’s resources and can be different from the package name.
-> * **Example**: For an app named "MyScreenomicsApp" with a domain of example.com, the package name might look like this:
->    * **Package Name**: `com.example.myscreenomicsapp`
 
+
+
+ 
 b. **Download `google-services.json`**:
    - After registering your app, you will be prompted to download the `google-services.json` file.
    - Download the `google-services.json` file and save it to your computer.
