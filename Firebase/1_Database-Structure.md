@@ -12,7 +12,7 @@ Project
         - [timestamp]
         - [...]
     - settings_profiles
-        - \_default\_
+        - _default_
             * [setting]
             * [...]
         - [XXX]
