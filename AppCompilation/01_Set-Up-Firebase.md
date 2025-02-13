@@ -25,11 +25,13 @@ a. **Register Your App**:
    - Optionally, add an app nickname and SHA-1 fingerprint.
    - Click **Register app**.
 > The app package name is a unique identifier for your Android application, and it serves several important purposes:
-> * Uniqueness: The package name must be unique across all applications on the Google Play Store. It helps distinguish your app from others. For example, com.example.myapp is a typical format.
-> * Naming Convention: Package names are usually structured in a reverse domain format:
->   * Domain: If you own a domain (like example.com), you might use that as part of your package name.
->   * App Name: Include the application name or a relevant identifier at the end (e.g., com.example.myapp).
-> * Not the App Name: The app package name is not the same as the app's display name (the name users see on their device). The display name is set in your app’s resources and can be different from the package name.
+> * **Uniqueness**: The package name must be unique across all applications on the Google Play Store. It helps distinguish your app from others. For example, com.example.myapp is a typical format.
+> * **Naming Convention**: Package names are usually structured in a reverse domain format:
+>   * **Domain**: If you own a domain (like example.com), you might use that as part of your package name.
+>   * **App Name**: Include the application name or a relevant identifier at the end (e.g., `com.example.myapp`).
+> * **Not the App Name**: The app package name is not the same as the app's display name (the name users see on their device). The display name is set in your app’s resources and can be different from the package name.
+> * **Example**: For an app named "MyStudyApp" with a domain of example.com, the package name might look like this:
+>    * **Package Name**: `com.example.mystudyapp`
 
 b. **Download `google-services.json`**:
    - Download the `google-services.json` file.
