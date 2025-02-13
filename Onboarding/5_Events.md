@@ -130,7 +130,11 @@ name for the home screen also varies between devices, but will often contain the
 #### Module 8. Network
 
 * **`InternetEvent`**: Records network connectivity changes, updating the status whenever the connection type (Wi-Fi or data plan [5G or LTE]) changes.
-  * `activity`: When the device connects, it identifies the connection type—either Wi-Fi or data plan—and updates the activity status to "Connected-to-Wifi" or "Connected-to-DataPlan," logging any changes. If the device disconnects, it updates the status to "Disconnected-from-Wifi" or "Disconnected-from-DataPlan." 
+  * `activity`: When the device connects, it identifies the network connection type and records any changes.
+    * _Connected-to-Wifi_: If the device connects to Wi-Fi.
+    * _Disconnected-from-Wifi_: If the device disconnects from Wi-Fi.
+    * _Connected-to-DataPlan_: If the device connects to data plan.
+    * _Disconnected-from-DataPlan_: If the device disconnects from data plan.
 
 > The event logic focuses on the active connection type. That is, if one connection is established without disconnecting another, the app will only record the connection activity. For instance, if the user's device connects to Wi-Fi while still connected to the mobile data plan, the app will record "Connected-to-Wifi" and will not log "Disconnected-from-DataPlan." 
 
