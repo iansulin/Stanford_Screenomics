@@ -1,4 +1,4 @@
-## 01. Set Up Firebase
+## 01. Firebase Setup
 
 ### 01.1.  Create a Firebase Project
 a. **Go to Firebase Console**:
