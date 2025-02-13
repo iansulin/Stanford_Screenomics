@@ -11,7 +11,7 @@ Below are some example scenario to explain what settings new users receive. Supp
 ```
 _default_
   gps-enabled = 0
-  data-nontext-upload-wifi-only: 1
+  data-nontext-upload-wifi-only = 1
   // other settings excluded for simplicity
 
 CON
