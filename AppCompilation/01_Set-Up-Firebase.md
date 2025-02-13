@@ -3,13 +3,11 @@
 ### 01.1.  Create a Firebase Project
 a. **Go to Firebase Console**:
    - Open [Firebase Console](https://console.firebase.google.com/).
-
 b. **Add a New Project**:
    - Click **Add project**.
    - Enter a project name (e.g., "MyAndroidApp").
    - Optionally enable Google Analytics.
    - Click **Create Project** and then **Continue**.
-
 > When setting up your Firebase project, think of a clear and descriptive name that reflects the purpose of your app or the project itself. In Firebase, the project name is a human-readable identifier you choose when creating a new Firebase project. Here are some key points about the project name:
 > * **Purpose**: It helps you identify your project in the Firebase Console, especially if you have multiple projects. For example, you might name it after your app or its functionality (e.g., "MyStudyApp").
 > * **Flexibility**: You can choose any name that meets your needs, and it can include letters, numbers, and spaces.
@@ -32,10 +30,13 @@ a. **Register Your App**:
 > * **Not the App Name**: The app package name is not the same as the app's display name (the name users see on their device). The display name is set in your app’s resources and can be different from the package name.
 > * **Example**: For an app named "MyStudyApp" with a domain of example.com, the package name might look like this:
 >    * **Package Name**: `com.example.mystudyapp`
-
 b. **Download `google-services.json`**:
-   - Download the `google-services.json` file.
-   - Save it to your computer.
+   - After registering your app, you will be prompted to download the `google-services.json` file.
+   - Download the `google-services.json` file and save it to your computer.
+> **What is `google-services.json`?** This file contains essential information about your Firebase project, such as API keys, project ID, and service configurations. It allows your Android app to connect to and use various Firebase services.
+>    * **Firestore Database**: The google-services.json file allows your app to connect to Firestore, enabling data storage and retrieval.
+>    * **Google Cloud Storage**: It facilitates access to Google Cloud Storage for uploading and downloading files.
+>    * **Crashlytics**: The file also configures Crashlytics for error reporting, ensuring that crash data is sent to your Firebase project.
 
 ---
  
@@ -62,3 +63,7 @@ a. **Enable Crashlytics**:
 3. **Add `google-services.json` to Your Project**:
    - Open Android Studio.
    - Copy the `google-services.json` file into the `app/` directory of your Android project.
+
+What Does google-services.json Do in Android Studio?
+Configuration: The google-services.json file configures your app to communicate with Firebase services. It contains information for authentication, database access, and other service integrations.
+Automatic Configuration: When you include the Firebase SDKs in your project and apply the google-services plugin in your build.gradle file, the file ensures that the SDKs know how to connect to your Firebase project and which services are enabled.
