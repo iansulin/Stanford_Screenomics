@@ -102,28 +102,18 @@ name for the home screen also varies between devices, but will often contain the
 1. If an app does not implement tracking for certain interactions, data related to those actions may not be collected at all.
 2. Even when a user performs a single scroll action, the app typically records multiple timestamps corresponding to the continuous touch movements. In theory, capturing both the speed and distance of the scroll can help distinguish different scrolling gestures, such as quick swipes or slow drags. Additionally, this approach improves error handling by providing more precise interaction data.
 
-
-
-
-
-
-
-
-
-
-
-#### Module 3. Location
+#### Module 4. Location
 
 * **`GPSLocationEvent`**: Records the current GPS coordinates of the user. This will only be recorded for users who have `gps-enabled` set to _true_ (1) in their settings. The frequency with which a new location is recorded is also a user-specific setting, located in `gps-location-interval`.
   * lat: The user’s latitude.
   * lng: The user’s longitude.
 
-
+#### Module 5. Physical Activity
 
 
 #### Module 3. Lifecycle
 
-
+Notifications
 
 
 
