@@ -36,11 +36,14 @@ c. **Extract the ZIP File**:
 ### 02.3. Add the google-services.json File
 a. **Locate the First Directory**:
    - Inside the extracted project folder, go to `databaseManager/`.
+
 b. **Add the `google-services.json` File to the First Directory**:
    - Copy the downloaded `google-services.json` file from your computer.
    - Paste it into the `databaseManager/` directory of the project.
+
 c. **Locate the Second Directory**:
    - Inside the extracted project folder, go to `app/`.
+
 d. **Add the `google-services.json` File to the Second Directory**:
    - Copy the downloaded `google-services.json` file from your computer.
    - Paste it into the `app/` directory of the project.
