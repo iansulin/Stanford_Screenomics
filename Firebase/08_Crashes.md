@@ -1,10 +1,4 @@
-## Crashes
-
-The Stanford Screenomics utilize 
-
----
-
-### Crashlytics
+### 08. Crashlytics
 
 The Stanford Screenomics utilize Firebase Crashlytics to efficiently notify developers of crashes. This mechanism enhances our ability to debug issues and provides a more streamlined approach to crash reporting.
 
