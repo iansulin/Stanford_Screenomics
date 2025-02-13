@@ -48,6 +48,7 @@ b. **Download `google-services.json`**:
 ### 01.3. Enable Firestore Database
 a. **Go to Firestore Database**:
    - In your Firebase Console, click on **Firestore Database** in the left sidebar.
+
 b. **Create Database**:
    - Click **Create Database**.
    - Choose **Start in Test Mode** (this allows read/write without security rules, suitable for development).
