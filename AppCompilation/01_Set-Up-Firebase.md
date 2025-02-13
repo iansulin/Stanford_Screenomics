@@ -3,6 +3,7 @@
 ### 01.1.  Create a Firebase Project
 a. **Go to Firebase Console**:
    - Open [Firebase Console](https://console.firebase.google.com/).
+
 b. **Add a New Project**:
    - Click **Add project**.
    - Enter a project name (e.g., "MyAndroidApp").
