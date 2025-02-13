@@ -1,4 +1,4 @@
-## Screenomics Documentation for Firebase
+## 1. Firebase
 
 ### 01. Overview
 
