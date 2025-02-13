@@ -10,13 +10,12 @@ b. **Add a New Project**:
    - Optionally enable Google Analytics.
    - Click **Create Project** and then **Continue**.
 
-> In Firebase, the project name is a human-readable identifier you choose when creating a new Firebase project. Here are some key points about the project name:
-> * **Purpose**: It helps you identify your project in the Firebase Console, especially if you have multiple projects. For example, you might name it after your app or its functionality (e.g., "MyWeatherApp").
+> When setting up your Firebase project, think of a clear and descriptive name that reflects the purpose of your app or the project itself. In Firebase, the project name is a human-readable identifier you choose when creating a new Firebase project. Here are some key points about the project name:
+> * **Purpose**: It helps you identify your project in the Firebase Console, especially if you have multiple projects. For example, you might name it after your app or its functionality (e.g., "MyStudyApp").
 > * **Flexibility**: You can choose any name that meets your needs, and it can include letters, numbers, and spaces.
 > * **Not Unique**: The project name does not have to be unique across all Firebase projects. However, the project ID, which is generated automatically, must be unique within Firebase.
 > * **Visibility**: The project name is visible to you and anyone else who has access to your Firebase Console, making it easier to manage and organize your projects.
 
-> When setting up your Firebase project, think of a clear and descriptive name that reflects the purpose of your app or the project itself.
 ---
 
 ### 01.2. Add Android App to Firebase
