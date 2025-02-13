@@ -1,5 +1,5 @@
 
-## 2. Database Structure
+## 02. Database Structure
 
 
 ### Firestore Database
