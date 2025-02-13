@@ -37,6 +37,7 @@ a. **Register Your App**:
 b. **Download `google-services.json`**:
    - After registering your app, you will be prompted to download the `google-services.json` file.
    - Download the `google-services.json` file and save it to your computer.
+
 > **What is `google-services.json`?** This file contains essential information about your Firebase project, such as API keys, project ID, and service configurations. It allows your Android app to connect to and use various Firebase services.
 >    * **Firestore Database**: The google-services.json file allows your app to connect to Firestore, enabling data storage and retrieval.
 >    * **Google Cloud Storage**: It facilitates access to Google Cloud Storage for uploading and downloading files.
@@ -44,7 +45,7 @@ b. **Download `google-services.json`**:
 
 ---
  
-### 01.3 Enable Firestore Database
+### 01.3. Enable Firestore Database
 a. **Go to Firestore Database**:
    - In your Firebase Console, click on **Firestore Database** in the left sidebar.
 b. **Create Database**:
@@ -55,7 +56,7 @@ b. **Create Database**:
 
 ---
 
-### 3.4 Enable Crashlytics
+### 01.4. Enable Crashlytics
 a. **Enable Crashlytics**:
    - In your Firebase Console, click on **Crashlytics** in the left sidebar.
    - Click **Get Started** to enable Crashlytics for your project.
