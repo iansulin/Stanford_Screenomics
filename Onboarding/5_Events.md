@@ -77,13 +77,13 @@ an individual image.
 * **`ScreenshotPauseEvent`**: Records whether users have paused or resumed the app's screenshot captures using a toggle button in the main app interface.
   * `type`: A binary value "Paused"/"Resumed" representing the user's action.
 
-#### Module 2. App Uage 
+#### Module 2. Apps 
 
 * **`NewForegroundAppEvent`**: Recordeds anytime the user switches to a new app. For example, a `NewForegroundAppEvent` will be recorded when the user opens Facebook from the home screen or app drawer, or when they use the recent app switcher to switch from Facebook to Google Maps. `NewForegroundAppEvents` have a temporal resolution defined in the `settings_profiles` - `foreground-app-check-interval`. A recommended interval is 1000 milliseconds (1 second). The Screenomics app checks the current foreground at this defined resolution, and reports an event when the foreground app has changed. That means the timestamp reported in the event may be off by up to 1 second.
   * `package`: The Android package name of the app that the user just switched to. For example, Facebook’s package name is com.facebook.katana (I don’t know exactly how Japanese swords are relevant to social networks). For third-party apps, package names should usually be consistent across all devices. For native apps, such as the SMS messaging app, it can vary from device to device. The home screen is also generally considered an app, and thus the user switching to the home screen will typically generate a `NewForegroundAppEvent`. The package
 name for the home screen also varies between devices, but will often contain the word "launcher."
 
-#### Module 3. User-Smartphone Interactions 
+#### Module 3. Interactions 
 
 * **`InteractionEvent`**: Records user-smartphone interaction through accessibility services as they occur.
   * `activity`: The nature of finger gesture-based user-smartphone interactions. Types of activity include:
@@ -96,35 +96,43 @@ name for the home screen also varies between devices, but will often contain the
     * _touch-exploration-start_: This event occurs when a user initiates a touch interaction on the screen, typically by placing their finger on the display. It signifies the beginning of exploration, where the user may be trying to interact with or examine elements on the screen. This action can involve moving their finger around to gather information about the interface, such as feeling out the layout or identifying specific items.
     * _touch-exploration-end:_ This event marks the conclusion of the touch exploration when the user lifts their finger off the screen. 
 
-**Three important things to note:**
-1. The same user action may be categorized differently depending on the app’s context. This is because, while Android’s accessibility services enable the capture of user interactions, the categorization and implementation of these interactions depend on the specific application. For example, a tap on the screen in a photo editing app might be classified as "clicked" when selecting a filter, while in a messaging app, the same action could be categorized as "long-clicked" if the user presses and holds a message to reveal additional options. While a general guideline exists, there is no universal "clear-cut" rule, as categorization depends on each app’s implementation.
-2. If an app does not implement tracking for certain interactions, data related to those actions may not be collected at all.
-3. Even when a user performs a single scroll action, the app typically records multiple timestamps corresponding to the continuous touch movements. In theory, capturing both the speed and distance of the scroll can help distinguish different scrolling gestures, such as quick swipes or slow drags. Additionally, this approach improves error handling by providing more precise interaction data.
+* Three important things to note:
+  1. The same user action may be categorized differently depending on the app’s context. This is because, while Android’s accessibility services enable the capture of user interactions, the categorization and implementation of these interactions depend on the specific application. For example, a tap on the screen in a photo editing app might be classified as "clicked" when selecting a filter, while in a messaging app, the same action could be categorized as "long-clicked" if the user presses and holds a message to reveal additional options. While a general guideline exists, there is no universal "clear-cut" rule, as categorization depends on each app’s implementation.
+  2. If an app does not implement tracking for certain interactions, data related to those actions may not be collected at all.
+  3. Even when a user performs a single scroll action, the app typically records multiple timestamps corresponding to the continuous touch movements. In theory, capturing both the speed and distance of the scroll can help distinguish different scrolling gestures, such as quick swipes or slow drags. Additionally, this approach improves error handling by providing more precise interaction data.
 
-#### Module 4. Location
+#### Module 4. Locations
 
 * **`GPSLocationEvent`**: Records the current GPS coordinates of the user. This will only be recorded for users who have `gps-enabled` set to "1" (true) in their settings. The frequency with which a new location is recorded is also a user-specific setting, located in `gps-location-interval`.
   * `lat`: The user’s latitude.
   * `lng`: The user’s longitude.
 
-#### Module 5. Physical Activity
+#### Module 5. Activities
 
 * **`StepCountEvent`**: Records the step data collected from the user's device and returns the total sum of step counts for the interval specified in `pa-stepcounts-interval`. This will only be recorded for users who have `pa-enabled` set to "1" (true) in their settings. 
   * `count`: The total sum of step counts.
 
-#### Module 6. 
+#### Module 6. Battery
 
 * **`BatteryStateEvent`**: Recorded when the Android system reports a critical change in the battery charge level.
-  * `action`: This will be “low” if Android is reporting that the charge level has become critically low (usually around 15% charge). This will be “okay” if the battery has now charged back up above that level.
+  * `action`: This will be "low" if Android is reporting that the charge level has become critically low (usually around 15% charge). This will be "okay" if the battery has now charged back up above that level.
   * `percentage`: The exact battery percentage at the time of this event.
 
 * **`BatteryChargingEvent`**: Recorded when the user starts or stops charging their phone.
-  * `charging`: “yes” if the user has just begun charging their phone; “no” if the user has just removed their phone from the charger.
+  * `charging`: "yes" if the user has just begun charging their phone; “no” if the user has just removed their phone from the charger.
   * `percentage`: The exact battery percentage at the time of this event.
 
+#### Module 7. Power 
+
+
+
+
+#### Module 8. Network
+
+#### Module 9. Specs
 
  
-#### Module 3. Lifecycle
+#### Module 3. Other Lifecycle
 
 Notifications
 
