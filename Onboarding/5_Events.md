@@ -75,15 +75,41 @@ an individual image.
     * Values not specifically mentioned above are system errors, and may be a cause for concern. Contact the user or the app developer about any such errors.
 
 * **`ScreenshotPauseEvent`**: Records whether users have paused or resumed the app's screenshot captures using a toggle button in the main app interface.
-  * `type`: A binary value "Paused" or "Resumed" representing the user's action.
+  * `type`: A binary value "Paused"/"Resumed" representing the user's action.
 
 #### Module 2. App Uage 
 
-* **`NewForegroundAppEvent`**: Recorded anytime the user switches to a new app. For example, a `NewForegroundAppEvent` will be recorded when the user opens Facebook from the home screen or app drawer, or when they use the recent app switcher to switch from Facebook to Google Maps. `NewForegroundAppEvents` have a temporal resolution defined in the `settings_profiles` - `foreground-app-check-interval`. A recommended interval is 1000 milliseconds (1 second). The Screenomics app checks the current foreground at this defined resolution, and reports an event when the foreground app has changed. That means the timestamp reported in the event may be off by up to 1 second.
+* **`NewForegroundAppEvent`**: Recordeds anytime the user switches to a new app. For example, a `NewForegroundAppEvent` will be recorded when the user opens Facebook from the home screen or app drawer, or when they use the recent app switcher to switch from Facebook to Google Maps. `NewForegroundAppEvents` have a temporal resolution defined in the `settings_profiles` - `foreground-app-check-interval`. A recommended interval is 1000 milliseconds (1 second). The Screenomics app checks the current foreground at this defined resolution, and reports an event when the foreground app has changed. That means the timestamp reported in the event may be off by up to 1 second.
   * `package`: The Android package name of the app that the user just switched to. For example, Facebook’s package name is com.facebook.katana (I don’t know exactly how Japanese swords are relevant to social networks). For third-party apps, package names should usually be consistent across all devices. For native apps, such as the SMS messaging app, it can vary from device to device. The home screen is also generally considered an app, and thus the user switching to the home screen will typically generate a `NewForegroundAppEvent`. The package
-name for the home screen also varies between devices, but will often contain the word “launcher.”
+name for the home screen also varies between devices, but will often contain the word "launcher."
 
 #### Module 3. User-Smartphone Interactions 
+
+* **`InteractionEvent`**: Records user-smartphone interaction through accessibility services as they occur.
+* `activity`: The nature of finger gesture-based user-smartphone interactions. Types of activity include:
+  * "scroll-right": When the user moves their finger or a pointing device horizontally to the right across the screen (E.g., When viewing an Instagram photo grid, you can scroll right by swiping your finger across the screen to see more photos in the same row).
+  * "scroll-left": When the user moves their finger or a pointing device horizontally to the left across the screen (E.g., In the satellite view of Google Maps, you can scroll left by dragging your finger to the left side of the screen to view areas that were previously off-screen).
+  * "scroll-up": When the user moves their finger or pointing device vertically upward on the screen (E.g., When reading X feeds, you can scroll up by swiping your finger upward to view older tweets that are above the currently displayed tweet.).
+  * "scroll-down": When the user moves their finger or pointing device vertically downward (E.g, While browsing your Facebook news feed, you can scroll down by dragging your finger downward to see newer posts that appear below the current view).
+  * "clicked": A "click" typically refers to a quick tap on the screen, where the user touches the screen and lifts their finger almost immediately. This action is often used to select an item, open a link, or trigger a command. The duration between the touch down and touch up events is usually short, often less than 300 milliseconds.
+  * "long-clicked": A "long-click" (or long press) involves pressing and holding the touch point on the screen for a longer duration, generally around 300 milliseconds or more. This action is often used to bring up additional options or context menus related to the item being pressed, such as editing or deleting a message. It signifies that the user intends to perform a different action than a simple selection.
+  * "touch-exploration-start": This event occurs when a user initiates a touch interaction on the screen, typically by placing their finger on the display. It signifies the beginning of exploration, where the user may be trying to interact with or examine elements on the screen. This action can involve moving their finger around to gather information about the interface, such as feeling out the layout or identifying specific items.
+  * "touch-exploration-end": This event marks the conclusion of the touch exploration when the user lifts their finger off the screen. 
+
+> While Android’s accessibility services enable the capture of user interactions, the way these interactions are categorized and implemented depends on the application. The accessibility framework provides functionality for detecting actions like scrolling, clicking, and touch exploration, allowing apps to monitor and respond to user behavior. However, each app defines how it categorizes and reports these actions, assigning specific type values such as "scroll-right" or "clicked" based on detected interactions.
+> As a result, the same user action may be categorized differently depending on the app’s context. For example, a tap on the screen in a photo editing app might be classified as "clicked" when selecting a filter, while in a messaging app, the same action could be categorized as "long-clicked" if the user presses and holds a message to reveal additional options. While a general guideline exists, there is no universal "clear-cut" rule, as categorization depends on each app’s implementation.
+
+**Two important things to note:**
+1. If an app does not implement tracking for certain interactions, data related to those actions may not be collected at all.
+2. Even when a user performs a single scroll action, the app typically records multiple timestamps corresponding to the continuous touch movements. In theory, capturing both the speed and distance of the scroll can help distinguish different scrolling gestures, such as quick swipes or slow drags. Additionally, this approach improves error handling by providing more precise interaction data.
+
+
+
+
+
+
+
+
 
 
 
