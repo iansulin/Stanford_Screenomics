@@ -51,7 +51,8 @@ a. **Go to Firestore Database**:
 
 b. **Create Database**:
    - Click **Create Database**.
-   - Choose **Start in Test Mode** (this allows read/write without security rules, suitable for development).
+   - Choose **Location** (nam5, if you are in United States).
+   - Choose **Start in Production Mode** (this ensures that all third party reads and writes are denied).
    - Click **Next**, then select a location for your database (choose the closest region).
    - Click **Done**.
 
