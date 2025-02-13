@@ -19,7 +19,7 @@ Below is **a list of all dynamic parameters** (total sixteen, as of Feb 2025) th
 
 - It’s important to note that decreasing the values of `data-text-upload-interval` and `data-nontext-upload-interval` won’t really make the batch upload “faster,” because whether or not screenshots accumulate in storage is strictly dependent on connection speed. For instance, if the number of bytes/sec of screenshot images being captured is greater than the bytes/sec of the netwofk connection speed, we can expect screenshots to accumulate on the user’s phone regardless of the value of this setting.
 
-| Parameter Name | Unit | Range [Default] | Description |
+| Parameter Name | Unit | Range [Suggested Minimum/Default] | Description |
 |---|---|---|---|
 | `screenshot-interval` | Millisecond (ms) | 1 - infinite [100000] | The interval at which screenshots are taken. |
 | `screenshot-absolute-timing` | True(Yes)/False(No) | 1/0 [0] | Whether or not the app should use an absolute interval for the timing of screenshots. |
@@ -28,14 +28,14 @@ Below is **a list of all dynamic parameters** (total sixteen, as of Feb 2025) th
 - If this setting is disabled, screen-onset relative timing is used. This means a new interval is started every time the user turns on the screen. The first screenshot in the interval will be taken at the moment of screen onset. Assuming a 5-second capture interval, the next screenshot will be 5 seconds after onset, the following one 10 seconds after onset, etc. Regardless of the value of this setting, a screenshot is always taken immediately when the screen is turned on. In the case that this setting is enabled, said screenshot will occur in addition to the regularly scheduled interval. This setting is enabled by default.
 - In reality, these aren't entirely true, as there is some imprecision in Android’s timing system, but that’s the idea.
 
-| Parameter Name | Unit | Range [Default] | Description |
+| Parameter Name | Unit | Range [Suggested Minimum/Default] | Description |
 |---|---|---|---|
 | `screenshot-check-interval` | Millisecond (ms) | 1 - infinite [60000] | The interval at which the app checks itself to make sure screenshotting is still occurring regularly. This should never really need to be changed. For developers, this is the interval at which `CaptureUploadService.checkScreengrabbing()` is run.
 | `force-image-quality` | % | 10 to 100 [50] | The image quality level (compression efficiency) to use for all screenshots. If this is set to a value of 10-100, then all screenshots will be saved with an image quality of 10-100%, respecitvely. Higher quality levels will take more storage space, but will be better images. In essence, the image size in pixels stays the same, but the image file size changes based on the quality level. |
 
 - It is important to note that the value (10-100) is not a direct percentage of the file size but rather a measure of compression quality. While a lower value may result in a smaller file, the reduction is not always linear or predictable because Android's compression algorithms analyze image content, and the compression efficiency depends on the image's format, color patterns and details. Generally, JPEG images and smoother visuals tend to compress better than PNG images or complex, detailed graphics.
 
-| Parameter Name | Unit | Range [Default] | Description |
+| Parameter Name | Unit | Range [Suggested Minimum/Default] | Description |
 |---|---|---|---|
 | `gps-enabled` | True(Yes)/False(No) | 1/0 [1] | Whether or not GPS data is gathered at `gps-location-interval` for this participant. |
 | `gps-location-interval` | Millisecond (ms) | 1 - infinite [300000] | The interval at which new GPS positions are recorded. This is the interval at which we can expect to see GPSLocationEvents being recorded. |
@@ -45,13 +45,13 @@ Below is **a list of all dynamic parameters** (total sixteen, as of Feb 2025) th
 - Regardless of the value of `gps-location-interval`, Android will skip reporting events if it determines that the participant hasn’t moved since the last event.
 - A smaller value of `gps-location-interval` will provide richier (more frequent) data, but at the cost of increased battery usage.
 
-| Parameter Name | Unit | Range [Default] | Description |
+| Parameter Name | Unit | Range [Suggested Minimum/Default] | Description |
 |---|---|---|---|
 | `pa-enabled` | True(Yes)/False(No) | 1/0 [1] | Whether or not Physical Activity (PA) data is gathered at `gps-location-interval` for this participant. |
 | `pa-stepcounts-interval` | Millisecond (ms) | 1 - infinite [300000] | The interval at which step counts via the PA module are recorded. This defines how frequently the total steps taken during each interval are recorded. |
 - A smaller value of `pa-stepcounts-interval` will provide richier (more frequent) data, but at the cost of increased battery usage.
 
-| Parameter Name | Unit | Range [Default] | Description |
+| Parameter Name | Unit | Range [Suggested Minimum/Default] | Description |
 |---|---|---|---|
 | `foreground-app-check-interval` | Millisecond (ms) | 1 - infinite [1000] | The interval at which Screenomics checks to see if the foreground app has changed. This effectively determines the temporal resolution of NewForegroundAppEvents. |
 | `kill-switch` | True(On)/False(No) | 1/0 [0] | This value is used to immediately force close the app on participants' phones. If the kill-switch is off, the app behaves normally. If the kill-switch is turned on, the app will terminate itself as soon as it synchronizes profile settings with the database. The affected participant(s) will be unable to start up the app manually until the kill-switch is turned off again. |
