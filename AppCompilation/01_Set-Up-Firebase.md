@@ -64,9 +64,17 @@ a. **Enable Crashlytics**:
    - Click **Get Started** to enable Crashlytics for your project.
    - Follow any prompts to complete the setup.
 
+> If you don't see the "Get Started" option in the Crashlytics dashboard of the Firebase Console, possible Reasons are:
+> * **Already Enabled**: If you have previously set up Crashlytics for your project, it might already be enabled. You should be able to see crash reports and other data without needing to go through the setup process again.
+> * **Project Settings**: Check the project settings to confirm that Crashlytics is enabled. You can do this by navigating to the Project Settings in the Firebase Console and looking under the Integrations tab.
+> * **No Data Yet (Most Likely)**: If you recently set up Crashlytics and haven't triggered any crashes or if your app has not been used yet, you might not see any data or prompts.
 
 
 
+
+
+
+---
 3. **Add `google-services.json` to Your Project**:
    - Open Android Studio.
    - Copy the `google-services.json` file into the `app/` directory of your Android project.
