@@ -163,4 +163,8 @@ Several lifecycle events are also recorded from the main Android application mod
   * `screen`: This field will be "_on_" if the user switched on their screen, or "_off_" if the
 user turned off the screen.
   * `notification`: This field indicates whether a notification triggered the screen activation. It will be "_yes_" if the screen was automatically turned on by a notification delivery and "_no_" if it was manually activated by the user.
+* **`LogInOutEvent`**: Records the user's login and logout activity.
+ * `activity`: "_login_" when the user logs into the Screenomics app; "_logout_" when the user logs out from the app.
+* **`AlarmManagerNotificationEvent`**
+
 
