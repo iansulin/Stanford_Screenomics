@@ -61,7 +61,7 @@ a. Click on the "Start collection" button.
    - Click **Next**.
 
 b. Click on "Add document" button inside the `settings_profiles` collection just added.
-   - Enter **Document ID**: **`\_default_\`**
+   - Enter **Document ID**: **`\_default_`\**
       - Each document ID represents a group profile.
    - In the field input area, add **ALL** configurable dynamic parameters one by one, listed in [Section Firebase - 05.1. Dynamic Parameters](../Firebase/05_Settings.md).
       - For each field:
@@ -69,14 +69,34 @@ b. Click on "Add document" button inside the `settings_profiles` collection just
          - Field Type: Select "String" (for all 15 parameters) from the dropdown.
          - Value: Enter the "Suggested Minimum/Default" value for the parameter.
 
-> You  can repeat this process to add multiple group settings profiles, ensuring that each group name (document ID) follows the three capital letters format, except for the `\_default_\` settings profile. Group profiles do not require all 15 parameters; you can simply add a few essential fields.
+> You  can repeat this process to add multiple group settings profiles, ensuring that each group name (document ID) follows the three capital letters format, except for the `\_default_`\ settings profile. Group profiles do not require all 15 parameters; you can simply add a few essential fields.
 
 > Before compiling the Screenomics app in Android Studio, you must configure both the mandatory default profile and any optional study group profiles. During account registration, the app retrieves all 15 dynamic parameter values from the default profile, a group profile, or a combination of both. Missing values, out-of-range inputs, typos in parameter names, or incorrect field types can cause crashes or malfunctions. **Double-check all entries to ensure accuracy**.
 
+---
+
+### 01.5. Enable Authentication
+a. **Go to Authentication**:
+   - In your Firebase Console, click on **Build > Authentication** in the left sidebar.
+
+b. **Get Started**
+   - Click on the "**Get Started**" button.
+   - Choose **Sign-in Method**: Sign-in Providers > Native Providers > **Email/Password**
+   - Toggle the switch to **enable** "Email/Password."
 
 
 
-### 01.5. 
+
+
+
+
+b. **Create Database**:
+   - Click **Create Database**.
+   - Choose **Location** (nam5, if you are in United States).
+   - Choose **Start in Production Mode** (this ensures that all third party reads and writes are denied).
+   - Click **Next**, then select a location for your database (choose the closest region).
+   - Click **Done**.
+
 
 
 
