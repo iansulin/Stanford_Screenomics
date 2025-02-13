@@ -1,5 +1,5 @@
 
-## 1. Users
+## 03. Users
 
 Every user of the app, when signing up, registers with:
 * **Code**: A sequence of letters and/or numbers identifying which study group the user is in
