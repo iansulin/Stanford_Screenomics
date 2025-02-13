@@ -70,15 +70,3 @@ a. **Enable Crashlytics**:
 > * **No Data Yet (Most Likely)**: If you recently set up Crashlytics and haven't triggered any crashes or if your app has not been used yet, you might not see any data or prompts.
 
 
-
-
-
-
----
-3. **Add `google-services.json` to Your Project**:
-   - Open Android Studio.
-   - Copy the `google-services.json` file into the `app/` directory of your Android project.
-
-What Does google-services.json Do in Android Studio?
-Configuration: The google-services.json file configures your app to communicate with Firebase services. It contains information for authentication, database access, and other service integrations.
-Automatic Configuration: When you include the Firebase SDKs in your project and apply the google-services plugin in your build.gradle file, the file ensures that the SDKs know how to connect to your Firebase project and which services are enabled.
