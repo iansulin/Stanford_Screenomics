@@ -1,6 +1,4 @@
-## 1. Firebase
-
-### 01. Overview
+## 01. Overview
 
 The Stanford Screenomics system uses a **Firestore** NoSQL database for storing text-based data and **Google Cloud Storage** for non-text data, both compliant with HIPAA regulations. It utilizes **Firebase Authentication** to securely manage user sign-up, sign-in, and account management. Additionally, it integrates **Crashlytics** for real-time crash reporting and analytics, helping developers diagnose and resolve issues to improve app stability. All of these services are part of the **Firebase** ecosystem.
 
