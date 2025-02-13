@@ -46,6 +46,9 @@ d. **Add the `google-services.json` File to the Second Directory**:
    - Paste it into the `app/` directory of the project.
    - Rename the file to `google-services_two.json`.
 
+> What Does `google-services.json` Do in Android Studio?
+> * **Configuration**: The google-services.json file configures your app to communicate with Firebase services. It contains information for authentication, database access, and other service integrations.
+> * **Automatic Configuration**: When you include the Firebase SDKs in your project and apply the google-services plugin in your build.gradle file, the file ensures that the SDKs know how to connect to your Firebase project and which services are enabled.
 ---
 
 ### 02.4. Open the Project in Android Studio
@@ -87,6 +90,4 @@ b. **Resolve Issues**:
    - Open Android Studio.
    - Copy the `google-services.json` file into the `app/` directory of your Android project.
 
-What Does google-services.json Do in Android Studio?
-Configuration: The google-services.json file configures your app to communicate with Firebase services. It contains information for authentication, database access, and other service integrations.
-Automatic Configuration: When you include the Firebase SDKs in your project and apply the google-services plugin in your build.gradle file, the file ensures that the SDKs know how to connect to your Firebase project and which services are enabled.
+
