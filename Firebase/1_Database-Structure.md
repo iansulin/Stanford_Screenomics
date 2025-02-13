@@ -37,13 +37,13 @@ Project
 ```
 
 ### Google Cloud Storage
-Google Cloud Storage where non-text-based data is stored in user-specific folders named by username. Each non-text-based file is saved with a file name that includes the username and timestamps.
+Google Cloud Storage where non-text-based data is stored in user-specific folders named by username. Each non-text-based file is saved with a file name that includes the username and timestamp.
 
 ```
 Project
     - [username]
-        * [file]
-        * [...]
+        * file: [username_timestamp]
+        * file: [...]
     - [...]
 ```
 
