@@ -86,15 +86,15 @@ name for the home screen also varies between devices, but will often contain the
 #### Module 3. User-Smartphone Interactions 
 
 * **`InteractionEvent`**: Records user-smartphone interaction through accessibility services as they occur.
-* `activity`: The nature of finger gesture-based user-smartphone interactions. Types of activity include:
-  * _scroll-right_: When the user moves their finger or a pointing device horizontally to the right across the screen (E.g., When viewing an Instagram photo grid, you can scroll right by swiping your finger across the screen to see more photos in the same row).
-  * _scroll-left_: When the user moves their finger or a pointing device horizontally to the left across the screen (E.g., In the satellite view of Google Maps, you can scroll left by dragging your finger to the left side of the screen to view areas that were previously off-screen).
-  * _scroll-up_: When the user moves their finger or pointing device vertically upward on the screen (E.g., When reading X feeds, you can scroll up by swiping your finger upward to view older tweets that are above the currently displayed tweet.).
-  * _scroll-down_: When the user moves their finger or pointing device vertically downward (E.g, While browsing your Facebook news feed, you can scroll down by dragging your finger downward to see newer posts that appear below the current view).
-  * _clicked_: A "click" typically refers to a quick tap on the screen, where the user touches the screen and lifts their finger almost immediately. This action is often used to select an item, open a link, or trigger a command. The duration between the touch down and touch up events is usually short, often less than 300 milliseconds.
-  * _long-clicked_: A "long-click" (or long press) involves pressing and holding the touch point on the screen for a longer duration, generally around 300 milliseconds or more. This action is often used to bring up additional options or context menus related to the item being pressed, such as editing or deleting a message. It signifies that the user intends to perform a different action than a simple selection.
-  * _touch-exploration-start_: This event occurs when a user initiates a touch interaction on the screen, typically by placing their finger on the display. It signifies the beginning of exploration, where the user may be trying to interact with or examine elements on the screen. This action can involve moving their finger around to gather information about the interface, such as feeling out the layout or identifying specific items.
-  * _touch-exploration-end:_ This event marks the conclusion of the touch exploration when the user lifts their finger off the screen. 
+  * `activity`: The nature of finger gesture-based user-smartphone interactions. Types of activity include:
+    * _scroll-right_: When the user moves their finger or a pointing device horizontally to the right across the screen (E.g., When viewing an Instagram photo grid, you can scroll right by swiping your finger across the screen to see more photos in the same row).
+    * _scroll-left_: When the user moves their finger or a pointing device horizontally to the left across the screen (E.g., In the satellite view of Google Maps, you can scroll left by dragging your finger to the left side of the screen to view areas that were previously off-screen).
+    * _scroll-up_: When the user moves their finger or pointing device vertically upward on the screen (E.g., When reading X feeds, you can scroll up by swiping your finger upward to view older tweets that are above the currently displayed tweet.).
+    * _scroll-down_: When the user moves their finger or pointing device vertically downward (E.g, While browsing your Facebook news feed, you can scroll down by dragging your finger downward to see newer posts that appear below the current view).
+    * _clicked_: A "click" typically refers to a quick tap on the screen, where the user touches the screen and lifts their finger almost immediately. This action is often used to select an item, open a link, or trigger a command. The duration between the touch down and touch up events is usually short, often less than 300 milliseconds.
+    * _long-clicked_: A "long-click" (or long press) involves pressing and holding the touch point on the screen for a longer duration, generally around 300 milliseconds or more. This action is often used to bring up additional options or context menus related to the item being pressed, such as editing or deleting a message. It signifies that the user intends to perform a different action than a simple selection.
+    * _touch-exploration-start_: This event occurs when a user initiates a touch interaction on the screen, typically by placing their finger on the display. It signifies the beginning of exploration, where the user may be trying to interact with or examine elements on the screen. This action can involve moving their finger around to gather information about the interface, such as feeling out the layout or identifying specific items.
+    * _touch-exploration-end:_ This event marks the conclusion of the touch exploration when the user lifts their finger off the screen. 
 
 **Three important things to note:**
 1. The same user action may be categorized differently depending on the app’s context. This is because, while Android’s accessibility services enable the capture of user interactions, the categorization and implementation of these interactions depend on the specific application. For example, a tap on the screen in a photo editing app might be classified as "clicked" when selecting a filter, while in a messaging app, the same action could be categorized as "long-clicked" if the user presses and holds a message to reveal additional options. While a general guideline exists, there is no universal "clear-cut" rule, as categorization depends on each app’s implementation.
@@ -103,13 +103,27 @@ name for the home screen also varies between devices, but will often contain the
 
 #### Module 4. Location
 
-* **`GPSLocationEvent`**: Records the current GPS coordinates of the user. This will only be recorded for users who have `gps-enabled` set to _true_ (1) in their settings. The frequency with which a new location is recorded is also a user-specific setting, located in `gps-location-interval`.
-  * lat: The user’s latitude.
-  * lng: The user’s longitude.
+* **`GPSLocationEvent`**: Records the current GPS coordinates of the user. This will only be recorded for users who have `gps-enabled` set to "1" (true) in their settings. The frequency with which a new location is recorded is also a user-specific setting, located in `gps-location-interval`.
+  * `lat`: The user’s latitude.
+  * `lng`: The user’s longitude.
 
 #### Module 5. Physical Activity
 
+* **`StepCountEvent`**: Records the step data collected from the user's device and returns the total sum of step counts for the interval specified in `pa-stepcounts-interval`. This will only be recorded for users who have `pa-enabled` set to "1" (true) in their settings. 
+  * `count`: The total sum of step counts.
 
+#### Module 6. 
+
+* **`BatteryStateEvent`**: Recorded when the Android system reports a critical change in the battery charge level.
+  * `action`: This will be “low” if Android is reporting that the charge level has become critically low (usually around 15% charge). This will be “okay” if the battery has now charged back up above that level.
+  * `percentage`: The exact battery percentage at the time of this event.
+
+* **`BatteryChargingEvent`**: Recorded when the user starts or stops charging their phone.
+  * `charging`: “yes” if the user has just begun charging their phone; “no” if the user has just removed their phone from the charger.
+  * `percentage`: The exact battery percentage at the time of this event.
+
+
+ 
 #### Module 3. Lifecycle
 
 Notifications
