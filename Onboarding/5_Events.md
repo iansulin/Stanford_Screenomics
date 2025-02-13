@@ -97,6 +97,8 @@ name for the home screen also varies between devices, but will often contain the
   * _touch-exploration-end:_ This event marks the conclusion of the touch exploration when the user lifts their finger off the screen. 
 
 > While Android’s accessibility services enable the capture of user interactions, the way these interactions are categorized and implemented depends on the application. The accessibility framework provides functionality for detecting actions like scrolling, clicking, and touch exploration, allowing apps to monitor and respond to user behavior. However, each app defines how it categorizes and reports these actions, assigning specific type values such as "scroll-right" or "clicked" based on detected interactions.
+
+
 > As a result, **the same user action may be categorized differently depending on the app’s context**. For example, a tap on the screen in a photo editing app might be classified as "clicked" when selecting a filter, while in a messaging app, the same action could be categorized as "long-clicked" if the user presses and holds a message to reveal additional options. While a general guideline exists, there is no universal "clear-cut" rule, as categorization depends on each app’s implementation.
 
 **Two important things to note:**
