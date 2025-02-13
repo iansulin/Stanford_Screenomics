@@ -63,7 +63,7 @@ a. Click on the "Start collection" button.
 b. Click on "Add document" button inside the `settings_profiles` collection just added.
    - Enter **Document ID**: **`\_default_\`**
       - Each document ID represents a group profile.
-   - In the field input area, add all configurable dynamic parameters one by one, listed in [Section Firebase - 05.1. Dynamic Parameters](stanford_screenomics/Firebase/05_Settings.md).
+   - In the field input area, add all configurable dynamic parameters one by one, listed in [Section Firebase - 05.1. Dynamic Parameters](../Firebase/05_Settings.md).
 
 This process has to be manually done before the app compilation in android studio. The default profile (a must) and all study group profiles (optional) need to be configured before the first time app use because the screenomics app draws the dynamic parameter values from the profile whose code was specified during the account registration in the app. 
 
