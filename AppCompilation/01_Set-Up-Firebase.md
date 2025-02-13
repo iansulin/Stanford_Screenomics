@@ -60,7 +60,7 @@ b. **Create Database**:
 
 ### 01.4. Enable Crashlytics
 a. **Enable Crashlytics**:
-   - In your Firebase Console, click on **Crashlytics** in the left sidebar.
+   - In your Firebase Console, click on **Run > Crashlytics** in the left sidebar.
    - Click **Get Started** to enable Crashlytics for your project.
    - Follow any prompts to complete the setup.
 
