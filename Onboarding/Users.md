@@ -16,15 +16,18 @@ omitted, and converted to lowercase. An example is “**int101studyone**” if *
 
 ### User Specs
 
-When a user first creates their account, the Screenomics app records some basic specs about their smartphone device. 
+When a user first creates their account, the Screenomics app's "Specs" module records some basic specs about their smartphone device. 
 These are as follows:
-* **`brand`**: The company that manufactures the phone
+* **`brand`**: The company that manufactures the device
 * **`display-id`**: A random internal ID
 * **`fingerprint`**: A different random internal ID
-* **`manufacturer`**: Also the company that manufactures the phone
-* **`model`**: The precise model number of the phone
-* **`product`**: The name of the type of phone
+* **`manufacturer`**: Also the company that manufactures the device
+* **`model`**: The precise model number of the device
+* **`product`**: The name of the type of device
 
+The specs are recorded as entries in the Firestore database under `users` - `specs` collection. 
+
+---
 
 
  
