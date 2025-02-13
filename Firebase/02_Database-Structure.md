@@ -2,7 +2,7 @@
 ## 02. Database Structure
 
 
-### Firestore Database
+### 02.01 Firestore Database
 This section mirrors the hierarchical structure of the actual Firestore database's organization where text-based data is stored. The numbers in parentheses indicate the section number in this document that explain the corresponding database entry in more detail.
 
 ```
@@ -35,8 +35,9 @@ Project
                 * [...]
         - [...]
 ```
+---
 
-### Google Cloud Storage
+### 02.02 Google Cloud Storage
 Google Cloud Storage where non-text-based data is stored in user-specific folders named by username. Each non-text-based file is saved with a file name that includes the username and timestamp.
 
 ```
