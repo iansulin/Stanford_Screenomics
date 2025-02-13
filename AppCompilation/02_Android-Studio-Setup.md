@@ -66,7 +66,13 @@ b. **Open the Project**:
 
 ---
 
-### 02.5. Sync the Project
+### 02.5. 
+
+
+
+---
+
+### 02.6. Sync the Project
 
 a. **Gradle Sync**:
    - After opening the project, Android Studio should automatically recognize the new files, `google-services.json` and `google-services_two.json`.
@@ -75,7 +81,7 @@ a. **Gradle Sync**:
 b. **Resolve Issues**:
    - If there are any errors or unresolved dependencies, Android Studio will show them in the **Build** window. Follow the instructions to resolve these issues.
 
-
+---
 
 
 
