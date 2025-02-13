@@ -15,6 +15,7 @@ b. **Add a New Project**:
 > * **Flexibility**: You can choose any name that meets your needs, and it can include letters, numbers, and spaces.
 > * **Not Unique**: The project name does not have to be unique across all Firebase projects. However, the project ID, which is generated automatically, must be unique within Firebase.
 > * **Visibility**: The project name is visible to you and anyone else who has access to your Firebase Console, making it easier to manage and organize your projects.
+
 > When setting up your Firebase project, think of a clear and descriptive name that reflects the purpose of your app or the project itself.
 ---
 
