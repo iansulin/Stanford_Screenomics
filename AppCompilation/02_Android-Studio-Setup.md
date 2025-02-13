@@ -16,10 +16,12 @@ b. **Install Android Studio**:
 c. **Launch Android Studio**:
    - After installation, open Android Studio. You may be prompted to import settings from a previous installation; you can start fresh.
 
+---
+
 ### 02.2. Download the Project from GitHub
 
 a. **Find the Repository**:
-   - Go to the GitHub page of the open-source Android project you want to use.
+   - Go to the GitHub page of the project file: ABCDESAFDASDFASFVGASD
 
 b. **Download the Project**:
    - Click on the green **Code** button.
@@ -29,17 +31,18 @@ b. **Download the Project**:
 c. **Extract the ZIP File**:
    - Locate the downloaded ZIP file and extract it to a folder of your choice.
 
-### Step 3: Open the Project in Android Studio
+---
 
-1. **Launch Android Studio**:
+### 02.3. Open the Project in Android Studio
+
+a. **Launch Android Studio**:
    - If you haven't opened it yet, start Android Studio.
 
-2. **Drag and Drop the Project Folder**:
-   - Open the folder where you extracted the project.
-   - Drag the entire project folder into the Android Studio window.
+b. **Open the Project**:
+   - Drag the entire project folder and release (drop) into the Android Studio window.
+   - This will prompt you to open the project.
 
-3. **Open the Project**:
-   - Release the folder in Android Studio. This will prompt you to open the project.
+---
 
 ### Step 4: Sync and Build the Project
 
