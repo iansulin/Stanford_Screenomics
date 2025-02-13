@@ -1,4 +1,4 @@
-## Crashes
+## 08. Crashes
 
 The Stanford Screenomics utilize Firebase Crashlytics to efficiently notify developers of crashes. This mechanism enhances our ability to debug issues and provides a more streamlined approach to crash reporting.
 
@@ -23,16 +23,12 @@ These entries are generally benign and can be safely ignored, as the app automat
 
 ---
 
-### Whitelist
+### 08.2 Whitelist
 
-There are several reasons why Android might kill the Screenomics app, and any apps with background services in general. 
-* **Battery Optimazation**: Android devices often have aggressive battery-saving modes that restrict background activity for apps not deemed essential.
-* **Memory Management**: When the device runs low on RAM, Android may terminate background apps to free up resources.
+The Screenomics app has implemented several strategies to minimize the risk of being killed by the system and to maintain ongoing data collection, focusing on two main areas:
 
-The Stanford Screenomics app has been implemented several strategies to minimize the risk of being killed by the system and maintain ongoing data collection, such as: 
-* 
-
-
+* **Battery Optimazation**: Android devices have aggressive battery-saving modes that restrict background activity for non-essential apps. To work efficiently with Doze mode, the app uses `setAndAllowWhileIdle()` instead of forcing immediate execution. Since some manufacturers impose even stricter background restrictions, Screenomics asks users to whitelist the app to help maintain continuous background operations.
+* **Memory Management**: When a device runs low on RAM, Android may terminate background apps to free up resources. The Screenomics app proactively handles this by using `onTrimMemory()` to clear caches when the system is under memory pressure. Additionally, by using optimized data structures, the app further reduces memory usage, ensuring smoother performance and lower chances of being forcefully closed.
 
 
 
