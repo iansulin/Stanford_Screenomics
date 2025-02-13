@@ -11,7 +11,7 @@ Below is **a list of all dynamic parameters** (total sixteen, as of Feb 2025) th
 | Parameter Name | Unit | Range [Default] | Description |
 |---|---|---|---|
 | `settings-refresh-interval` | Millisecond (ms) | 1 - infinite [300000] | The interval at which dynamic parametert values in the `settings_profile` will be reloaded from Firestore and used by the app. If the parameter values are changed for a participant or a study group, this is the longest amount of time you can expect it to take for the new settings to take effect. |
-| `settings-group-override` | True(Yes)/False(No) | 1/0 [0] | Whether or not a participant's study group profile takes priority over individual participant profile settings. |
+| `settings-group-override` | True(Yes)/False(No) | 1/0 [1] | Whether or not a participant's study group profile takes priority over individual participant profile settings. **Never put 1 in the \_default\_ profile setting**|
 | `data-text-upload-wifi-only` | True(Yes)/False(No) | 1/0 [0] | Whether or not text-based data uploads should only be done over Wi-Fi. |
 | `data-nontext-upload-wifi-only` | True(Yes)/False(No) | 1/0 [0] | Whether or not non-text-based data uploads should only be done over Wi-Fi. |
 | `data-text-upload-interval` | Millisecond (ms) | 1 - infinite [5000] | The interval at which the app starts uploading a new batch of text-based data, assuming the previous upload round finished. |
