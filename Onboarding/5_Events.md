@@ -80,8 +80,7 @@ an individual image.
 #### Module 2. Apps 
 
 * **`NewForegroundAppEvent`**: Recordeds anytime the user switches to a new app. For example, a `NewForegroundAppEvent` will be recorded when the user opens Facebook from the home screen or app drawer, or when they use the recent app switcher to switch from Facebook to Google Maps. `NewForegroundAppEvents` have a temporal resolution defined in the `settings_profiles` - `foreground-app-check-interval`. A recommended interval is 1000 milliseconds (1 second). The Screenomics app checks the current foreground at this defined resolution, and reports an event when the foreground app has changed. That means the timestamp reported in the event may be off by up to 1 second.
-  * `package`: The Android package name of the app that the user just switched to. For example, Facebook’s package name is com.facebook.katana (I don’t know exactly how Japanese swords are relevant to social networks). For third-party apps, package names should usually be consistent across all devices. For native apps, such as the SMS messaging app, it can vary from device to device. The home screen is also generally considered an app, and thus the user switching to the home screen will typically generate a `NewForegroundAppEvent`. The package
-name for the home screen also varies between devices, but will often contain the word "launcher."
+  * `package`: The Android package name of the app that the user just switched to. For example, Facebook’s package name is com.facebook.katana (I don’t know exactly how Japanese swords are relevant to social networks). For third-party apps, package names should usually be consistent across all devices. For native apps, such as the SMS messaging app, it can vary from device to device. The home screen is also generally considered an app, and thus the user switching to the home screen will typically generate a `NewForegroundAppEvent`. The package name for the home screen also varies between devices, but will often contain the word "launcher."
 
 #### Module 3. Interactions 
 
@@ -97,7 +96,7 @@ name for the home screen also varies between devices, but will often contain the
     * _touch-exploration-end:_ This event marks the conclusion of the touch exploration when the user lifts their finger off the screen. 
 
 * Three important things to note:
-  1. The same user action may be categorized differently depending on the app’s context. This is because, while Android’s accessibility services enable the capture of user interactions, the categorization and implementation of these interactions depend on the specific application. For example, a tap on the screen in a photo editing app might be classified as "clicked" when selecting a filter, while in a messaging app, the same action could be categorized as "long-clicked" if the user presses and holds a message to reveal additional options. While a general guideline exists, there is no universal "clear-cut" rule, as categorization depends on each app’s implementation.
+  1. The same user action may be categorized differently depending on the app’s context. This is because, while Android’s accessibility services enable the capture of user interactions, the categorization and implementation of these interactions depend on the specific application. For example, a tap on the screen in a photo editing app might be classified as _clicked_ when selecting a filter, while in a messaging app, the same action could be categorized as _long-clicked_ if the user presses and holds a message to reveal additional options. While a general guideline exists, there is no universal "clear-cut" rule, as categorization depends on each app’s implementation.
   2. If an app does not implement tracking for certain interactions, data related to those actions may not be collected at all.
   3. Even when a user performs a single scroll action, the app typically records multiple timestamps corresponding to the continuous touch movements. In theory, capturing both the speed and distance of the scroll can help distinguish different scrolling gestures, such as quick swipes or slow drags. Additionally, this approach improves error handling by providing more precise interaction data.
 
@@ -115,17 +114,17 @@ name for the home screen also varies between devices, but will often contain the
 #### Module 6. Battery
 
 * **`BatteryStateEvent`**: Recorded when the Android system reports a critical change in the battery charge level.
-  * `action`: This will be "low" if Android is reporting that the charge level has become critically low (usually around 15% charge). This will be "okay" if the battery has now charged back up above that level.
+  * `action`: This will be "_low_" if Android is reporting that the charge level has become critically low (usually around 15% charge). This will be "_okay_" if the battery has now charged back up above that level.
   * `percentage`: The exact battery percentage at the time of this event.
 
 * **`BatteryChargingEvent`**: Recorded when the user starts or stops charging their phone.
-  * `charging`: "yes" if the user has just begun charging their phone; “no” if the user has just removed their phone from the charger.
+  * `charging`: "_yes_" if the user has just begun charging their phone; "_no_" if the user has just removed their phone from the charger.
   * `percentage`: The exact battery percentage at the time of this event.
 
 #### Module 7. Power 
 
 * **`SystemPowerEvent`**: Generated when the user’s phone powers on or off.
-  * `power`: This will be "on" if the user’s phone just turned on, or "off" if the phone is about to shut off.
+  * `power`: This will be "_on_" if the user’s phone just turned on, or "_off_" if the phone is about to shut off.
 
 #### Module 8. Network
 
@@ -140,53 +139,28 @@ name for the home screen also varies between devices, but will often contain the
 
 #### Module 9. Specs
 
-When a user first creates their account, Screenomics records some basic specs about their phone.
-These are as follows:
-* brand: The company that manufactures the phone
-● display-id: A random internal ID
-● fingerprint: A different random internal ID
-● manufacturer: Also the company that manufactures the phone
-● model: The precise model number of the phone
-● product: The name of the type of phone
+The Specs module does not generate any event data. Instead, it records basic specifications about the user's smartphone, such as device model and manufacturer, in a separate Firestore database under the `users` - `specs` collection. Please refer to the Users page for more details.
 
-
-
- 
-#### Module 3. Other Lifecycle
-
-CaptureStartupEvent: Recorded when the Screenomics app boots up on the user’s
-phone.
-○ app-version-code : The internal numeric code of the version of the app the user is
-running. The best way to tell which version of Screenomics the user is running, is
-to find their latest CaptureStartupEvent and look at this field (or
-app-version-name). This goes up by 1 for each new release of the app. At the time
-of this writing, the latest app code is 15.
-○ app-version-name: The version of the app the user is running (similar to
-app-version-code, but this is the more human-readable one). At the time of this
-writing, the latest app version is 3.01.
-
-ScreenOnOffEvent: Recorded the instant the user switches the screen on or off.
-○ screen: This field will be “on” if the user switched on their screen, or “off” if the
+#### Lifecycle Events
+Several lifecycle events are also recorded from the main Android application module (the module that integrates other data collection modules, manages resources and builds the final APK).
+* **`CaptureStartupEvent`**: Recorded when the Screenomics app boots up on the user’s smartphone.
+  * `app-version-code` : The internal numeric code of the version of the app the user is running. The best way to tell which version of Screenomics the user is running, is to find their latest CaptureStartupEvent and look at this field (or app-version-name). This goes up by 1 for each new release of the app. At the time of this writing, the latest app code is 58.
+  * `app-version-name`: The version of the app the user is running (similar to app-version-code, but this is the more human-readable one). At the time of this writing, the latest app version is 3.17.
+  * `install-code`: This user’s unique random install code. See Section Install-Codes for more details.
+  * `instigator`: The means by which the app was started up. Possible values:
+    * _boot_: The app was automatically started when the user booted up their phone.
+    * _user_: The app was started manually by the user. This will be the instigator of the user’s first-ever `CaptureStartupEvent`, since they will have started the app manually when they first create their account. Note that `CaptureStartupEvent` is not generated just because the user opens the Screenomics app; it is only generated if the user explicitly starts the data collection, when the data collection had not already begun.
+    * _media-projection-null_: The app was killed by the system, and automatically restarted. These CaptureStartupEvents can generally be ignored, as they don’t represent a true "startup," but are an artifact of how Android handles services.
+* **`LowMemoryEvent`**: Generated when the Android system has something to say about how much RAM is available. This is included for potential debugging purposes only.
+  * `level`: The memory level, as reported by Activity.onTrimMemory(int level).
+    * _5_: The system is experiencing moderate memory pressure and you should consider freeing up unused resources.
+    * _10_: Memory is running low and releasing unnecessary resources can help maintain performance.
+    * _15_: The system is critically low on memory and your app is at risk so free up as much memory as possible.
+    * _40_: Your app is in the background and may be terminated soon so release resources that can be easily restored.
+    * _60_: Your app is at a high risk of being killed and you should aggressively reduce memory usage.
+    * _80_: Your app is on the verge of termination and freeing up maximum memory can improve its chances of survival.
+* **`ScreenOnOffEvent`**: Recorded the instant the user switches the screen on or off.
+  * `screen`: This field will be "_on_" if the user switched on their screen, or "_off_" if the
 user turned off the screen.
-
-
-
-Notifications
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  * `notification`: This field indicates whether a notification triggered the screen activation. It will be "_yes_" if the screen was automatically turned on by a notification delivery and "_no_" if it was manually activated by the user.
 
