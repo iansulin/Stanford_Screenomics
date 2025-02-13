@@ -1,7 +1,7 @@
 
 ## 03. Users
 
-### 03.1 Username Convention
+### 03.1. Username
 
 Every user of the app, when signing up, registers with:
 * **Code**: A sequence of letters and/or numbers identifying which study group the user is in
@@ -16,7 +16,7 @@ omitted, and converted to lowercase. An example is "**int101studyone**" if **Cod
 
 ---
 
-### 03.2 User Specs
+### 03.2. User Specs
 
 When a user first creates their account, the Screenomics app's "Specs" module records some basic specs about their smartphone device. 
 These are as follows:
