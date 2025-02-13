@@ -124,15 +124,45 @@ name for the home screen also varies between devices, but will often contain the
 
 #### Module 7. Power 
 
-
-
+* **`SystemPowerEvent`**: Generated when the user’s phone powers on or off.
+  * `power`: This will be "on" if the user’s phone just turned on, or "off" if the phone is about to shut off.
 
 #### Module 8. Network
 
+
+
 #### Module 9. Specs
+
+When a user first creates their account, Screenomics records some basic specs about their phone.
+These are as follows:
+* brand: The company that manufactures the phone
+● display-id: A random internal ID
+● fingerprint: A different random internal ID
+● manufacturer: Also the company that manufactures the phone
+● model: The precise model number of the phone
+● product: The name of the type of phone
+
+
 
  
 #### Module 3. Other Lifecycle
+
+CaptureStartupEvent: Recorded when the Screenomics app boots up on the user’s
+phone.
+○ app-version-code : The internal numeric code of the version of the app the user is
+running. The best way to tell which version of Screenomics the user is running, is
+to find their latest CaptureStartupEvent and look at this field (or
+app-version-name). This goes up by 1 for each new release of the app. At the time
+of this writing, the latest app code is 15.
+○ app-version-name: The version of the app the user is running (similar to
+app-version-code, but this is the more human-readable one). At the time of this
+writing, the latest app version is 3.01.
+
+ScreenOnOffEvent: Recorded the instant the user switches the screen on or off.
+○ screen: This field will be “on” if the user switched on their screen, or “off” if the
+user turned off the screen.
+
+
 
 Notifications
 
