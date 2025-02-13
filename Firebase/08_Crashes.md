@@ -1,6 +1,8 @@
-### 08. Crashlytics
+## Crashes
 
 The Stanford Screenomics utilize Firebase Crashlytics to efficiently notify developers of crashes. This mechanism enhances our ability to debug issues and provides a more streamlined approach to crash reporting.
+
+### 08.1. Crashlytics
 
 When the app experiences a crash, Crashlytics automatically captures the event, eliminating the need for manual log creation. Crash reports are sent in real-time and include comprehensive information such as:
 * **Timestamp**: The exact time when the crash occurred.
