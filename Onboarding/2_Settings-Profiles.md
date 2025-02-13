@@ -4,7 +4,7 @@ Settings profiles enable the creation of groups of settings values to apply to l
 
 Profiles are named according to study groups (the three-letter codes that users sign up with). When a user signs up with a specific study group, the app copies all of the settings profile values from the profile with that study group name. For example, if there is a `settings_profile` named *CON* users who sign up with this code will receive the values of the settings in `/settings_profiles/CON/` in Firestore. 
 
-The *_default_* settings profile contain default values for all of the settings. If a user signs up with a group code for which a settings profile does not exist, they will receive exactly the settings listed in the *_default_* profile. The *_default_* profile also means it's NOT necessary to specify values for ALL settings in named settings profiles. This is because, for a new user, settings not explicitly listed in their settings profile will be drawn from the defaults instead.
+The *_ _default_ _* settings profile contain default values for all of the settings. If a user signs up with a group code for which a settings profile does not exist, they will receive exactly the settings listed in the *_ _default_ _* profile. The *_default_* profile also means it's NOT necessary to specify values for ALL settings in named settings profiles. This is because, for a new user, settings not explicitly listed in their settings profile will be drawn from the defaults instead.
 
 Below are some example scenario to explain what settings new users receive. Suppose the `settings_profiles` section of the database contains the following:
 
