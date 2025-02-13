@@ -144,7 +144,7 @@ The Specs module does not generate any event data. Instead, it records basic spe
 #### Lifecycle Events
 Several lifecycle events are also recorded from the main Android application module (the module that integrates other data collection modules, manages resources and builds the final APK).
 * **`CaptureStartupEvent`**: Recorded when the Screenomics app boots up on the user’s smartphone.
-  * `app-version-code` : The internal numeric code of the version of the app the user is running. The best way to tell which version of Screenomics the user is running, is to find their latest CaptureStartupEvent and look at this field (or app-version-name). This goes up by 1 for each new release of the app. At the time of this writing, the latest app code is 58.
+  * `app-version-code`: The internal numeric code of the version of the app the user is running. The best way to tell which version of Screenomics the user is running, is to find their latest CaptureStartupEvent and look at this field (or app-version-name). This goes up by 1 for each new release of the app. At the time of this writing, the latest app code is 58.
   * `app-version-name`: The version of the app the user is running (similar to app-version-code, but this is the more human-readable one). At the time of this writing, the latest app version is 3.17.
   * `install-code`: This user’s unique random install code. See Section Install-Codes for more details.
   * `instigator`: The means by which the app was started up. Possible values:
@@ -165,6 +165,11 @@ user turned off the screen.
   * `notification`: This field indicates whether a notification triggered the screen activation. It will be "_yes_" if the screen was automatically turned on by a notification delivery and "_no_" if it was manually activated by the user.
 * **`LogInOutEvent`**: Records the user's login and logout activity.
  * `activity`: "_login_" when the user logs into the Screenomics app; "_logout_" when the user logs out from the app.
-* **`AlarmManagerNotificationEvent`**
+* **`Alarm-Manager-Notification-Event`**: To ensure continuous data collection and minimize data loss, the Screenomics app includes a notification system that alerts users when the app is not running. If the app crashes or the user forgets to resume screen recording after a pause, a notification stating, "It seems that Screenomics is not running. Please start it again." is sent 30 minutes after the stop or pause on the first day. Additional reminders are sent at 7 AM and 7 PM over the next two days. If inactivity continues for 48 hours, the user's name is marked in red in the Dashboard app.
+  * `activity`: Indicates whether the notification was received/read.
+    * _opened_: If the user taps the notification.
+> If the app is still not running and there is no "opened" record, you can reasonably assume that the notifications was left unread, as Android does not provide a built-in way to track notifications, especially if they are dismissed. The failure rate for notification delivery in Android is typically 1-5% under normal conditions. However, the Screenomics app has implemented multiple strategies to stay resilient against device sleep modes, battery-saving restrictions, and background process limitations by continuously monitoring app states. As a result, the actual failure rate is expected to be significantly lower than the typical range, though it may still vary depending on manufacturer-specific restrictions.
 
 
+
+    
