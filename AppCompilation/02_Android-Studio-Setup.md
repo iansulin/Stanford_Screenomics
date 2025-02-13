@@ -61,12 +61,15 @@ a. **Launch Android Studio**:
 
 b. **Open the Project**:
    - Click on **Open an existing Android Studio project**.
-   - Navigate to the folder where you extracted the project and select it.
-   - Click **OK**.
+   - Navigate to the folder where you extracted the project, select it and click **OK**.
+   - - After opening the project, Android Studio should automatically recognize the new files, `google-services.json` and `google-services_two.json`.
+     - Even if prompted, do not click on the **Sync Project with Gradle Files** button yet at the moment.
 
 ---
 
-### 02.5. 
+### 02.5. Refactor Package Name
+
+
 
 
 
@@ -75,8 +78,8 @@ b. **Open the Project**:
 ### 02.6. Sync the Project
 
 a. **Gradle Sync**:
-   - After opening the project, Android Studio should automatically recognize the new files, `google-services.json` and `google-services_two.json`.
-   - If prompted, click on the **Sync Project with Gradle Files** button (the elephant icon) in the toolbar.
+   
+   -  (the elephant icon) in the toolbar.
 
 b. **Resolve Issues**:
    - If there are any errors or unresolved dependencies, Android Studio will show them in the **Build** window. Follow the instructions to resolve these issues.
