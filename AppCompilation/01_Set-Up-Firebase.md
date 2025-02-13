@@ -6,12 +6,12 @@ a. **Go to Firebase Console**:
 
 b. **Add a New Project**:
    - Click **Add project**.
-   - Enter a project name (e.g., "MyAndroidApp").
+   - Enter a project name (e.g., "MyScreenomicsApp").
    - Optionally enable Google Analytics.
    - Click **Create Project** and then **Continue**.
 
 > When setting up your Firebase project, think of a clear and descriptive name that reflects the purpose of your app or the project itself. In Firebase, the project name is a human-readable identifier you choose when creating a new Firebase project. Here are some key points about the project name:
-> * **Purpose**: It helps you identify your project in the Firebase Console, especially if you have multiple projects. For example, you might name it after your app or its functionality (e.g., "MyStudyApp").
+> * **Purpose**: It helps you identify your project in the Firebase Console, especially if you have multiple projects. For example, you might name it after your app or its functionality (e.g., "MyScreenomicsApp").
 > * **Flexibility**: You can choose any name that meets your needs, and it can include letters, numbers, and spaces.
 > * **Not Unique**: The project name does not have to be unique across all Firebase projects. However, the project ID, which is generated automatically, must be unique within Firebase.
 > * **Visibility**: The project name is visible to you and anyone else who has access to your Firebase Console, making it easier to manage and organize your projects.
@@ -21,7 +21,7 @@ b. **Add a New Project**:
 ### 01.2. Add Android App to Firebase
 a. **Register Your App**:
    - In the Firebase project dashboard, click the Android icon.
-   - Enter your app's package name (e.g., `com.example.myapp`).
+   - Enter your app's package name (e.g., `com.example.myscreenomicsapp`).
    - Optionally, add an app nickname and SHA-1 fingerprint.
    - Click **Register app**.
 
@@ -29,10 +29,10 @@ a. **Register Your App**:
 > * **Uniqueness**: The package name must be unique across all applications on the Google Play Store. It helps distinguish your app from others. For example, com.example.myapp is a typical format.
 > * **Naming Convention**: Package names are usually structured in a reverse domain format:
 >   * **Domain**: If you own a domain (like example.com), you might use that as part of your package name.
->   * **App Name**: Include the application name or a relevant identifier at the end (e.g., `com.example.myapp`).
+>   * **App Name**: Include the application name or a relevant identifier at the end (e.g., `com.example.myscreenomicsapp`).
 > * **Not the App Name**: The app package name is not the same as the app's display name (the name users see on their device). The display name is set in your app’s resources and can be different from the package name.
-> * **Example**: For an app named "MyStudyApp" with a domain of example.com, the package name might look like this:
->    * **Package Name**: `com.example.mystudyapp`
+> * **Example**: For an app named "MyScreenomicsApp" with a domain of example.com, the package name might look like this:
+>    * **Package Name**: `com.example.myscreenomicsapp`
 
 b. **Download `google-services.json`**:
    - After registering your app, you will be prompted to download the `google-services.json` file.
