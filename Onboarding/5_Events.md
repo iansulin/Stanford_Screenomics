@@ -152,7 +152,7 @@ Several lifecycle events are also recorded from the main Android application mod
     * _user_: The app was started manually by the user. This will be the instigator of the user’s first-ever `CaptureStartupEvent`, since they will have started the app manually when they first create their account. Note that `CaptureStartupEvent` is not generated just because the user opens the Screenomics app; it is only generated if the user explicitly starts the data collection, when the data collection had not already begun.
     * _media-projection-null_: The app was killed by the system, and automatically restarted. These CaptureStartupEvents can generally be ignored, as they don’t represent a true "startup," but are an artifact of how Android handles services.
 * **`LowMemoryEvent`**: Generated when the Android system has something to say about how much RAM is available. This is included for potential debugging purposes only.
-  * `level`: The memory level, as reported by Activity.onTrimMemory(int level).
+  * `level`: The memory level.
     * _5_: The system is experiencing moderate memory pressure and you should consider freeing up unused resources.
     * _10_: Memory is running low and releasing unnecessary resources can help maintain performance.
     * _15_: The system is critically low on memory and your app is at risk so free up as much memory as possible.
