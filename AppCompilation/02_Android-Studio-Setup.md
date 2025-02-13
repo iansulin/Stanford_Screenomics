@@ -44,29 +44,14 @@ b. **Open the Project**:
 
 ---
 
-### Step 4: Sync and Build the Project
+### 02.4. Sync the Project
 
-1. **Gradle Sync**:
+a. **Gradle Sync**:
    - Android Studio will automatically sync the project with Gradle files. If prompted, allow it to download any necessary dependencies.
 
-2. **Resolve Issues**:
+b. **Resolve Issues**:
    - If there are any errors or unresolved dependencies, Android Studio will show them in the **Build** window. Follow the instructions to resolve these issues.
 
-3. **Run the Project**:
-   - Connect an Android device via USB or start an Android Emulator.
-   - Click on the green **Run** button (the play icon) in the toolbar.
-   - Select your device or emulator and click **OK**. The app should build and run.
-
-## Step 5: Explore and Modify the Project
-
-1. **Explore the Code**:
-   - Familiarize yourself with the project structure, including the `src`, `res`, and `manifest` folders.
-
-2. **Make Changes**:
-   - You can modify the code, UI, and resources as needed.
-
-3. **Test Your Changes**:
-   - After making changes, run the app again to ensure everything works as expected.
 
 
 
