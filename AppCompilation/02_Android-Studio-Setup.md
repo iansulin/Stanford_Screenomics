@@ -33,21 +33,38 @@ c. **Extract the ZIP File**:
 
 ---
 
-### 02.3. Open the Project in Android Studio
+### 02.3. Add the google-services.json File
+a. **Locate the First Directory**:
+   - Inside the extracted project folder, go to `databaseManager/`.
+b. **Add the `google-services.json` File to the First Directory**:
+   - Copy the downloaded `google-services.json` file from your computer.
+   - Paste it into the `databaseManager/` directory of the project.
+c. **Locate the Second Directory**:
+   - Inside the extracted project folder, go to `app/`.
+d. **Add the `google-services.json` File to the Second Directory**:
+   - Copy the downloaded `google-services.json` file from your computer.
+   - Paste it into the `app/` directory of the project.
+   - Rename the file to `google-services_two.json`.
+
+---
+
+### 02.4. Open the Project in Android Studio
 
 a. **Launch Android Studio**:
    - If you haven't opened it yet, start Android Studio.
 
 b. **Open the Project**:
-   - Drag the entire project folder and release (drop) into the Android Studio window.
-   - This will prompt you to open the project.
+   - Click on **Open an existing Android Studio project**.
+   - Navigate to the folder where you extracted the project and select it.
+   - Click **OK**.
 
 ---
 
-### 02.4. Sync the Project
+### 02.5. Sync the Project
 
 a. **Gradle Sync**:
-   - Android Studio will automatically sync the project with Gradle files. If prompted, allow it to download any necessary dependencies.
+   - After opening the project, Android Studio should automatically recognize the new files, `google-services.json` and `google-services_two.json`.
+   - If prompted, click on the **Sync Project with Gradle Files** button (the elephant icon) in the toolbar.
 
 b. **Resolve Issues**:
    - If there are any errors or unresolved dependencies, Android Studio will show them in the **Build** window. Follow the instructions to resolve these issues.
