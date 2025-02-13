@@ -10,7 +10,7 @@ onboarded participants can participate). It needs to be configured during the ap
 
 In the database, special characters (such as the @ sign if there is any in the StudyID or group Code). So,
 all usernames are condensed into **[code][number][studyid]**, with spaces and special characters
-omitted, and converted to lowercase. An example is “**int101studyone**” if **Code = INT, Number = 101, and StudyID = StudyOne**.
+omitted, and converted to lowercase. An example is "**int101studyone**" if **Code = INT, Number = 101, and StudyID = StudyOne**.
 
 ---
 
