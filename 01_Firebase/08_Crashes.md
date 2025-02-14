@@ -23,7 +23,7 @@ These entries are generally benign and can be safely ignored, as the app automat
 
 ---
 
-### 08.2 Ensuring Continuous Background Operation
+### 08.2. Ensuring Continuous Background Operation
 
 The Screenomics app has implemented several strategies to minimize the risk of being killed by the system and to maintain ongoing data collection:
 
