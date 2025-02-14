@@ -92,7 +92,7 @@ a. Click on the "Start collection" button.
    - Click **Next**.
 
 b. Click on "Add document" button inside the `settings_profiles` collection just added.
-   - Enter **Document ID**: **\`_default_`\**
+   - Enter **Document ID**: `_default_`
       - Each document ID represents a group profile.
    - In the field input area, add **ALL** configurable dynamic parameters one by one, listed in [Section Firebase - 05.1. Dynamic Parameters](../Firebase/05_Settings.md).
       - For each field:
@@ -100,7 +100,7 @@ b. Click on "Add document" button inside the `settings_profiles` collection just
          - Field Type: Select "String" (for all 15 parameters) from the dropdown.
          - Value: Enter the "Suggested Minimum/Default" value for the parameter.
 
-> You  can repeat this process to add multiple group settings profiles, ensuring that each group name (document ID) follows the three capital letters format, except for the `\_default_`\ settings profile. Group profiles do not require all 15 parameters; you can simply add a few essential fields.
+> You  can repeat this process to add multiple group settings profiles, ensuring that each group name (document ID) follows the three capital letters format, except for the `_default_` settings profile. Group profiles do not require all 15 parameters; you can simply add a few essential fields.
 
 > Before compiling the Screenomics app in Android Studio, you must configure both the mandatory default profile and any optional study group profiles. During account registration, the app retrieves all 15 dynamic parameter values from the default profile, a group profile, or a combination of both. Missing values, out-of-range inputs, typos in parameter names, or incorrect field types can cause crashes or malfunctions. **Double-check all entries to ensure accuracy**.
 
