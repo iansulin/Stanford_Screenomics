@@ -1,10 +1,10 @@
 ## 01. Firebase Setup
 
-### 01.1.  Create a Firebase Project
-a. **Go to Firebase Console**:
+### 01.1. Create a Firebase Project
+a. **Go to Firebase Console**
    - Open [Firebase Console](https://console.firebase.google.com/).
 
-b. **Add a New Project**:
+b. **Add a New Project**
    - Click **Add project**.
    - Enter a project name (e.g., "YourStudyName").
    - Optionally enable Google Analytics.
@@ -19,7 +19,7 @@ b. **Add a New Project**:
 ---
 
 ### 01.2. Add Android App to Firebase
-a. **Register Your App**:
+a. **Register Your App**
    - In the Firebase project dashboard, click the Android icon.
    - Enter your app's package name (e.g., `edu.stanford.**mystudyapp**.screenomics`).
    - Optionally, add an app nickname and SHA-1 fingerprint.
@@ -31,7 +31,7 @@ a. **Register Your App**:
 > * **Uniqueness**: The app package name is a unique identifier for your Android application, so it is essential to choose a distinctive study name. Therefore, the package name must be unique across all applications on the Google Play Store. It helps distinguish your app from others. 
 > * **Not the App Name**: The app package name is not the same as the app's display name (the name users see on their device). The display name is set in your app’s resources and can be different from the package name.
  
-b. **Download `google-services.json`**:
+b. **Download `google-services.json`**
    - After registering your app, you will be prompted to download the `google-services.json` file.
    - Download the `google-services.json` file and save it to your computer.
 
@@ -43,7 +43,7 @@ b. **Download `google-services.json`**:
 ---
  
 ### 01.3. Enable Firestore Database
-a. **Go to Firestore Database**:
+a. **Go to Firestore Database**
    - In your Firebase Console, click on **Build > Firestore Database** in the left sidebar.
 
 b. **Create Database**:
@@ -76,33 +76,62 @@ b. Click on "Add document" button inside the `settings_profiles` collection just
 ---
 
 ### 01.5. Enable Authentication
-a. **Go to Authentication**:
+a. **Go to Authentication**
    - In your Firebase Console, click on **Build > Authentication** in the left sidebar.
 
 b. **Get Started**
-   - Click on the "**Get Started**" button.
+   - Click on the **Get Started** button.
    - Choose **Sign-in Method**: Sign-in Providers > Native Providers > **Email/Password**
    - Toggle the switch to **enable** "Email/Password."
+   - Click on **Save** button at the bottom.
 
+---
 
+### 01.6. Setup Cloud Storage
+a. **Go to Storage**
+   - In your Firebase Console, click on **Build > Storage** in the left sidebar.
+   - Click on the "**Get Started**" button.
+      - If you don't see the "Get Started" button, you may need to update your plan by linking your billing account. Once linked, the button should appear.
 
-
-
-
-
-b. **Create Database**:
-   - Click **Create Database**.
-   - Choose **Location** (nam5, if you are in United States).
+b. **Setup Storage Rules**
+   - Choose Storage Location.
+      - You will be prompted to select a location for your storage. Choose the location that best serves your needs and click "Continue."
    - Choose **Start in Production Mode** (this ensures that all third party reads and writes are denied).
-   - Click **Next**, then select a location for your database (choose the closest region).
-   - Click **Done**.
+
+c. **Review and Edit Rules**
+   - Once in the Cloud Storage section, you will see several tabs at the top. Click on the "**Rules**" tab.
+   - Review and edit Storage rules
+      - Example 1. To allow only authenticated users to read and write:
+```
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null; // Only authenticated users
+    }
+  }
+}
+```
+      - Example 2. To allow public access to read and write:
+```
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if true; // Anyone can read/write
+    }
+  }
+}
+```
+   - Click on the "**Publish**" button to apply the new rules.
+
 
 
 
 
 ---
 
-### 01.4. Enable Crashlytics
+### 01.6. Enable Crashlytics
 a. **Enable Crashlytics**:
    - In your Firebase Console, click on **Run > Crashlytics** in the left sidebar.
    - Click **Get Started** to enable Crashlytics for your project.
@@ -112,5 +141,10 @@ a. **Enable Crashlytics**:
 > * **Already Enabled**: If you have previously set up Crashlytics for your project, it might already be enabled. You should be able to see crash reports and other data without needing to go through the setup process again.
 > * **Project Settings**: Check the project settings to confirm that Crashlytics is enabled. You can do this by navigating to the Project Settings in the Firebase Console and looking under the Integrations tab.
 > * **No Data Yet (Most Likely)**: If you recently set up Crashlytics and haven't triggered any crashes or if your app has not been used yet, you might not see any data or prompts.
+
+
+gs://screenomics2024
+gs://my-study-app-f6198.firebasestorage.app
+
 
 
