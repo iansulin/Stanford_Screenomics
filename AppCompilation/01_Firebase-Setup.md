@@ -102,7 +102,7 @@ c. **Review and Edit Rules**
    - Once in the Cloud Storage section, you will see several tabs at the top. Click on the "**Rules**" tab.
    - Review and edit Storage rules
 
-Example 1. To allow only authenticated users to read and write:
+**Example 1.** To allow only authenticated users to read and write:
 ```
 rules_version = '2';
 service firebase.storage {
@@ -114,8 +114,7 @@ service firebase.storage {
 }
 ```
 
-
-Example 2. To allow public access to read and write:
+**Example 2.** To allow public access to read and write:
 ```
 rules_version = '2';
 service firebase.storage {
