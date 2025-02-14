@@ -124,7 +124,6 @@ mStorageRef = FirebaseStorage.getInstance("gs://old-bucket-name").getReference()
    - **Replace the old URI with your new URI**
 ```
 mStorageRef = FirebaseStorage.getInstance("gs://yourstudyname-f6198.firebasestorage.app").getReference();
-
 ```
 b. **Save** changes (`Command + S` or `Ctrl + S`)
 
@@ -138,12 +137,10 @@ a. **Search** for the old password in your project
    - **Locate the Password Reference Code**
 ```
     public static final String PASSWORD_RESTRICTION = "0ldPassword!";
-
 ```
    - **Replace the old password with your new URI**
 ```
     public static final String PASSWORD_RESTRICTION = "NewPassw0rd?";
-
 ```
 b. **Save** changes (`Command + S` or `Ctrl + S`)
 
