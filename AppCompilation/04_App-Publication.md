@@ -32,7 +32,7 @@ a. Create a Keystore
     - **Certificate information**: Fill in your name, organization, and other details.
   - Click **OK** to create and save the keystore.
 
-> A keystore is a file that contains cryptographic keys used to sign your Android app, which is essential for distribution on the Google Play Store. It includes a private key for signing and a public certificate for identification. The keystore ensures app integrity, verifies the developer's identity, and facilitates updates.
+> A **keystore** is a file that contains cryptographic keys used to sign your Android app, which is essential for distribution on the Google Play Store. It includes a private key for signing and a public certificate for identification. The keystore ensures app integrity, verifies the developer's identity, and facilitates updates.
 >
 > **If you lose your keystore, you cannot update your app on the Play Store, as all updates must be signed with the same key. Keeping the private key secure is crucial to prevent unauthorized access**. While you can generate a new keystore anytime, doing so creates a new identity for your app. Users would need to uninstall the old version and install the new one, risking data loss. **Once an app is published with a particular key, you cannot change it without consequences.**
 
