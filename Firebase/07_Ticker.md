@@ -5,7 +5,7 @@ sure each one shows recent activity. The `ticker` is designed to streamline this
 
 The `ticker` filters `users-events` data every 5 seconds to update a user's ticker entries. Currently, ticker entries are populated for 15 events, meaning the `ticker` can be used to monitor when the app last reported an event.  
 
-| Event | timestamp; Metadata |
+| Event | Metadata |
 |---|---|
 | `GPSLocationEvent` | Most recent `timestamp` |
 | `ScreenOnOffEvent` | Most recent `timestamp`; `On`/`Off` |
