@@ -65,7 +65,7 @@ f. **Locate "databaseManager" Module**
 
 g. **Add the JSON File to the "databaseManager" Module**
    - Open the folder on your computer where the `google-services.json` file is located.
-   - Copy the `google-services.json` file (Command + C or Ctrl + C).
+   - Copy the `google-services.json` file (`Command + C` or `Ctrl + C`).
    - In Android Studio, **Select the databaseManager Module** (the folder icon with a bar chart).
    - **Paste the JSON file into the App Module**.
    - If/When a "Copy" or "Replace" window appears, do **NOT** change any settings--simply click **OK**.
@@ -98,10 +98,16 @@ c. **Refactor/Rename `communication` segment**
    - **Right-click** on the communication folder and **Select Refactor > Rename**.
    - When prompted with: "Rename Package Directories: Package 'edu.stanford.communication' is present in multiple directories: ...", **Select "All Directories"** to ensure all occurrences are updated.
    - In the "Rename" window, **change `communication` to `yourstudyname`**.
-   - Ensure the option "Rename package 'edu.stanford.communication' and its usages to:" reflects the new name.
+      - Ensure the option "Rename package 'edu.stanford.communication' and its usages to:" reflects the new name.
    - Click on the "**Refactor**" to apply the changes.
-   - The `communication` folder should now be renamed to `yourstudyname` in the package hierarchy.
-   - Open other module folders (e.g., databaseManager) and ensure that all occurrences of `communication` have been successfully renamed to `yourstudyname`.
+      - The `communication` folder should now be renamed to `yourstudyname` in the package hierarchy.
+      - Open other module folders (e.g., databaseManager) and ensure that all occurrences of `communication` have been successfully renamed to `yourstudyname`.
+
+d. **Manually Replace Any Remaining References**
+   - Press `Command + Shift + R` or `Ctrl + Shift + R` to open the **Find & Replace in Path** tool.
+   - In the **Find** field, enter: `edu.stanford.communication`
+   - In the **Replace with** field, enter: `edu.stanford.yourstudyname`
+   - Click "**Replace All**" to ensure all occurrences are updated in the entire project.
 
 ---
 
