@@ -5,7 +5,7 @@ The **Build Validation Process** ensures that the Screenomics app is correctly b
 
 ---
 
-### 02.6. Clean and Build the Project
+### 03.1. Clean and Build the Project
 
 a. **Clean the Project**
    - Go to the menu bar and select **Build > Clean Project**
