@@ -110,4 +110,4 @@ A possible point of confusion is that `settings-group-override` itself is presen
 Funnily enough, changing `settings-group-override` to 0 in the `_default_` profile will result in this value propagating to all users! Then, all users will no longer be syncing their settings with the settings profiles. So, **never change `settings-group-override` to 0 in the *\_default\_* profile**, because then re-enabling it for all users will require manually going through every user in the database and changing the values back to 1.
 
 
-[Back to Top](#Settings-Profiles)
+[Back to Top](#Settings)
