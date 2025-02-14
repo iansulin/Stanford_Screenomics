@@ -40,10 +40,46 @@ c. **Extract the ZIP File**
 
 ### 02.3. Add the google-services.json File
 
-a. **Prepare Two Copies of JSON File**
-   - Copy and Paste the downloaded `google-services.json` file from your computer.
-   - Rename the copied file to `google-services_two.json`.
-      - You should now have two JSON files: `google-services.json` and `google-services_two.json`.
+a. **Launch Android Studio**
+   - If you haven't opened it yet, start Android Studio.
+
+c. **Open the Project**
+   - Click on **Open an existing Android Studio project**.
+   - Navigate to the extracted project folder, select it and click **OK**.
+     - If prompted, do **NOT** click on the **Sync Project with Gradle Files** yet.
+
+d. **Locate "App" Module**
+   - In the **Project View** (usually on the left), click the dropdown at the top and select **Android** to display the project structure.
+   - Find the **app module** in the project view, which has **a folder icon with a green square**. This module is the main app component that gets built into an APK or AAB (Android App Bundle).
+      - Do not confuse it with the apps module, which has a folder icon with a bar chart.
+
+e.  **Add the JSON File to the "App" Module**
+   - Open the folder on your computer where the `google-services.json` file is located.
+   - Copy the `google-services.json` file (Command + C or Ctrl + C).
+   - In Android Studio, **Select the App Module** (the folder icon with a green square).
+   - **Paste the JSON file into the App Module**.
+   - If/When a "Copy" or "Replace" window appears, do **NOT** change any settings--simply click **OK**.
+
+f. **Locate "databaseManager" Module**
+   - Find the **databaseManager module**, which has **a folder icon with a bar chart**. This module is one of two core base modules of the Screenomics platform, providing reusable database-related methods for other data collection modules.
+
+g. **Add the JSON File to the "databaseManager" Module**
+   - Open the folder on your computer where the `google-services.json` file is located.
+   - Copy the `google-services.json` file (Command + C or Ctrl + C).
+   - In Android Studio, **Select the databaseManager Module** (the folder icon with a bar chart).
+   - **Paste the JSON file into the App Module**.
+   - If/When a "Copy" or "Replace" window appears, do **NOT** change any settings--simply click **OK**.
+
+
+
+
+
+
+g. **Drag and Drop the Second JSON File, `google-services_two.json`**
+   - Open the folder on your computer where the `google-services_two.json` file is located.
+   - Drag the new `google-services_two.json` file and **drop it into the "app module"**.
+
+
 
 
 
@@ -79,12 +115,17 @@ b. **Open the Project**:
    - - After opening the project, Android Studio should automatically recognize the new files, `google-services.json` and `google-services_two.json`.
      - Even if prompted, do not click on the **Sync Project with Gradle Files** button yet at the moment.
 
+
+
+
+
+
 ---
 
 ### 02.5. Refactor Package Name
 
 
-
+Cloud Storage link replace
 
 
 ---
