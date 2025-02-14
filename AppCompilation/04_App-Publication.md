@@ -1,8 +1,7 @@
 ## 04. App Publication
 
-Understanding **app publication** is essential for ensuring that your Android app reaches users efficiently and securely. The process involves generating a **Signed APK** or **Signed App Bundle (AAB)**, which verifies the authenticity of your app and allows it to be distributed through the **Google Play Store** or other platforms. Publishing also ensures that your app complies with security standards, optimizes performance for different devices, and allows for future updates and maintenance. 
+Understanding app publication is essential for ensuring that your Android app reaches users efficiently and securely. The process involves generating either a **Signed APK** or a **Signed App Bundle (AAB)**, both of which verify the authenticity of your app and enable distribution through the Google Play Store or other platforms. Choosing the right format impacts security, performance optimization, and update management. While a Signed APK is directly installable and can be shared manually, a Signed App Bundle is required for Google Play distribution, allowing Play Store to optimize delivery for different devices. Below is a comparison of the two formats:
 
-Android Studio offers two different publication types: **Signed APK** and **Signed App Bundle**. Here are the key differences and when to use each:
 | Feature | Signed APK (Android Package Kit) | Signed App Bundle (AAB) |
 |---|---|----|
 | **Format** | Installable APK file | Publishing format, not directly installable |
