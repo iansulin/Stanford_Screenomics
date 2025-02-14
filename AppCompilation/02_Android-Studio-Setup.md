@@ -111,9 +111,22 @@ d. **Manually Replace Any Remaining References**
 
 ---
 
-
 ### 02. Cloud Storage link replace
 
+a. Search for the old URI in your project
+   - Press `Command + Shift + F` or `Ctrl + Shift + F` to open **Find in Path**.
+   - **Enter the following in the search bar: `gs://old-bucket-name`**.
+      - This will help locate all instances where the Cloud Storage URI is used in your project.
+   - Locate the Storage Reference Code
+```
+mStorageRef = FirebaseStorage.getInstance("gs://old-bucket-name").getReference();
+```
+   - **Replace the Old URI with Your New One**
+```
+mStorageRef = FirebaseStorage.getInstance("gs://yourstudyname-f6198.firebasestorage.app").getReference();
+
+```
+b. Save changes
 
 ---
 
@@ -136,12 +149,4 @@ b. **Resolve Issues**:
 
 
 
-
-
-
----
-3. **Add `google-services.json` to Your Project**:
-   - Open Android Studio.
-   - Copy the `google-services.json` file into the `app/` directory of your Android project.
-
-
+[Back to Top](#top)
