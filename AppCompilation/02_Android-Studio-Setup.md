@@ -149,14 +149,5 @@ c. **Monitor the Build Output**
       - "**BUILD SUCCESSFUL**": This means your project has been built without any errors > Proceed to 02.7.
       - "**BUILD FAILED**": This indicates that there were errors during the build process. Check if any previous steps were missed or misconfigured.
 
----
-
-### 02.7. 
-
-
-
-
-
-
 
 [Back to Top](#top)
