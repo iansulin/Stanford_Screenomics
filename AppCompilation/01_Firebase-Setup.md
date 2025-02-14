@@ -1,5 +1,10 @@
 ## 01. Firebase Setup
 
+**Before you begin:**
+* Create a Gmail account, if you haven't already, as it's required to access Firebase.
+
+---
+
 ### 01.1. Create a Firebase Project
 a. **Go to Firebase Console**
    - Open [Firebase Console](https://console.firebase.google.com/).
