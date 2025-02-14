@@ -1,0 +1,62 @@
+## 04. App Publication
+
+
+
+---
+
+### 04.1. Building a Signed APK
+
+a. Create a Keystore
+  - In Android Studio, go to Build in the top menu > select "**Generate Signed Bundle / APK**."
+  - In the dialog that appears, select **APK** and click **Next**.
+  - Click on the "**Create new....**" button.
+  - Fill in the required fields
+    - **Key store path**: Choose a location to save your keystore file.
+    - **Password**: Set a password for the keystore.
+    - **Key alias**: Enter a name (alias) for your key.
+    - **Key password**: Set a password for the key (can be the same as the keystore password).
+    - **Validity (years)**: Set for how many years the key will be valid (e.g., 25).
+    - **Certificate information**: Fill in your name, organization, and other details.
+  - Click **OK** to create and save the keystore.
+
+> A keystore is a file that contains cryptographic keys used to sign your Android app, which is essential for distribution on the Google Play Store. It includes a private key for signing and a public certificate for identification. The keystore ensures app integrity, verifies the developer's identity, and facilitates updates. **If you lose your keystore, you cannot update your app on the Play Store, as all updates must be signed with the same key. Keeping the private key secure is crucial to prevent unauthorized access**. While you can generate a new keystore anytime, doing so creates a new identity for your app. Users would need to uninstall the old version and install the new one, risking data loss. **Once an app is published with a particular key, you cannot change it without consequences.**
+
+b. **Generate the Signed APK**
+  - Select Your Keystore
+    - In the `Generate Signed APK` dialog, select the keystore file you just created.
+    - Enter the keystore password and the key alias/password you set earlier.
+  - Select Build Variants
+    - Choose the build variant (e.g., **release**) from the dropdown.
+    - Click **Next**, review the settings, and then click **Finish**.
+  - Locate the APK
+    - Once the build is complete, the APK will be generated.
+      - Once the build is complete, a dialog box will appear in the bottom-right corner of Android Studio > Click **Locate** to open the folder where the APK is saved.
+      - Alternatively, manually navigate to the directory: `app/build/outputs/apk/release/`
+
+---
+
+### 04.2. Generating a Signed App Bundle
+Step 1: Create a Keystore (if not already done)
+If you’ve already created a keystore during the APK generation, you can skip this step. Otherwise, follow the same steps outlined in Part 1, Step 1.
+Step 2: Generate the Signed App Bundle
+Open Android Studio:
+Launch Android Studio and open your project.
+Start the Signing Process:
+Go to Build in the top menu.
+Select Generate Signed Bundle / APK.
+Choose Android App Bundle:
+In the dialog that appears, select Android App Bundle and click Next.
+Select Your Keystore:
+Choose the keystore file you created earlier.
+Enter the keystore password and the key alias/password.
+Select Build Variants:
+Choose the build variant (e.g., release) from the dropdown.
+Finish the Wizard:
+Click Next, review the settings, and then click Finish.
+Locate the App Bundle:
+Once the build is complete, the app bundle will be generated. You can find it in the app/build/outputs/bundle/release/ directory of your project.
+
+
+
+
+  - 
