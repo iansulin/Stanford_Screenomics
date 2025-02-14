@@ -17,7 +17,7 @@ Understanding app publication is essential for ensuring that your Android app re
 
 ---
 
-### 04.1. Building a Signed APK
+### 04.1. Creating a Keystore 
 
 a. Create a Keystore
   - In Android Studio, go to Build in the top menu > select "**Generate Signed Bundle / APK**."
@@ -34,7 +34,11 @@ a. Create a Keystore
 
 > A keystore is a file that contains cryptographic keys used to sign your Android app, which is essential for distribution on the Google Play Store. It includes a private key for signing and a public certificate for identification. The keystore ensures app integrity, verifies the developer's identity, and facilitates updates. **If you lose your keystore, you cannot update your app on the Play Store, as all updates must be signed with the same key. Keeping the private key secure is crucial to prevent unauthorized access**. While you can generate a new keystore anytime, doing so creates a new identity for your app. Users would need to uninstall the old version and install the new one, risking data loss. **Once an app is published with a particular key, you cannot change it without consequences.**
 
-b. **Generate the Signed APK**
+---
+
+### 04.2. Building a Signed APK
+
+a. **Generate the Signed APK**
   - Select Your **Keystore**
     - In the `Generate Signed APK` dialog, select the keystore file you just created.
     - Enter the keystore password and the key alias/password you set earlier.
