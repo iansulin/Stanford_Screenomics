@@ -111,17 +111,17 @@ d. **Manually Replace Any Remaining References**
 
 ---
 
-### 02. Cloud Storage link replace
+### 02.5. Cloud Storage Link Replace
 
-a. Search for the old URI in your project
+a. **Search** for the old URI in your project
    - Press `Command + Shift + F` or `Ctrl + Shift + F` to open **Find in Path**.
    - **Enter the following in the search bar: `gs://old-bucket-name`**.
       - This will help locate all instances where the Cloud Storage URI is used in your project.
-   - Locate the Storage Reference Code
+   - **Locate the Storage Reference Code**
 ```
 mStorageRef = FirebaseStorage.getInstance("gs://old-bucket-name").getReference();
 ```
-   - **Replace the Old URI with Your New One**
+   - **Replace the old URI with your new URI**
 ```
 mStorageRef = FirebaseStorage.getInstance("gs://yourstudyname-f6198.firebasestorage.app").getReference();
 
