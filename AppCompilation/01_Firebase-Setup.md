@@ -53,6 +53,38 @@ b. **Create Database**:
    - Click **Next**, then select a location for your database (choose the closest region).
    - Click **Done**.
 
+c. **Review and Edit Rules**
+   - At the top of the Firestore Database section, you will see tabs labeled "Data," "Rules," and "Indexes." Click on the "**Rules**" tab.
+   - Review and edit Firestore rules
+   - Click on the "**Publish**" button to apply the new rules.
+
+**Example Rule 1.** To allow only authenticated users to read and write:
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if request.auth != null; // Only authenticated users
+    }
+  }
+}
+```
+
+**Example Rule 2.** To allow public access to read and write:
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true; // Anyone can read/write
+    }
+  }
+}
+```
+
+> **Important Note:** 
+The Stanford Screenomics team does not provide or share specific security rules, as these must be developed based on study-specific or institutional policies. This approach ensures that security protocols align with each study’s unique requirements, considering factors such as data sensitivity, regulatory compliance, and ethical guidelines. For a detailed overview of security rules, their structure, and implementation principles, refer to the [Firebase Security Rules Primer](https://firebase.google.com/docs/rules).
+
 ---
 
 ### 01.4. Add Settings Profiles
@@ -101,8 +133,9 @@ b. **Setup Storage Rules**
 c. **Review and Edit Rules**
    - Once in the Cloud Storage section, you will see several tabs at the top. Click on the "**Rules**" tab.
    - Review and edit Storage rules
+   - Click on the "**Publish**" button to apply the new rules.
 
-**Example 1.** To allow only authenticated users to read and write:
+**Example Rule 1.** To allow only authenticated users to read and write:
 ```
 rules_version = '2';
 service firebase.storage {
@@ -114,7 +147,7 @@ service firebase.storage {
 }
 ```
 
-**Example 2.** To allow public access to read and write:
+**Example Rule 2.** To allow public access to read and write:
 ```
 rules_version = '2';
 service firebase.storage {
@@ -125,7 +158,12 @@ service firebase.storage {
   }
 }
 ```
-   - Click on the "**Publish**" button to apply the new rules.
+
+The Stanford Screenomics team does not provide or share specific security rules, as these must be developed based on study-specific or institutional policies. This approach ensures that security protocols align with each study’s unique requirements, considering factors such as data sensitivity, regulatory compliance, and ethical guidelines. For a detailed overview of security rules, their structure, and implementation principles, refer to the [Firebase Security Rules Primer](https://firebase.google.com/docs/rules).
+
+
+
+
 
 
 
