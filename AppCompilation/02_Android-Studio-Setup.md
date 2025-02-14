@@ -10,33 +10,42 @@ Before you begin:
 
 ### 02.1. Install Android Studio
 
-a. **Download Android Studio**:
+a. **Download Android Studio**
    - Go to the [Android Studio download page].
    - Download the version suitable for your operating system (Windows, macOS, or Linux).
 
-b. **Install Android Studio**:
+b. **Install Android Studio**
    - Run the downloaded installer and follow the on-screen instructions.
    - Ensure that you install the Android SDK and other recommended components during the installation.
 
-c. **Launch Android Studio**:
+c. **Launch Android Studio**
    - After installation, open Android Studio. You may be prompted to import settings from a previous installation; you can start fresh.
 
 ---
 
 ### 02.2. Download the Project from GitHub
 
-a. **Find the Repository**:
+a. **Find the Repository**
    - Go to the GitHub page of the project file: ABCDESAFDASDFASFVGASD
 
-b. **Download the Project**:
+b. **Download the Project**
    - Click on the green **Code** button.
    - Select **Download ZIP** from the dropdown menu.
    - Save the ZIP file to your computer.
 
-c. **Extract the ZIP File**:
+c. **Extract the ZIP File**
    - Locate the downloaded ZIP file and extract it to a folder of your choice.
 
 ---
+
+### 02.3. Add the google-services.json File
+
+a. **Prepare Two Copies of JSON File**
+   - Copy and Paste the downloaded `google-services.json` file from your computer.
+   - Rename the copied file to `google-services_two.json`.
+      - You should now have two JSON files: `google-services.json` and `google-services_two.json`.
+
+
 
 ### 02.3. Add the google-services.json File
 a. **Locate the First Directory**:
