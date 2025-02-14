@@ -171,5 +171,5 @@ user turned off the screen.
 > If the app is still not running and there is no "opened" record, you can reasonably assume that the notifications was left unread, as Android does not provide a built-in way to track notifications, especially if they are dismissed. The failure rate for notification delivery in Android is typically 1-5% under normal conditions. However, the Screenomics app has implemented multiple strategies to stay resilient against device sleep modes, battery-saving restrictions, and background process limitations by continuously monitoring app states. As a result, the actual failure rate is expected to be significantly lower than the typical range, though it may still vary depending on manufacturer-specific restrictions.
 
 
-
+[Back to Top](#top)
     
