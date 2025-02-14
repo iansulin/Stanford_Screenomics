@@ -80,19 +80,33 @@ g. **Add the JSON File to the "databaseManager" Module**
 > * Other data collection modules do not need their own `google-services.json` file because they rely on the reusable methods provided by `databaseManager`, which already has Firebase access.
 > * The main `app` module does depend on `databaseManager` for database operations, but it still requires its own `google-services.json` file because it **interacts with Firebase directly in ways that databaseManager does not fully cover** (i.e., **Firebase Authentication**, **Crashlytics**).
 
+---
 
+### 02.4. Refactor App Package Name
+
+a. **Disable Compact Middle Packages**
+   - In the Project panel, click on the three-dot menu (⋮) in the top-right corner.
+   - **Appearance** > **Uncheck** "**Compact Middle Packages**" from the dropdown menu.
+
+b. **Expand the Package Structure**
+   - Once "Compact Middle Packages" is disabled, the app package name `edu.stanford.communication.screenomics` will split into individual folders `edu > stanford > communication > screenomics`.
+      - You can now **rename or refactor** specific package segments separately.
+      - To verify this split hierarchical structure, navigate to: `app module > java > edu > stanford > communications > screenomics` and expand the folders.
+
+c. **Refactor/Rename `communication` segment**
+   - In the hierarchical structure, navigate to: `app > src > main > java > edu > stanford > communication > screenomics` and **Select the `communication` folder** inside the app module.
+   - **Right-click** on the communication folder and **Select Refactor > Rename**.
+   - When prompted with: "Rename Package Directories: Package 'edu.stanford.communication' is present in multiple directories: ...", **Select "All Directories"** to ensure all occurrences are updated.
+   - In the "Rename" window, **change `communication` to `yourstudyname`**.
+   - Ensure the option "Rename package 'edu.stanford.communication' and its usages to:" reflects the new name.
+   - Click on the "**Refactor**" to apply the changes.
+   - The `communication` folder should now be renamed to `yourstudyname` in the package hierarchy.
+   - Open other module folders (e.g., databaseManager) and ensure that all occurrences of `communication` have been successfully renamed to `yourstudyname`.
 
 ---
 
 
-
-
----
-
-### 02.5. Refactor Package Name
-
-
-Cloud Storage link replace
+### 02. Cloud Storage link replace
 
 
 ---
