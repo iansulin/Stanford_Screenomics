@@ -21,3 +21,43 @@ b. **Run the App on the Emulator**
   - Wait for the Emulator to Boot (it may take a few minutes to boot up for the first time).
   - Once the emulator is running, you can interact with your app as you would on a physical device.
     - Use your mouse to click, drag, and type.
+
+---
+
+### 03.2. Test Registration
+
+a. Enter Registration Details
+  - On the first launch of your app in the emulator, fill in the required fields:
+    - Study Group Code
+    - Participant ID
+    - Email
+    - Password
+
+b. Submit the Form
+  - Tap the Register button to submit the form.
+  - Observe the app’s behavior to ensure successful registration.
+  
+c. Check Firebase Console for User Registration
+  - Go to **Firebase Console**
+  - In your Firebase Console, click on **Build > Authentication** in the left sidebar
+  - Click on the "**Users**" tab at the top of the Authentication section.
+  - **Verify User Registration**
+    - **Look for the newly registered user in the list**.
+    - Ensure the email and other details match the registration input.
+    - If the user does not appear, check for any errors in the app or Firebase setup.
+  - **Repeat Testing**
+    - If you need to test multiple registrations, you can either delete the user from the Firebase Console or use a different email each time.
+
+---
+
+### 03.3. 
+
+
+
+
+
+
+
+
+
+
