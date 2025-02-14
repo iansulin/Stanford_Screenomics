@@ -62,4 +62,4 @@ The `ticker` timestamps are written to Firestore in a human-readable format so t
 
 
 
-[Back to Top](#Ticker)
+[Back to Top](#top)
