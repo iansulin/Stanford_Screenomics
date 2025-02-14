@@ -50,14 +50,54 @@ c. Check Firebase Console for User Registration
 
 ---
 
-### 03.3. 
+### 03.3. Test Data Collection
+
+a. **Grant Required Permissions**
+  - After successful registration, the app will request permissions. Grant all necessary permissions for data collection (e.g., screen recording, accessibility services).
+    - If permissions are denied, the app will not start data collection.
+
+b. **Confirm Data Collection Is Running**
+  - Check for the Media Projection icon
+    - Swipe down from the top of the emulator/device screen.
+    - Look for the **screen recording/media projection icon**, which indicates that data collection is ongoing.
+    - If the icon is missing, check if permissions were denied or if the app crashed.
+
+c. **Verify Firestore Database Setup**
+  - In the Firebase Console, navigate to **Firestore Database**.
+  - Check that the following four collections have been created automatically:
+    - `install`
+    - `settings_profiles`
+    - `ticker`
+    - `users`
+   
+d. **Check User-Specific Data in Firestore Database**
+  - In the `users` collection, find the newly registered user.
+    - The **username** should be `Study Group Code + Participant ID`.
+  - Click on the username document and ensure it contains three subcollections:
+    - `events` (captures interactions, timestamps, etc.)
+    - `settings` (stores user-specific settings profile)
+    - `specs` (device specifications and configurations)
+
+e. **Verify Dynamic Parameters** 
+  - Locate the `settings_profiles` collection (Study Group Settings)
+  - Look for a document corresponding to the **study group code** used during registration.
+  - Open the document and check the parameters (e.g., data collection interval, data quality settings).
+  - Now locate the `users` > `username` > `settings` > `user_settings` document.
+  - **Verify that all parameters are configured correctly based on per-user, per-group, and default settings profiles.**
+  - In either `settings_profiles` (per-group) or users > settings (per-user), change parameter values, such as data collection interval (e.g., from 60000 to 30000 milliseconds).
+  - **Verify again that all parameters are updated correctly based on per-user, per-group, and default settings profiles.**
+  - Verify that newly collected data reflects the updated settings.
+    - Alternatively, you can monitor real-time updates in **Android Studio Logcat** (View > Tool Windows > Logcat).
+
+f. **Verify Cloud Storage Setup**
+  - In the Firebase Console, navigate to **Storage**.
+  - Open the **Files** tab and check if a new folder has been created for the user.
+    - The folder should be named using the **username** (study group code + participant ID).
+
+g. **Check User-Specific Data in Cloud Storage**
+  - Inside the user's folder, verify if non-text-based data (i.e., screenshot image files) are being uploaded.
 
 
 
-
-
-
-
-
-
+[Back to Top](#top)
 
