@@ -5,4 +5,19 @@ The **Runtime Validation Process** ensures that the app functions correctly when
 
 ---
 
-### 03.1. 
+### 03.1. Simulating the App in an Emulator
+
+a. **Set Up an Emulator**
+  - Click on the **Device Manager** icon in the toolbar (📱 it looks like a phone).
+    - If the icon is not visible, go to **Tools > Device Manager**.
+  - Click **Create Virtual Device**.
+  - Choose a device from the list and click **Next**.
+  - Select a system image (download it if prompted) and click **Next**.
+  - Configure additional settings if needed, then click **Finish**.
+
+b. **Run the App on the Emulator**
+  - Start the **Emulator**
+    - In Device Manager, find your created virtual device and click the green "Run ▶" button (green triangle) or press `Shift + F10` to launch it.
+  - Wait for the Emulator to Boot (it may take a few minutes to boot up for the first time).
+  - Once the emulator is running, you can interact with your app as you would on a physical device.
+    - Use your mouse to click, drag, and type.
