@@ -130,7 +130,26 @@ b. **Save** changes (`Command + S` or `Ctrl + S`)
 
 ---
 
-### 02.6. Clean and Build the Project
+### 02.6. Update Password
+
+a. **Search** for the old password in your project
+   - Press `Command + Shift + F` or `Ctrl + Shift + F` to open **Find in Path**.
+   - **Enter the following in the search bar: `0ldPassword!`**.
+   - **Locate the Password Reference Code**
+```
+    public static final String PASSWORD_RESTRICTION = "0ldPassword!";
+
+```
+   - **Replace the old password with your new URI**
+```
+    public static final String PASSWORD_RESTRICTION = "NewPassw0rd?";
+
+```
+b. **Save** changes (`Command + S` or `Ctrl + S`)
+
+---
+
+### 02.7. Clean and Build the Project
 
 a. **Clean the Project**
    - Go to the menu bar and select **Build > Clean Project**
