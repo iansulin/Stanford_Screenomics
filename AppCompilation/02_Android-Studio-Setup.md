@@ -1,8 +1,6 @@
 ## 02. Android Studio Setup
 
-This documentation provides instructions on how to download and use the open-source Stanford Screenomics platform project from GitHub in Android Studio to build your own study app.
-
-Before you begin:
+**Before you begin:**
 * Ensure you have your `google-services.json` file ready. This file can be obtained from the the Firebase console for your project ([See Section 01.2.b](../AppCompilation/01_Firebase-Setup.md)).
 * Have your Cloud Storage `gs://` URI ready ([See Section 01.6.d](../AppCompilation/01_Firebase-Setup.md)). 
 
