@@ -160,17 +160,15 @@ service firebase.storage {
 
 > **Important Note:** The Stanford Screenomics team does not provide or share specific security rules, as these must be developed based on study-specific or institutional policies. This approach ensures that security protocols align with each study’s unique requirements, considering factors such as data sensitivity, regulatory compliance, and ethical guidelines. For a detailed overview of security rules, their structure, and implementation principles, refer to the [Firebase Security Rules Primer](https://firebase.google.com/docs/rules).
 
-
-
-
-
-
-
-
+d. **Find and Save gs:// URI**
+   - Click on the "**Files**" tab.
+   - In the left top corner of the Storage bucket, you will find a link icon followed by the **gs://** URI.
+      -  The URI should look like this: `gs://yourstudyname-f6198.firebasestorage.app`
+   - Store (or remember) this URI for later use.
 
 ---
 
-### 01.6. Enable Crashlytics
+### 01.7. Enable Crashlytics
 a. **Enable Crashlytics**:
    - In your Firebase Console, click on **Run > Crashlytics** in the left sidebar.
    - Click **Get Started** to enable Crashlytics for your project.
@@ -180,10 +178,6 @@ a. **Enable Crashlytics**:
 > * **Already Enabled**: If you have previously set up Crashlytics for your project, it might already be enabled. You should be able to see crash reports and other data without needing to go through the setup process again.
 > * **Project Settings**: Check the project settings to confirm that Crashlytics is enabled. You can do this by navigating to the Project Settings in the Firebase Console and looking under the Integrations tab.
 > * **No Data Yet (Most Likely)**: If you recently set up Crashlytics and haven't triggered any crashes or if your app has not been used yet, you might not see any data or prompts.
-
-
-gs://screenomics2024
-gs://my-study-app-f6198.firebasestorage.app
 
 
 
