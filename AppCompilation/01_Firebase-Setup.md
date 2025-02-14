@@ -82,7 +82,7 @@ service cloud.firestore {
 }
 ```
 
-> **Important Note:** <u>The Stanford Screenomics team does not provide or share specific security rules, as these must be developed based on study-specific or institutional policies.</u> This approach ensures that security protocols align with each study’s unique requirements, considering factors such as data sensitivity, regulatory compliance, and ethical guidelines. For a detailed overview of security rules, their structure, and implementation principles, refer to the [Firebase Security Rules Primer](https://firebase.google.com/docs/rules).
+> **Important Note:** The Stanford Screenomics team does not provide or share specific security rules, as these must be developed based on study-specific or institutional policies. This approach ensures that security protocols align with each study’s unique requirements, considering factors such as data sensitivity, regulatory compliance, and ethical guidelines. For a detailed overview of security rules, their structure, and implementation principles, refer to the [Firebase Security Rules Primer](https://firebase.google.com/docs/rules).
 
 ---
 
@@ -158,7 +158,7 @@ service firebase.storage {
 }
 ```
 
-The Stanford Screenomics team does not provide or share specific security rules, as these must be developed based on study-specific or institutional policies. This approach ensures that security protocols align with each study’s unique requirements, considering factors such as data sensitivity, regulatory compliance, and ethical guidelines. For a detailed overview of security rules, their structure, and implementation principles, refer to the [Firebase Security Rules Primer](https://firebase.google.com/docs/rules).
+> **Important Note:** The Stanford Screenomics team does not provide or share specific security rules, as these must be developed based on study-specific or institutional policies. This approach ensures that security protocols align with each study’s unique requirements, considering factors such as data sensitivity, regulatory compliance, and ethical guidelines. For a detailed overview of security rules, their structure, and implementation principles, refer to the [Firebase Security Rules Primer](https://firebase.google.com/docs/rules).
 
 
 
