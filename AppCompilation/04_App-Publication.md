@@ -12,8 +12,8 @@ Understanding app publication is essential for ensuring that your Android app re
 | **Signing Key Management** | Developer manages signing keys manually | Supports Google Play App Signing for security |
 
 **Which One Should You Use?**
-* For Google Play Store → Use Signed App Bundle (AAB)
 * For manual distribution or testing → Use Signed APK
+* For Google Play Store → Use Signed App Bundle (AAB)
 
 ---
 
