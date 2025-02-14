@@ -54,7 +54,7 @@ a. **Generate the Signed APK**
 
 ---
 
-### 04.2. Building a Signed App Bundle
+### 04.3. Building a Signed App Bundle
 
 a. **Generate the Signed App Bundle**
   - In Android Studio, go to Build in the top menu > select "**Generate Signed Bundle / APK**."
