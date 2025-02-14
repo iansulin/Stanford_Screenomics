@@ -139,7 +139,7 @@ an individual image.
 
 #### Module 9. Specs
 
-The Specs module does not generate any event data. Instead, it records basic specifications about the user's smartphone, such as device model and manufacturer, in a separate Firestore database under the `users` - `specs` collection. See [Section Users](../Firebase/03_Users) for more details.
+The Specs module does not generate any event data. Instead, it records basic specifications about the user's smartphone, such as device model and manufacturer, in a separate Firestore database under the `users` - `specs` collection. See [Users](../Firebase/03_Users) for more details.
 
 #### Lifecycle Events
 Several lifecycle events are also recorded from the main Android application module (the module that integrates other data collection modules, manages resources and builds the final APK).
