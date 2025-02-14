@@ -92,7 +92,7 @@ a. Click on the "Start collection" button.
    - Click **Next**.
 
 b. Click on "Add document" button inside the `settings_profiles` collection just added.
-   - Enter **Document ID**: **`\_default_`\**
+   - Enter **Document ID**: **\`_default_`\**
       - Each document ID represents a group profile.
    - In the field input area, add **ALL** configurable dynamic parameters one by one, listed in [Section Firebase - 05.1. Dynamic Parameters](../Firebase/05_Settings.md).
       - For each field:
