@@ -21,7 +21,7 @@ If the user does not have an internet connection when the app attempts to sync, 
 
 ### 04.2. Data Processing
 
-In Firestore, cocuments are grouped into collections, which can be thought of as nested arrays of JSON objects, which is not terribly useful for analysis. A tool for converting Firestore events into downloadable CSV files (more apt for analysis) is available on request: iank@stanford.edu 
+In Firestore, cocuments are grouped into collections, which can be thought of as nested arrays of JSON objects, which is not terribly useful for analysis. A tool for converting Firestore events into downloadable CSV files (more apt for analysis) is planned, but at the time of writing has not been built. 
 
 ---
 
