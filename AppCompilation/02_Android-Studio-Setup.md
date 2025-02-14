@@ -130,14 +130,22 @@ b. Save changes
 
 ---
 
-### 02.6. Sync the Project
+### 02.6. Clean and Build the Project
 
-a. **Gradle Sync**:
-   
-   -  (the elephant icon) in the toolbar.
+a. **Clean the Project**
+   - Go to the menu bar and select **Build > Clean Project**
+      - This will remove any previously compiled files and clean the project's output directories.
 
-b. **Resolve Issues**:
-   - If there are any errors or unresolved dependencies, Android Studio will show them in the **Build** window. Follow the instructions to resolve these issues.
+b. **Build the Project**
+   - After cleaning, go to **Build > Rebuild Project**
+      - This will compile all the files and create a new build of the project.
+      
+c. **Monitor the Build Output**
+   - Look at the **Build Output** window at the bottom of the Android Studio interface. If it’s not visible, you can open it by going to **View > Tool Windows > Build**.
+   - Check **Build Messages**
+      - In the Build Output window, you will see messages indicating the progress of the build process. Look for messages that say:
+      - "**BUILD SUCCESSFUL**": This means your project has been built without any errors.
+      - "**BUILD FAILED**": This indicates that there were errors during the build process.
 
 ---
 
