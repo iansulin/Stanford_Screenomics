@@ -1,7 +1,7 @@
 ## 01. Firebase Setup
 
 **Before you begin:**
-* Create a Gmail account, if you haven't already, as it's required to access Firebase.
+* Create a Gmail account, if you haven't already, as it's required to access Firebase services.
 
 ---
 
