@@ -126,7 +126,7 @@ mStorageRef = FirebaseStorage.getInstance("gs://old-bucket-name").getReference()
 mStorageRef = FirebaseStorage.getInstance("gs://yourstudyname-f6198.firebasestorage.app").getReference();
 
 ```
-b. Save changes
+b. **Save** changes (`Command + S` or `Ctrl + S`)
 
 ---
 
@@ -141,15 +141,17 @@ b. **Build the Project**
       - This will compile all the files and create a new build of the project.
       
 c. **Monitor the Build Output**
-   - Look at the **Build Output** window at the bottom of the Android Studio interface. If it’s not visible, you can open it by going to **View > Tool Windows > Build**.
+   - **Open the Build Output Window**
+      - The **Build Output** window is usually located at the bottom of Android Studio.
+      - If it’s not visible, go to **View > Tool Windows > Build **to open it.
    - Check **Build Messages**
       - In the Build Output window, you will see messages indicating the progress of the build process. Look for messages that say:
-      - "**BUILD SUCCESSFUL**": This means your project has been built without any errors.
-      - "**BUILD FAILED**": This indicates that there were errors during the build process.
+      - "**BUILD SUCCESSFUL**": This means your project has been built without any errors > Proceed to 02.7.
+      - "**BUILD FAILED**": This indicates that there were errors during the build process. Check if any previous steps were missed or misconfigured.
 
 ---
 
-
+### 02.7. 
 
 
 
