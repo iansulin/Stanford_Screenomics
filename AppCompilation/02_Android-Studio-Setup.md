@@ -75,10 +75,10 @@ g. **Add the JSON File to the "databaseManager" Module**
 > * **Automatic Configuration**: When you include the Firebase SDKs in your project and apply the google-services plugin in your build.gradle file, the file ensures that the SDKs know how to connect to your Firebase project and which services are enabled.
 
 > Why Add `google-services.json` to Two Modules?
-> In a multi-module Android project, you need to add `google-services.json` to each module that directly interacts with Firebase services. The reason you must do this twice (once for the app module and once for the databaseManager module) is due to how Firebase and Gradle handle dependencies in a multi-module setup.
-> In Stanford Screenomics platform, the `databaseManager` module is not just a dependency but a standalone module that provides reusable database-related methods. Since it interacts directly with Firebase services (i.e., Firestore Database, Google Cloud Storage), it requires its own `google-services.json` file for proper authentication and access.
-> Other data collection modules do not need their own `google-services.json` file because they rely on the reusable methods provided by `databaseManager`, which already has Firebase access.
-> The main `app` module does depend on `databaseManager` for database operations, but it still requires its own `google-services.json` file because it interacts with Firebase directly in ways that databaseManager does not fully cover (i.e., Firebase Authentication, Crashlytics).
+> * In a **multi-module** Android project, you need to add `google-services.json` to each module that directly interacts with Firebase services. The reason you must do this twice (once for the app module and once for the databaseManager module) is due to how Firebase and Gradle handle dependencies in a multi-module setup.
+> * In Stanford Screenomics platform, the `databaseManager` module is not just a dependency but a standalone module that provides reusable database-related methods. Since it interacts directly with Firebase services (i.e., **Firestore Database**, **Google Cloud Storage**), it requires its own `google-services.json` file for proper authentication and access.
+> * Other data collection modules do not need their own `google-services.json` file because they rely on the reusable methods provided by `databaseManager`, which already has Firebase access.
+> * The main `app` module does depend on `databaseManager` for database operations, but it still requires its own `google-services.json` file because it **interacts with Firebase directly in ways that databaseManager does not fully cover** (i.e., **Firebase Authentication**, **Crashlytics**).
 
 
 
