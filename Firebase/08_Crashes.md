@@ -23,9 +23,9 @@ These entries are generally benign and can be safely ignored, as the app automat
 
 ---
 
-### 08.2 Ensuring Continuous Background Data Collection
+### 08.2 Ensuring Continuous Background Operation
 
-The Screenomics app has implemented several strategies to minimize the risk of being killed by the system and to maintain ongoing data collection, focusing on two main areas:
+The Screenomics app has implemented several strategies to minimize the risk of being killed by the system and to maintain ongoing data collection:
 
 * **Battery Optimazation**: Android devices have aggressive battery-saving modes that restrict background activity for non-essential apps. To work efficiently with Doze mode, the app uses `setAndAllowWhileIdle()` instead of forcing immediate execution. Since some manufacturers impose even stricter background restrictions, Screenomics asks users to whitelist the app to help maintain continuous background operations.
 * **Memory Management**: When a device runs low on RAM, Android may terminate background apps to free up resources. The Screenomics app proactively handles this by using `onTrimMemory()` to clear caches when the system is under memory pressure. Additionally, by using optimized data structures, the app further reduces memory usage, ensuring smoother performance and lower chances of being forcefully closed.
