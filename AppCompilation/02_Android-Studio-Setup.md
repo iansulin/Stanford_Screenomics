@@ -105,8 +105,8 @@ c. **Refactor/Rename `communication` segment**
 
 d. **Manually Replace Any Remaining References**
    - Press `Command + Shift + R` or `Ctrl + Shift + R` to open the **Find & Replace in Path** tool.
-   - In the **Find** field, enter: `edu.stanford.communication`
-   - In the **Replace with** field, enter: `edu.stanford.yourstudyname`
+   - In the **Find** field, enter: `stanford.communication`
+   - In the **Replace with** field, enter: `stanford.yourstudyname`
    - Click "**Replace All**" to ensure all occurrences are updated in the entire project.
 
 ---
