@@ -26,7 +26,7 @@ b. **Add a New Project**
 ### 01.2. Add Android App to Firebase
 a. **Register Your App**
    - In the Firebase project dashboard, click the Android icon.
-   - Enter your app's package name (e.g., `edu.stanford.mystudyapp.screenomics`).
+   - Enter your app's package name (e.g., `edu.stanford.yourstudyname.screenomics`).
    - Optionally, add an app nickname and SHA-1 fingerprint.
    - Click **Register app**.
 
