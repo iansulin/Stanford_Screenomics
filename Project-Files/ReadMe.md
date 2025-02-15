@@ -1,2 +1,0 @@
-
-Screenomics project files. 
