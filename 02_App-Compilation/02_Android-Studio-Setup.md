@@ -69,8 +69,8 @@ g. **Add the JSON File to the "databaseManager" Module**
    - If/When a "Copy" or "Replace" window appears, do **NOT** change any settings--simply click **OK**.
 
 > What Does `google-services.json` Do in Android Studio?
-> * **Configuration**: The google-services.json file configures your app to communicate with Firebase services. It contains information for authentication, database access, and other service integrations.
-> * **Automatic Configuration**: When you include the Firebase SDKs in your project and apply the google-services plugin in your build.gradle file, the file ensures that the SDKs know how to connect to your Firebase project and which services are enabled.
+> * **Configuration**: The `google-services.json` file configures your app to communicate with Firebase services. It contains information for authentication, database access, and other service integrations.
+> * **Automatic Configuration**: When you include the Firebase SDKs in your project and apply the `google-services` plugin in your `build.gradle` file, the file ensures that the SDKs know how to connect to your Firebase project and which services are enabled.
 
 > Why Add `google-services.json` to Two Modules?
 > * In a **multi-module** Android project, you need to add `google-services.json` to each module that directly interacts with Firebase services. The reason you must do this twice (once for the app module and once for the databaseManager module) is due to how Firebase and Gradle handle dependencies in a multi-module setup.
