@@ -37,8 +37,8 @@ Below is **a list of all dynamic parameters** (total sixteen, as of Feb 2025) th
 
 | Parameter Name | Unit | Range [Suggested Minimum/Default] | Description |
 |---|---|---|---|
-| `gps-enabled` | True(Yes)/False(No) | 1/0 [1] | Whether or not GPS data is gathered at `gps-location-interval` for this participant. |
-| `gps-location-interval` | Millisecond (ms) | 1 - infinite [300000] | The interval at which new GPS positions are recorded. This is the interval at which we can expect to see GPSLocationEvents being recorded. |
+| `gps-enabled` | True(Yes)/False(No) | 1/0 [1] | Whether or not GPS data is gathered at `gps-location-interval` for this participant through location module. If 0, data collection for `GPSLocationEvents` will stop at the user's next settings refresh. |
+| `gps-location-interval` | Millisecond (ms) | 1 - infinite [300000] | The interval at which new GPS positions are recorded. This is the interval at which we can expect to see `GPSLocationEvents` being recorded. |
 
 - Regardless of the value of `gps-enabled`, participants will be asked for location permissions during the initial app setup if the location module was activated during app compilation.
 - During permission granting, participants can choose between: 1. Precise location (participant's exact location; ideal for studies requiring detailed positioning) or 2. Approximate location (a general, coarse location within an area, with accuracy between 1 to 3 kilometers; suitable for studies that only need a broad understanding of participant locations or have high privacy concerns).
@@ -47,8 +47,8 @@ Below is **a list of all dynamic parameters** (total sixteen, as of Feb 2025) th
 
 | Parameter Name | Unit | Range [Suggested Minimum/Default] | Description |
 |---|---|---|---|
-| `pa-enabled` | True(Yes)/False(No) | 1/0 [1] | Whether or not Physical Activity (PA) data is gathered at `gps-location-interval` for this participant. |
-| `pa-stepcounts-interval` | Millisecond (ms) | 1 - infinite [300000] | The interval at which step counts via the PA module are recorded. This defines how frequently the total steps taken during each interval are recorded. |
+| `pa-enabled` | True(Yes)/False(No) | 1/0 [1] | Whether or not Physical Activity (PA) data is gathered at `pa-stepcounts-interval` for this participant through activity module. If 0, data collection for `StepCountEvent` will stop at the user's next settings refresh. |
+| `pa-stepcounts-interval` | Millisecond (ms) | 1 - infinite [300000] | The interval at which `StepCountEvent` (the total steps taken) are recorded through the activity module. |
 - A smaller value of `pa-stepcounts-interval` will provide richier (more frequent) data, but at the cost of increased battery usage.
 
 | Parameter Name | Unit | Range [Suggested Minimum/Default] | Description |
