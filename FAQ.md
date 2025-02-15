@@ -21,3 +21,21 @@ When the app takes a screenshot, it needs time to process the image and save it 
 * **Lower the Sampling Frequency**: Increase the screenshot sampling interval using the dynamic parameter "screenshot-interval." For example, changing it from 1000 milliseconds (1 second) to 5000 milliseconds (5 seconds) gives the system more time to process and save images, reducing potential issues.
 * **Lower the Image Quality**: Reduce image quality by adjusting the dynamic parameter "forced-image-quality." For example, lowering it from 100 to 50 can significantly decrease processing time and memory usage.
 * **Ensure Sufficient Storage Space and Performance Memory Checks**: Ensure the user device has enough storage and available memory before onboarding to avoid errors and prevent memory overload.
+
+---
+
+### 02. 
+
+#### Can I use one single app for different types of data collection? 
+Yes and no. Some data types, such as `StepCountEvent` and `GPSLocationEvent`, can be dynamically turned on or off throughout the study [See Settings - 05.1. Dynamic Parameters (Configurable Settings)](../01_Firebase/05_Settings.md). This allows researchers to use a single app version for different study groups by configuring settings profiles based on group codes. However, data types requiring fixed activation (those not listed as dynamically configurable) necessitate separate app compilations for each study group.
+
+
+
+---
+
+
+
+
+
+
+
