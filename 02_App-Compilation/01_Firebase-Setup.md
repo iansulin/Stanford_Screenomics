@@ -183,6 +183,7 @@ a. **Enable Crashlytics**:
 > * **Already Enabled**: If you have previously set up Crashlytics for your project, it might already be enabled. You should be able to see crash reports and other data without needing to go through the setup process again.
 > * **Project Settings**: Check the project settings to confirm that Crashlytics is enabled. You can do this by navigating to the Project Settings in the Firebase Console and looking under the Integrations tab.
 > * **No Data Yet (Most Likely)**: If you just set up Crashlytics and haven't triggered any crashes or your app hasn't been used yet, you may not see data immediately.
+
 > **Solution**: Try revisiting Crashlytics during [runtime validation](../02_App-Compilation/03_Runtime-Validation.md) after completing the [Android Studio setup](../02_App-Compilation/02_Android-Studio-Setup.md). Once your app starts generating data, Crashlytics should display relevant information.
 
 
