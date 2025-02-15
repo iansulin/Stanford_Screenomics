@@ -154,11 +154,11 @@ b. **Open `ModuleController`**
    - Double-click to open it.
 
 c. Activate or Deactivate Modules
-   - Locate the following lines in ModuleController:
+
 ```    
 public static boolean ENABLE_MODULE-NAME = true;
 ```
-
+   - Locate the above lines in `ModuleController`:
       - There are nine lines like this, each indicating the activation status of a data collection module.
       - The boolean value `true` indicates the module is active, while `false` indicates it is inactive.
    - Set each module's boolean value according to your specific study requirements:
