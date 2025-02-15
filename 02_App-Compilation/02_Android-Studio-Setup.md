@@ -1,8 +1,8 @@
 ## 02. Android Studio Setup
 
 **Before you begin:**
-* Ensure you have your `google-services.json` file ready. This file can be obtained from the the Firebase console for your project ([See Section 01.2.b](../AppCompilation/01_Firebase-Setup.md)).
-* Have your Cloud Storage `gs://` URI ready ([See Section 01.6.d](../AppCompilation/01_Firebase-Setup.md)). 
+* Ensure you have your `google-services.json` file ready. This file can be obtained from the the Firebase console for your project [[See Section 01.2.b](../AppCompilation/01_Firebase-Setup.md)].
+* Have your Cloud Storage `gs://` URI ready [[See Section 01.6.d](../AppCompilation/01_Firebase-Setup.md)]. 
 
 ---
 
@@ -144,7 +144,90 @@ b. **Save** changes (`Command + S` or `Ctrl + S`)
 
 ---
 
-### 02.7. Clean and Build the Project
+### 02.7. Module Activation/Deactivation
+
+a. **Locate "moduleManager" Module** 
+   -  Find the **moduleManager module**, which has **a folder icon with a bar chart**. This module is another core base module of the Screenomics platform, that serves as the central control system, overseeing the operational status of various data collection modules.
+
+b. **Open `ModuleController`**
+   - Navigate to: `moduleManager > java > edu.stanford.yourstudyname.screenomics.modulemanager > ModuleController`.
+   - Double-click to open it.
+
+c. Activate or Deactivate Modules
+   - Locate the following lines in ModuleController:
+```    
+public static boolean ENABLE_MODULE-NAME = true;
+```
+      - There are nine lines like this, each indicating the activation status of a data collection module.
+      - The boolean value `true` indicates the module is active, while `false` indicates it is inactive.
+   - Set each module's boolean value according to your specific study requirements:
+      - By default, all data collection modules are activated (`= true;`)
+      - Deactivate modules by setting them to false; (`= false;`)
+
+> The activation or deactivation of a module does not impact the overall performance of the app, as each module operates independently.
+> Deactivated modules will not collect any data, so check in advance what event data are collected by which module in the document [[Firebase - Events](../01_Firebase/04_Events.md)].
+
+* **Important Note:** If this is your first time compiling the Screenomics app, it is **NOT advised to deactivate** any modules. During runtime validation, it's essential to ensure that all types of event data are correctly sent to the database. **Testing all modules' functionality is recommended.** You can revisit this step to deactivate any modules after the initial runtime validation.
+   
+Exemple 1. Eight modules activated, one module deactivated. 
+   - The compiled app will collect all types of event data except `StepCountEvent`. 
+```
+package edu.stanford.yourstudyname.screenomics.modulemanager;
+
+public class ModuleController {
+    public static boolean ENABLE_SCREENSHOTS = true;
+    public static boolean ENABLE_APPS = true;
+    public static boolean ENABLE_INTERACTIONS = true;
+    public static boolean ENABLE_ACTIVITIES = false;
+    public static boolean ENABLE_LOCATIONS = true;
+    public static boolean ENABLE_BATTERY = true;
+    public static boolean ENABLE_POWER = true;
+    public static boolean ENABLE_NETWORK = true;
+    public static boolean ENABLE_SPECS = true;
+}
+```
+
+Example 2. Three modules activated, six modules deactivated.
+   - The compiled app will only collect 4 types of event data: `NewForegroundAppEvent` through "Apps" module, `BatteryStateEvent` and `BatteryChargingEvent` from "Battery" module, and `SystemPowerEvent` from "Power" module.  
+```
+package edu.stanford.yourstudyname.screenomics.modulemanager;
+
+public class ModuleController {
+    public static boolean ENABLE_SCREENSHOTS = false;
+    public static boolean ENABLE_APPS = true;
+    public static boolean ENABLE_INTERACTIONS = false;
+    public static boolean ENABLE_ACTIVITIES = false;
+    public static boolean ENABLE_LOCATIONS = false;
+    public static boolean ENABLE_BATTERY = true;
+    public static boolean ENABLE_POWER = false;
+    public static boolean ENABLE_NETWORK = true;
+    public static boolean ENABLE_SPECS = false;
+}
+```
+
+---
+
+### 02.8. Change App Name
+
+a. **Locate `strings.xml`**
+   - In the hierarchical structure, navigate to: `app > res > values`
+      - Ensure you open `res` folder, **NOT** `res (generated)` folder.
+      - Remember that the `res` folder is for managing your app's resources, while the `res (generated)` folder is for internal use by the build system and should not be modified directly.
+   - Double-click `strings.xml` file to open it.
+
+b. **Locate the App Name Reference Code** (line 2)
+```
+<string name="app_name">Screenomics</string>
+```
+
+c. **Change `Screenomics` to your desired app name.**
+```
+<string name="app_name">Your App Name</string>
+```
+
+---
+
+### 02.9. Clean and Build the Project
 
 a. **Clean the Project**
    - Go to the menu bar and select **Build > Clean Project**
