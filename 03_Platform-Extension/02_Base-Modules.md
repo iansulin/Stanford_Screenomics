@@ -5,8 +5,24 @@
 
 ### Base Module 1. Module Manager
 
+#### **ModuleController** 
 
-#### Reusable Classes/Methods
+The `ModuleController` class primarily consists of static boolean fields (`true` [module = activated]/`false` [module = deactivated]) that act as flags to activate or deactivate modules in the application. There are no methods defined in this class; it serves mainly as a configuration holder for module activation states.
+
+```
+// Fields
+public static boolean ENABLE_ACTIVITIES = true;
+public static boolean ENABLE_SCREENSHOTS = true;
+public static boolean ENABLE_APPS = true;
+public static boolean ENABLE_INTERACTIONS = true;
+public static boolean ENABLE_LOCATIONS = true;
+public static boolean ENABLE_NETWORK = true;
+public static boolean ENABLE_POWER = true;
+public static boolean ENABLE_SPECS = true;
+public static boolean ENABLE_BATTERY = true;
+```
+
+#### **Reusable Classes/Methods**
 
 The Module Manager module does not utilize any methods or classes from the Database Manager module. However, the Database Manager module does make use of classes and methods from the Module Manager module, specifically the `EventTimestamp` and `ModuleCharacteristics` classes. `EventTimestamp` is focused on time management and formatting, while `ModuleCharacteristics` centralizes the definitions and configurations for various modules in the application. Together, they help manage events effectively by providing time-related data and relevant characteristics for each event type.
 
@@ -60,8 +76,7 @@ public class EventData {
     }
 }
 ```
-
-- In the `EventData.Builder` class, an instance of `EventTimestamp` is created. The time is set using `timestamp.getTimestring()`, which provides the best available timestamp. It also gets the local time using `timestamp.getSystemClockTimestring()`. This ensures each event has accurate time information.
+> In the `EventData.Builder` class, an instance of `EventTimestamp` is created. The time is set using `timestamp.getTimestring()`, which provides the best available timestamp. It also gets the local time using `timestamp.getSystemClockTimestring()`. This ensures each event has accurate time information.
 
 * **`ModuleCharacteristics`**
   * **Purpose**: This singleton class defines characteristics for various modules within the application. It contains metadata about different event types and their configurations.
@@ -89,26 +104,7 @@ public class EventData {
     }
 }
 ```
-
-- The `GenerateEventId` method retrieves the ID from the characteristics of a location event using `ModuleCharacteristics.getInstance().getLocationEventCharacteristics().get("id")`. This allows the `EventData` to be associated with its corresponding module characteristics, providing context for what kind of event it represents.
-
-
-#### **ModuleController** 
-
-The `ModuleController` class primarily consists of static boolean fields (`true` [module = activated]/`false` [module = deactivated]) that act as flags to activate or deactivate modules in the application. There are no methods defined in this class; it serves mainly as a configuration holder for module activation states.
-
-```
-// Fields
-public static boolean ENABLE_ACTIVITIES = true;
-public static boolean ENABLE_SCREENSHOTS = true;
-public static boolean ENABLE_APPS = true;
-public static boolean ENABLE_INTERACTIONS = true;
-public static boolean ENABLE_LOCATIONS = true;
-public static boolean ENABLE_NETWORK = true;
-public static boolean ENABLE_POWER = true;
-public static boolean ENABLE_SPECS = true;
-public static boolean ENABLE_BATTERY = true;
-```
+> The `GenerateEventId` method retrieves the ID from the characteristics of a location event using `ModuleCharacteristics.getInstance().getLocationEventCharacteristics().get("id")`. This allows the `EventData` to be associated with its corresponding module characteristics, providing context for what kind of event it represents.
 
 ---
 
