@@ -167,7 +167,7 @@ public static boolean ENABLE_MODULE-NAME = true;
 
 > The activation or deactivation of a module does not impact the overall performance of the app, as each module operates independently.
 
-> Deactivated modules will not collect any data, so check in advance what event data are collected by which module in the document [[Firebase - Events](../01_Firebase/04_Events.md)].
+> Deactivated modules will NOT collect any data, so **check in advance what event data types are collected by which module** [[See Firebase - Events](../01_Firebase/04_Events.md)].
 
 * **Important Note:** If this is your first time compiling the Screenomics app, it is **NOT advised to deactivate** any modules. During runtime validation, it's essential to ensure that all types of event data are correctly sent to the database. **Testing all modules' functionality is recommended.** You can revisit this step to deactivate any modules after the initial runtime validation.
    
