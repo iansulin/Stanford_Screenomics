@@ -27,7 +27,7 @@ The `ticker` filters `users-events` data every 5 seconds to update a user's tick
 
 For developers, each event reported to the ticker can be toggled on or off by updating the `updateTicker` value to 0 (off) or 1 (on) in `EventUploader.java` (see the example code below). For example, if the `updateTicker` for the `GPSLocationEvent` class in `getLocationEventCharacteristics` is set to 0, the ticker will not report GPS sensor activities.
 
-```
+```java
 public Map<String, String> getLocationEventCharacteristics() {
         return new ModuleCharacteristicsData(
                         className: "GPSLocationEvent",
