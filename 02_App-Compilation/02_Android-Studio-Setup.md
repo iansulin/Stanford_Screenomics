@@ -116,11 +116,11 @@ a. **Search** for the old URI in your project
    - **Enter the following in the search bar: `gs://old-bucket-name`**.
       - This will help locate all instances where the Cloud Storage URI is used in your project.
    - **Locate the Storage Reference Code**
-```
+```java
 mStorageRef = FirebaseStorage.getInstance("gs://old-bucket-name").getReference();
 ```
    - **Replace the old URI with your new URI**
-```
+```java
 mStorageRef = FirebaseStorage.getInstance("gs://yourstudyname-f6198.firebasestorage.app").getReference();
 ```
 b. **Save** changes (`Command + S` or `Ctrl + S`)
@@ -133,12 +133,12 @@ a. **Search** for the old password in your project
    - Press `Command + Shift + F` or `Ctrl + Shift + F` to open **Find in Path**.
    - **Enter the following in the search bar: `0ldPassword!`**.
    - **Locate the Password Reference Code**
-```
-    public static final String PASSWORD_RESTRICTION = "0ldPassword!";
+```java
+public static final String PASSWORD_RESTRICTION = "0ldPassword!";
 ```
    - **Replace the old password with your new URI**
-```
-    public static final String PASSWORD_RESTRICTION = "NewPassw0rd?";
+```java
+public static final String PASSWORD_RESTRICTION = "NewPassw0rd?";
 ```
 b. **Save** changes (`Command + S` or `Ctrl + S`)
 
@@ -155,7 +155,7 @@ b. **Open `ModuleController`**
 
 c. Activate or Deactivate Modules
 
-```    
+``` java   
 public static boolean ENABLE_MODULE-NAME = true;
 ```
    - Locate the above lines in `ModuleController`:
@@ -173,7 +173,7 @@ public static boolean ENABLE_MODULE-NAME = true;
    
 Exemple 1. Eight modules activated, one module deactivated. 
    - The compiled app will collect all types of event data except `StepCountEvent`. 
-```
+```java
 package edu.stanford.yourstudyname.screenomics.modulemanager;
 
 public class ModuleController {
@@ -191,7 +191,7 @@ public class ModuleController {
 
 Example 2. Three modules activated, six modules deactivated.
    - The compiled app will only collect 4 types of event data: `NewForegroundAppEvent` through "Apps" module, `BatteryStateEvent` and `BatteryChargingEvent` from "Battery" module, and `SystemPowerEvent` from "Power" module.  
-```
+```java
 package edu.stanford.yourstudyname.screenomics.modulemanager;
 
 public class ModuleController {
@@ -218,12 +218,12 @@ a. **Locate `strings.xml`**
    - Double-click `strings.xml` file to open it.
 
 b. **Locate the App Name Reference Code** (line 2)
-```
+```java
 <string name="app_name">Screenomics</string>
 ```
 
 c. **Change `Screenomics` to your desired app name.**
-```
+```java
 <string name="app_name">Your App Name</string>
 ```
 
