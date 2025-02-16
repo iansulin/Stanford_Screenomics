@@ -64,7 +64,7 @@ c. **Review and Edit Rules**
    - Click on the "**Publish**" button to apply the new rules.
 
 **Example Rule 1.** To allow only authenticated users to read and write:
-```
+```java
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
