@@ -1,4 +1,4 @@
-## 03. Processing Event
+## 3.03. Processing Event
 
 Once an event is **captured**, **extracted**, and **stored** in a `HashMap`, it is **passed to** `EventOperationManager.addEvent()`. This method **automates event processing**, including **formatting**, **storing** data in local SQLite, and **uploading** it to Firestore.
 
@@ -6,7 +6,7 @@ Developers **do NOT need to manually format events, write to databases, or handl
 
 --- 
 
-### 03.1. Receiving Event Data
+### 3.03.1. Receiving Event Data
 
 When an event occurs, `EventOperationManager.addEvent()` **receives event data** in the form of two parameters:
 
@@ -54,7 +54,7 @@ public class ModuleCharacteristics {
 
 ---
 
-### 03.2 Formatting Event Data
+### 3.03.2 Formatting Event Data
 
 After receiving event data, `addEvent()` calls `EventData.Builder` to structure the event before storing it.
 
@@ -110,7 +110,7 @@ EventData event = new EventData.Builder("interaction", "InteractionEvent")
 
 ---
 
-### 03.3 Buffering the Event in Memory
+### 3.03.3 Buffering the Event in Memory
 
 Once `EventOperationManager.addEvent()` receives and formats the event using `EventData.Builder`, it **does not immediately store or upload the event**. Instead, it **buffers the event in memory** to improve efficiency.
 
@@ -154,7 +154,7 @@ public void addEvent(Map<String, String> moduleInfo, HashMap<String, String> eve
 
 ---
 
-### 03.4. Triggers Batch Writing
+### 3.03.4. Triggers Batch Writing
 
 Once an event is buffered in memory inside `eventBuffer`, it is not immediately written to SQLite. Instead, **the system waits until enough events accumulate before writing them in bulk**. This improves efficiency and reduces I/O operations.
 
@@ -193,7 +193,7 @@ private void flushEventsToDB() {
 
 ---
 
-### 03.5. Uploading Events to Firestore
+### 3.03.5. Uploading Events to Firestore
 
 After events are stored in SQLite, they are **eventually uploaded to Firestore**. 
 
@@ -236,7 +236,7 @@ private void uploadEventsToFirestore() {
 
 ---
 
-### 03.6. End-to-End Event Processing 
+### 3.03.6. End-to-End Event Processing 
 
 **Example.** Integrating `EventOperationManager.addEvent()` with the `HashMap` code shown in [02.3. Event Timestamp Assignment](../)
 ```java
@@ -274,7 +274,7 @@ public void collectData(Event event) {
 
 ---
 
-### 03.7. Developer Guide
+### 3.03.7. Developer Guide
 
 | Step | To Do | Background Task |
 |---|---|---|
