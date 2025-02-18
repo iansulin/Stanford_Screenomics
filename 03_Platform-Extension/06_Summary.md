@@ -47,7 +47,7 @@ The **`moduleManager`** and **`databaseManager`** modules provide a robust frame
 
 ---
 
-### 06.3. Summary of Developer Responsibilities
+### 06.3. Developer Responsibilities
 | **Step** | **Developer Action** | **What Happens Automatically?** |
 |---|---|---|
 | **Capture Event** | Listen for a system event and extract details | No manual formatting required. |
