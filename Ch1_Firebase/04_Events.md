@@ -1,4 +1,4 @@
-## 04. Events
+## 1.04. Events
 
 All text-based data streams about user behavior/activity defined in data collection modules are recorded as events. An event represents a discrete action that happened at a particular point in time. Sometimes, data streams translate very well to this interpretation. For example, “a screenshot was taken” or “an error
 occurred” are both things that happen at a particular instant. Sometimes the translation is less
@@ -10,7 +10,7 @@ Events are recorded as entries in the Firestore database under `users` - `events
 
 ---
 
-### 04.1. Event Syncing
+### 1.04.1. Event Syncing
 
 The Screenomics app syncs events with the Firebase in near real-time. Syncing will occur over
 either Wi-Fi or data plan (5G or LTE), depending on how user's network preference is defined in the **Settings-Profiles**. Syncing over data plan should use negligible amounts of mobile data allowances, since event data is entirely a text-based stream. 
@@ -19,13 +19,13 @@ If the user does not have an internet connection when the app attempts to sync, 
 
 ---
 
-### 04.2. Data Processing
+### 1.04.2. Data Processing
 
 In Firestore, cocuments are grouped into collections, which can be thought of as nested arrays of JSON objects, which is not terribly useful for analysis. A tool for converting Firestore events into downloadable CSV files (more apt for analysis) is planned, but at the time of writing has not been built. 
 
 ---
 
-### 04.3. General Metadata Tags
+### 1.04.3. General Metadata Tags
 
 All events record the following fields in the database:
 * **time**: The time at which this event occurred, in GMT time `YYYYMMDDHHMMSSsss`. This timestamp synchronizes with server-based time, and thus will be accurate even if the user’s device clock is not, such as when the user is traveling across different time zones.
@@ -34,7 +34,7 @@ All events record the following fields in the database:
 
 ---
 
-### 04.4. Event Types
+### 1.04.4. Event Types
 
 Below are listed all of the types of events recorded by Screenomics, grouped by the purpose they serve. All events have the metadata in the above section; any additional metadata will be listed here for each event type. 
 
