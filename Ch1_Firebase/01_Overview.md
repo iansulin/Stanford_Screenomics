@@ -1,4 +1,4 @@
-## 1.01. Overview
+## 1.01. Overview: Firebase Integration in the Stanford Screenomics
 
 The **Stanford Screenomics system leverages Firebase’s suite of services** to enable **secure, scalable, and efficient data collection** for research. The system is designed to handle user authentication, event logging, real-time synchronization, and cloud storage, ensuring compliance with HIPAA regulations while providing a seamless experience for researchers and participants.
 
