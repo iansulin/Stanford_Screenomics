@@ -1,6 +1,6 @@
 ## 05. Settings Manager
 
-The event data collection process is dynamically controlled through the Firestore console, allowing researchers or administrators to adjust data collection settings without hardcoding or requiring an app update [See Settings Profiles](../Firebase/05_Settings.md). This section covers how new dynamic parameters can be added to a new module.
+The event data collection process is dynamically controlled through the Firestore console, allowing researchers or administrators to adjust data collection settings without hardcoding or requiring an app update [[See Settings Profiles](../01_Firebase/05_Settings.md)]. This section covers how new dynamic parameters can be added to a new module.
 
 
 **Note.** `ModuleController` and `SettingsManager` both control event collection, but **they serve different purposes**.
