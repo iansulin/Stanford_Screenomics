@@ -1,4 +1,4 @@
-## 02. Android Studio Setup
+## 2.03. Android Studio Setup
 
 **Before you begin:**
 * Ensure you have your `google-services.json` file ready. This file can be obtained from the the Firebase console for your project [[See Section 01.2.b](../AppCompilation/01_Firebase-Setup.md)].
@@ -6,7 +6,7 @@
 
 ---
 
-### 02.1. Install Android Studio
+### 2.03.1. Install Android Studio
 
 a. **Download Android Studio**
    - Go to the [Android Studio download page].
@@ -21,10 +21,10 @@ c. **Launch Android Studio**
 
 ---
 
-### 02.2. Download the Project from GitHub
+### 2.03.2. Download the Project from GitHub
 
 a. **Find the Repository**
-   - Go to the GitHub page of the project file: ABCDESAFDASDFASFVGASD
+   - [Go to the GitHub page of the project file](../Project-Files)
 
 b. **Download the Project**
    - Click on the green **Code** button.
@@ -36,7 +36,7 @@ c. **Extract the ZIP File**
 
 ---
 
-### 02.3. Add the google-services.json File
+### 2.03.3. Add the google-services.json File
 
 a. **Launch Android Studio**
    - If you haven't opened it yet, start Android Studio.
@@ -80,7 +80,7 @@ g. **Add the JSON File to the "databaseManager" Module**
 
 ---
 
-### 02.4. Refactor App Package Name
+### 2.03.4. Refactor App Package Name
 
 a. **Disable Compact Middle Packages**
    - In the Project panel, click on the three-dot menu (⋮) in the top-right corner.
@@ -109,7 +109,7 @@ d. **Manually Replace Any Remaining References**
 
 ---
 
-### 02.5. Cloud Storage Link Replace
+### 2.03.5. Cloud Storage Link Replace
 
 a. **Search** for the old URI in your project
    - Press `Command + Shift + F` or `Ctrl + Shift + F` to open **Find in Path**.
@@ -127,7 +127,7 @@ b. **Save** changes (`Command + S` or `Ctrl + S`)
 
 ---
 
-### 02.6. Update Password
+### 2.03.6. Update Password
 
 a. **Search** for the old password in your project
    - Press `Command + Shift + F` or `Ctrl + Shift + F` to open **Find in Path**.
@@ -144,7 +144,7 @@ b. **Save** changes (`Command + S` or `Ctrl + S`)
 
 ---
 
-### 02.7. Module Activation/Deactivation
+### 2.03.7. Module Activation/Deactivation
 
 a. **Locate "moduleManager" Module** 
    -  Find the **moduleManager module**, which has **a folder icon with a bar chart**. This module is another core base module of the Screenomics platform, that serves as the central control system, overseeing the operational status of various data collection modules.
@@ -167,7 +167,7 @@ public static boolean ENABLE_MODULE-NAME = true;
 
 > The activation or deactivation of a module does not impact the overall performance of the app, as each module operates independently.
 
-> Deactivated modules will NOT collect any data, so **check in advance what event data types are collected by which module** [[See Firebase - Events](../01_Firebase/04_Events.md)].
+> Deactivated modules will NOT collect any data, so **check in advance what event data types are collected by which module** [[See Firebase - Events](../Ch1_Firebase/04_Events.md)].
 
 * **Important Note:** If this is your first time compiling the Screenomics app, it is **NOT advised to deactivate** any modules. During runtime validation, it's essential to ensure that all types of event data are correctly sent to the database. **Testing all modules' functionality is recommended.** You can revisit this step to deactivate any modules after the initial runtime validation.
    
@@ -209,7 +209,7 @@ public class ModuleController {
 
 ---
 
-### 02.8. Change App Name
+### 2.03.8. Change App Name
 
 a. **Locate `strings.xml`**
    - In the hierarchical structure, navigate to: `app > res > values`
@@ -229,7 +229,7 @@ c. **Change `Screenomics` to your desired app name.**
 
 ---
 
-### 02.9. Clean and Build the Project
+### 2.03.9. Clean and Build the Project
 
 a. **Clean the Project**
    - Go to the menu bar and select **Build > Clean Project**
@@ -245,7 +245,7 @@ c. **Monitor the Build Output**
       - If it’s not visible, go to **View > Tool Windows > Build **to open it.
    - Check **Build Messages**
       - In the Build Output window, you will see messages indicating the progress of the build process. Look for messages that say:
-      - "**BUILD SUCCESSFUL**": This means your project has been built without any errors > Proceed to [Section 3](../AppCompilation/03_Runtime-Validation.md).
+      - "**BUILD SUCCESSFUL**": This means your project has been built without any errors > Proceed to [Section 4](../Ch2_App-Compilation/04_Runtime-Validation.md).
       - "**BUILD FAILED**": This indicates that there were errors during the build process. Check if any previous steps were missed or misconfigured.
 
 
