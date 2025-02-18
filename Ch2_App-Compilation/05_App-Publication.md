@@ -1,4 +1,4 @@
-## 04. App Publication
+## 2.05. App Publication
 
 Understanding app publication is essential for ensuring that your Android app reaches users efficiently and securely. The process involves generating either a **Signed APK** or a **Signed App Bundle (AAB)**, both of which verify the authenticity of your app and enable distribution through the Google Play Store or other platforms. Choosing the right format impacts security, performance optimization, and update management. While a Signed APK is directly installable and can be shared manually, a Signed App Bundle is required for Google Play distribution, allowing Play Store to optimize delivery for different devices. Below is a comparison of the two formats:
 
@@ -17,7 +17,7 @@ Understanding app publication is essential for ensuring that your Android app re
 
 ---
 
-### 04.1. Creating a Keystore 
+### 2.05.1. Creating a Keystore 
 
 a. Create a Keystore
   - In Android Studio, go to Build in the top menu > select "**Generate Signed Bundle / APK**."
@@ -38,7 +38,7 @@ a. Create a Keystore
 
 ---
 
-### 04.2. Building a Signed APK
+### 2.05.2. Building a Signed APK
 
 a. **Generate the Signed APK**
   - Select Your **Keystore**
@@ -54,7 +54,7 @@ a. **Generate the Signed APK**
 
 ---
 
-### 04.3. Building a Signed App Bundle
+### 2.05.3. Building a Signed App Bundle
 
 a. **Generate the Signed App Bundle**
   - In Android Studio, go to Build in the top menu > select "**Generate Signed Bundle / APK**."
