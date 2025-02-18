@@ -1,8 +1,8 @@
 ## 2.03. Android Studio Setup
 
 **Before you begin:**
-* Ensure you have your `google-services.json` file ready. This file can be obtained from the the Firebase console for your project [[See Section 01.2.b](../AppCompilation/01_Firebase-Setup.md)].
-* Have your Cloud Storage `gs://` URI ready [[See Section 01.6.d](../AppCompilation/01_Firebase-Setup.md)]. 
+* Ensure you have your `google-services.json` file ready. This file can be obtained from the the Firebase console for your project [[See Chapter 2 - Section 02.2.b](../Ch2_App-Compilation/02_Firebase-Setup.md)].
+* Have your Cloud Storage `gs://` URI ready [[See Chapter 2 - Section 02.6.d](../Ch2_App-Compilation/02_Firebase-Setup.md)]. 
 
 ---
 
@@ -53,7 +53,7 @@ d. **Locate "App" Module**
 
 e.  **Add the JSON File to the "App" Module**
    - Open the folder on your computer where the `google-services.json` file is located.
-   - Copy the `google-services.json` file (Command + C or Ctrl + C).
+   - Copy the `google-services.json` file (`Command + C` or `Ctrl + C`).
    - In Android Studio, **Select the App Module** (the folder icon with a green square).
    - **Paste the JSON file into the App Module**.
    - If/When a "Copy" or "Replace" window appears, do **NOT** change any settings--simply click **OK**.
