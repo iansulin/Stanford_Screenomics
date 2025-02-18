@@ -16,7 +16,7 @@ This guide is intended for:
 
 ---
 
-### 2.01.2. How the Screenomics System Works [[See Chapter 1](../Ch1_Firebase/01_Overview)]
+### 2.01.2. How the Screenomics System Works [[See Chapter 1](../Ch1_Firebase/01_Overview.md)]
 The **Screenomics app** is built on a cloud-integrated design, meaning that data collection, authentication, and study management are handled through Firebase’s cloud services rather than requiring manual configurations within the app itself. This makes it easy for researchers to manage their studies remotely and ensure that data is securely stored and accessible.
 
 Key features of the Screenomics system include:
