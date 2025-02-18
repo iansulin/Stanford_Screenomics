@@ -12,7 +12,7 @@ When an event occurs, `EventOperationManager.addEvent()` **receives event data**
 
 1. `moduleInfo` (General Event Metadata)
 
-- This is a Map<String, String> that provides general event metadata (consistant across all captured momentary events), including:
+- This is a `Map<String, String>` that provides general event metadata (consistant across all captured momentary events), including:
     - Event Type (e.g., "interaction", "battery-state", "battery-charging")
     - Class Name (e.g., "InteractionEvent", "BatteryStateEvent", "BatteryChargingEvent")
     - Update Ticker (Determines if the event should update Firestore ticker)
@@ -121,9 +121,9 @@ Once `EventOperationManager.addEvent()` receives and formats the event using `Ev
 
 | Action | Code Snippet | Purpose |
 |---|---|---|
-| 1. Add event to memory buffer	| `eventBuffer.add(event);` | Temporarily stores event in RAM instead of writing immediately. |
-| 2. Check buffer size | `if (eventBuffer.size() >= BATCH_SIZE) ...` | Ensures we only write to storage when enough events are collected. |
-| 3. If buffer is full, write events to SQLite | `flushEventsToDB();` | Moves all buffered events to local storage in one efficient batch. |
+| **1. Add event to memory buffer**	| `eventBuffer.add(event);` | Temporarily stores event in RAM instead of writing immediately. |
+| **2. Check buffer size** | `if (eventBuffer.size() >= BATCH_SIZE) ...` | Ensures we only write to storage when enough events are collected. |
+| **3. If buffer is full, write events to SQLite** | `flushEventsToDB();` | Moves all buffered events to local storage in one efficient batch. |
 
 **Code.** Buffering events in memory with `addEvent()` 
 ```java
