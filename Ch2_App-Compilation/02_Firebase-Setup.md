@@ -10,7 +10,7 @@ a. **Go to Firebase Console**
    - Open [Firebase Console](https://console.firebase.google.com/).
 
 b. **Add a New Project**
-   - Click **Add project**.
+   - Click **Create a project**.
    - Enter a project name (e.g., "YourStudyName").
    - Optionally enable Google Analytics.
    - Click **Create Project** and then **Continue**.
@@ -99,7 +99,7 @@ a. Click on the "Start collection" button.
 b. Click on "Add document" button inside the `settings_profiles` collection just added.
    - Enter **Document ID**: `_default_`
       - Each document ID represents a group profile.
-   - In the field input area, add **ALL** configurable dynamic parameters one by one, listed in [Section Firebase - 05.1. Dynamic Parameters](../Firebase/05_Settings.md).
+   - In the field input area, add **ALL** configurable dynamic parameters one by one, listed in [Section Firebase - 05.1. Dynamic Parameters](../Ch1_Firebase/05_Settings.md).
       - For each field:
          - Field Name: Enter the Parameter Name (e.g., `settings-refresh-interval`)
          - Field Type: Select "String" (for all 15 parameters) from the dropdown.
