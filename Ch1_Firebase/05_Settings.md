@@ -1,10 +1,10 @@
-## 05. Settings
+## 1.05. Settings
 
 The Stanford Screenomics offers researchers the flexibility to customize features and adapt to changing study needs without involving participants. Using the Firestore `settings_profiles` collection, researchers can define and update key parameters such as sampling intervals, data collection preferences, and network usage directly via the Firebase console on a per-user, per-group, or global basis. The app periodically retrieves these updates at intervals specified by the `settings-refresh-interval` setting, enabling efficient adjustments while balancing device considerations like battery life, storage, and privacy.
 
 ---
 
-### 05.1. Dynamic Parameters (Configurable Settings)
+### 1.05.1. Dynamic Parameters (Configurable Settings)
 
 Below is **a list of all dynamic parameters** (total sixteen, as of Feb 2025) that are configurable per-group or per-user through the settings framework.
 
@@ -59,7 +59,7 @@ Below is **a list of all dynamic parameters** (total sixteen, as of Feb 2025) th
 
 ---
 
-### 05.2. Settings-Profiles
+### 1.05.2. Settings-Profiles
 
 Settings_profiles enable the creation of groups of settings values to apply to large numbers of users. Settings profiles are recorded in the `settings_profiles` collection in Firestore (one of the top level collections). 
 
@@ -85,7 +85,7 @@ Alternatively, say a new user signs up with a group code *INT*. This code doesn'
 
 ---
 
-### 05.3. Configuring settings on a per-user basis
+### 1.05.3. Configuring settings on a per-user basis
 
 The settings profile system makes it easy to configure settings for large groups of users, but it's also possible to dynamically control settings for individual users. This can be done in Firestore by going to the collection `/users/[username]/settings/user-settings` and changing settings there manually.
 
@@ -95,7 +95,7 @@ The parameter values listed in a user's own settings directory reflect exactly w
 
 ---
 
-### 05.4. settings-group-override
+### 1.05.4. `settings-group-override`
 
 The `settings-group-override` parameter, if set to 1 (enabled), will cause a user to draw their settings from their settings profile at all times. This is the default for app users. 
 
