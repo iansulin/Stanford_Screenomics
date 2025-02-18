@@ -1,4 +1,4 @@
-## 01. Overview: Extending Screenomics with New Data Collection Modules
+## 3.01. Overview: Extending Screenomics with New Data Collection Modules
 
 The Screenomics app is built on a **modular architecture**, making it easy to extend its functionality by adding new data collection modules. This document serves as an introduction to the development process, outlining how the app is structured and how developers can take advantage of core base modules to simplify implementation.
 
@@ -10,7 +10,7 @@ This guide walks through the essential components of the Screenomics system and 
 
 ---
 
-### 01.1. How the Modular System Works
+### 3.01.1. How the Modular System Works
 The Screenomics app is structured so that each data collection module is responsible for listening to system events, extracting relevant details, and passing that data through a standardized processing pipeline. 
 
 Two key base modules support this system:
@@ -28,7 +28,7 @@ By leveraging these core modules, developers avoid redundant work and can rely o
 
 ---
 
-### 01.2. Developer Workflow for Adding a New Module
+### 3.01.2. Developer Workflow for Adding a New Module
 
 The process for developing a new data collection module follows a structured flow:
 
@@ -39,7 +39,7 @@ The process for developing a new data collection module follows a structured flo
 
 ---
 
-### 01.3. Next Steps
+### 3.01.3. Next Steps
 
 The following sections will provide detailed guidance on each step of the development process. You will learn how to:
 - Capture and structure event data effectively.
