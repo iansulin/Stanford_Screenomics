@@ -1,4 +1,4 @@
-## 2.01. Overview
+## 2.01. Overview: Using the Stanford Screenomics App (No Coding Required)
 
 The Stanford Screenomics platform is designed for researchers who want to passively collect smartphone-based digital trace data without needing any coding experience. The app enables data collection through an easy-to-use system that integrates with Firebase, automating many technical processes such as data storage, authentication, and real-time settings control.
 
