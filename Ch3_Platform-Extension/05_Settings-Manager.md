@@ -1,4 +1,4 @@
-## 05. Settings Manager
+## 3.05. Settings Manager
 
 The event data collection process is dynamically controlled through the Firestore console, allowing researchers or administrators to adjust data collection settings without hardcoding or requiring an app update [[See Settings Profiles](../01_Firebase/05_Settings.md)]. This section covers how new dynamic parameters can be added to a new module.
 
@@ -19,7 +19,7 @@ The event data collection process is dynamically controlled through the Firestor
 
 ---
 
-### 05.1. Mechanism
+### 3.05.1. Mechanism
 
 The app controls certain data collection features dynamically by fetching settings from **Firestore documents in `settings_profiles` collection**, instead of hardcoding them. This allows researchers or administrators to remotely enable/disable features and adjust data collection settings during the study period without requiring an app update.
 
@@ -48,7 +48,7 @@ d. **Researchers Can Update Firestore Settings Anytime**
 
 ---
 
-### 05.2. Add Dynamic Parameters to `Settings_Profiles`
+### 3.05.2. Add Dynamic Parameters to `Settings_Profiles`
 
 You have already developed a data collection module that captures scroll-up events and sends them to Firestore for storage. Now, imagine you have expanded this module to also capture scroll-down events and now want to allow researchers to dynamically enable or disable **scroll-up** and **scroll-down** logging using Firestore `settings_profiles`.
 
@@ -98,7 +98,7 @@ To allow remote control over scroll event tracking, **add two new dynamic parame
 
 ---
 
-### 05.3. Fetch Parameters in `databaseManager` Module - `SettingsManager` Class
+### 3.05.3. Fetch Parameters in `databaseManager` Module - `SettingsManager` Class
 
 a. Modify `resetToLocalDefaults()` in `SettingsManager.java` by adding the new dynamic parameters:
 ```java
@@ -136,7 +136,7 @@ SettingsManager.val("scroll-down-enabled");
 
 ---
 
-### 05.4. How `SettingsManager.val("parameter-name")` Provides Global Access to Dynamic Parameters
+### 3.05.4. How `SettingsManager.val("parameter-name")` Provides Global Access to Dynamic Parameters
 
 The method `SettingsManager.val("parameter-name")` allows any part of the app to globally access Firestore-controlled settings without needing additional helper functions. This works because:
 
@@ -198,7 +198,7 @@ private void loadFromDataSnapshot(DocumentSnapshot dataSnapshot, boolean clear) 
 
 ---
 
-### 05.5. Add `SettingsManager.val()` for Scroll-Up and Scroll-Down Control 
+### 3.05.5. Add `SettingsManager.val()` for Scroll-Up and Scroll-Down Control 
 
 This updated version of `UserInteractionCapture` dynamically checks values of Firestore parameters `"scroll-up-enabled"` and `"scroll-down-enabled"` before logging scroll events. It ensures:
 * Scroll-up and scroll-down event logging can be enabled/disabled remotely.
