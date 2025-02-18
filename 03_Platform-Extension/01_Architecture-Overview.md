@@ -1,14 +1,55 @@
-##  Overview of Modular Architecture of The Stanford Screenomics
+## 01. Overview: Extending Screenomics with New Data Collection Modules
 
-The Stanford Screenomics Data Collection App features a modular architecture that streamlines data collection across various device aspects, enabling developers to easily enable or disable functionalities for greater flexibility and scalability. It consists of two core base modules—`ModuleManager` and `DatabaseManager`—which provide the essential framework for the app’s operations and facilitate the integration of additional data collection modules. These base modules handle critical tasks like data structure management and database setup, creating a robust foundation that simplifies the development and integration of new modules. Developers can leverage existing functionalities from the base modules, ensuring their custom modules align seamlessly with the app’s architecture. Currently, the app includes nine built-in data collection modules, each tailored to specific needs and utilizing features from the base modules. This design encourages collaborative enhancements, allowing multiple developers to contribute to the evolution of the app by collectively updating the base modules, improving data collection methodologies, and reinforcing security measures. As a result, this modular setup not only enhances usability and adaptability but also positions the app to evolve efficiently with changing data collection requirements while maintaining a secure and robust environment.
+The Screenomics app is built on a **modular architecture**, making it easy to extend its functionality by adding new data collection modules. This document serves as an introduction to the development process, outlining how the app is structured and how developers can take advantage of core base modules to simplify implementation.
 
-The `ModuleManager` acts as the central control system for the app, overseeing the operational status of various data collection modules. It provides the necessary infrastructure to activate or deactivate features based on user preferences or system conditions, ensuring the app adapts to different contexts without compromising performance. This dynamic configuration allows for real-time adjustments to functionality, enabling developers to tailor the user experience to specific needs or constraints. Additionally, the `ModuleManager` ensures centralized event management by consistently timestamping all data collected across different modules, which is vital for accurate data analysis. It also centralizes the generation of characteristics for various events, such as location updates and battery state changes, ensuring uniformity in how events are defined and logged throughout the app. Furthermore, the `ModuleManager` maintains static flags that indicate whether specific data collection modules are enabled or disabled, promoting cohesive module coordination and preventing conflicts within the system.
+This guide walks through the essential components of the Screenomics system and how they work together to support modular development. It covers:
+- **The app’s modular architecture**, explaining how independent data collection modules interact with the system.
+- **Core base modules (`moduleManager` and `databaseManager`)**, which provide reusable components for event handling, metadata management, and data storage.
+- **The streamlined development process**, demonstrating how developers can focus solely on capturing events without worrying about event formatting, storage, or uploading.
+- **Dynamic controls through Firestore**, enabling real-time adjustments to data collection without requiring app updates.
 
-The `Database Manager` is essential for data storage and retrieval, acting as the primary repository for all user-related data and preferences. This module provides a secure storage solution for sensitive information, such as user authentication data and communication preferences, ensuring that this information is well-protected yet accessible when needed. It offers robust data management options for both text-based data, like user location coordinates, and non-text-based data, such as screenshot images. Initially, all data is stored in a hidden local storage on the user's device. When connected to a network, text-based data is transferred to Firestore, while non-text-based data is sent to Google Cloud Storage. Developers can set network preferences for data transfer separately for text and non-text data; for instance, specifying Wi-Fi only for non-text data ensures uploads occur exclusively when connected to Wi-Fi. Additionally, the module regularly syncs data collected from various modules and manages the upload of events to maintain an up-to-date database of user interactions. It also tracks communication-related preferences, enabling modules to respond effectively to user needs and system conditions. For example, if a developer has set preferences based on device power states, the app can adjust its notification settings to ensure users receive timely alerts about inactivity. 
+---
 
-The data collection modules consist of eight distinct components, each responsible for gathering specific types of data based on user interactions or system events. The `screenshots` module captures and uploads screenshots automatically at defined intervals, providing a visual record of screen contents on a user device. The `apps` module monitors and logs the currently active applications, offering valuable insights into user engagement patterns. The `interactions` module records user actions, including clicks and scrolls, allowing for a comprehensive analysis of user behavior. The `locations` module manages continuous location updates, tracking the device's geographic position using latitude and longitude. The `activities` module logs step counts through the device's sensors, contributing to a better understanding of physical engagement. The `battery` module monitors battery status and logs related events, facilitating effective power usage management. The `power` module tracks screen state changes (on/off) to manage user presence and interaction, while the Network module monitors connectivity to Wi-Fi and data plans, logging changes to optimize data usage management. The 'specs' module collects basic device specifications upon account creation. 
+### 01.1. How the Modular System Works
+The Screenomics app is structured so that each data collection module is responsible for listening to system events, extracting relevant details, and passing that data through a standardized processing pipeline. 
+
+Two key base modules support this system:
+- `moduleManager`: Standardizing Event Metadata and Timestamps
+  - This module ensures consistency across all event data by:
+    - Assigning standardized metadata to each event type.
+    - Providing accurate UTC and local timestamps.
+- `databaseManager`: Automating Processing and Storage
+  - This module handles:
+    - **Event Processing:** Formatting event data for uniformity.
+    - **Local Storage:** Buffering and writing data efficiently to SQLite.
+    - **Uploading to Firestore:** Managing bulk and real-time data uploads.
+
+By leveraging these core modules, developers avoid redundant work and can rely on built-in automation to handle much of the event lifecycle.
+
+---
+
+### 01.2. Developer Workflow for Adding a New Module
+
+The process for developing a new data collection module follows a structured flow:
+
+1. **Capture an Event** – A module listens for system events and extracts relevant data.
+2. **Assign Metadata** – Event data is classified using standardized metadata.
+3. **Send Event for Processing** – The event is passed to `EventOperationManager.addEvent()`, which automates formatting, storage, and uploads.
+4. **Control Collection Dynamically** – Modules can be activated or deactivated through `ModuleController`, while Firestore `settings_profiles` allows researchers to dynamically modify data collection parameters remotely.
+
+---
+
+### 01.3. Next Steps
+
+The following sections will provide detailed guidance on each step of the development process. You will learn how to:
+- Capture and structure event data effectively.
+- Use `moduleManager` to ensure consistency in event metadata.
+- Utilize `databaseManager` to automate processing and storage.
+- Implement module activation switches through `ModuleController`.
+- Add dynamic parameters to adjust event logging in real-time.
+
+By following this guide, developers can seamlessly integrate new data collection modules into the Screenomics system while benefiting from an efficient and scalable architecture.
 
 
-
-
+[Back to Top](#top)
 
