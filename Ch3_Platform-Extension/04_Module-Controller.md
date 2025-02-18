@@ -1,4 +1,4 @@
-## 04. Module Controller
+## 3.04. Module Controller
 
 The `ModuleController` acts as **a central switchboard**, allowing different data collection modules (e.g., networkModule, interactionModule) to be enabled or disabled dynamically.
 
@@ -15,7 +15,7 @@ Instead of manually modifying each module to turn it on or off, developers **con
 
 ---
 
-### 04.1. The Pathway
+### 3.04.1. The Pathway
 
 a. **`ModuleController` Defines Control Flags**
 
@@ -64,7 +64,7 @@ public class NetworkStatusCapture extends BroadcastReceiver {
 
 ---
 
-### 04.2. Adding a New Module to `ModuleController`
+### 3.04.2. Adding a New Module to `ModuleController`
 
 a. **Define a Flag in `ModuleController`**
 
@@ -101,7 +101,7 @@ This will **prevent the module from running when disabled**.
 
 ---
 
-### 04.3. Register a Module with `ModuleController`
+### 3.04.3. Register a Module with `ModuleController`
 
 **Example.** Integrating `ModuleController` with the event processing code shown in [03.6. End-to-End Event Processing](../)
 
