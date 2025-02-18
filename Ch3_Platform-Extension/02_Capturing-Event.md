@@ -39,7 +39,7 @@ public class UserInteractionCapture extends AccessibilityService {
 
 ### 3.02.2. Constructing a HashMap with Event Metadata
 
-As described in the [02.1. Listening for Specific Events](#021-listening-for-specific-events), your data collection module listens for specific system events and prepares to capture the relevant details. Once an event occurs, you will **extract the relevant event metadata (e.g., status, activity type) and add timestamps and storing them into a `HashMap`.**. This section covers the process of populating the `HashMap` with event metadata.
+As described in the [02.1. Listening for Specific Events](#3021-listening-for-specific-events), your data collection module listens for specific system events and prepares to capture the relevant details. Once an event occurs, you will **extract the relevant event metadata (e.g., status, activity type) and add timestamps and storing them into a `HashMap`.**. This section covers the process of populating the `HashMap` with event metadata.
 
 - When you create a `HashMap<String, String>`, you have **key-value pairs** where:
     - **Key**: A descriptive `String` that identifies the type of data (e.g., "activity", "status", "time").
