@@ -1,11 +1,11 @@
-## 01. Firebase Setup
+## 2.02. Firebase Setup
 
 **Before you begin:**
 * Create a Gmail account, if you haven't already, as it's required to access Firebase services.
 
 ---
 
-### 01.1. Create a Firebase Project
+### 2.02.1. Create a Firebase Project
 a. **Go to Firebase Console**
    - Open [Firebase Console](https://console.firebase.google.com/).
 
@@ -23,7 +23,7 @@ b. **Add a New Project**
 
 ---
 
-### 01.2. Add Android App to Firebase
+### 2.02.2. Add Android App to Firebase
 a. **Register Your App**
    - In the Firebase project dashboard, click the Android icon.
    - Enter your app's package name (e.g., `edu.stanford.yourstudyname.screenomics`).
@@ -47,7 +47,7 @@ b. **Download `google-services.json`**
 
 ---
  
-### 01.3. Enable Firestore Database
+### 2.02.3. Enable Firestore Database
 a. **Go to Firestore Database**
    - In your Firebase Console, click on **Build > Firestore Database** in the left sidebar.
 
@@ -91,7 +91,7 @@ service cloud.firestore {
 
 ---
 
-### 01.4. Add Settings Profiles
+### 2.02.4. Add Settings Profiles
 a. Click on the "Start collection" button.
    - Enter **Collection ID**: **`settings_profiles`**
    - Click **Next**.
@@ -111,7 +111,7 @@ b. Click on "Add document" button inside the `settings_profiles` collection just
 
 ---
 
-### 01.5. Enable Authentication
+### 2.02.5. Enable Authentication
 a. **Go to Authentication**
    - In your Firebase Console, click on **Build > Authentication** in the left sidebar.
 
@@ -123,7 +123,7 @@ b. **Get Started**
 
 ---
 
-### 01.6. Setup Cloud Storage
+### 2.02.6. Setup Cloud Storage
 a. **Go to Storage**
    - In your Firebase Console, click on **Build > Storage** in the left sidebar.
    - Click on the "**Get Started**" button.
@@ -173,7 +173,7 @@ d. **Find and Save gs:// URI**
 
 ---
 
-### 01.7. Enable Crashlytics
+### 2.02.7. Enable Crashlytics
 a. **Enable Crashlytics**:
    - In your Firebase Console, click on **Run > Crashlytics** in the left sidebar.
    - Click **Get Started** to enable Crashlytics for your project.
