@@ -165,7 +165,7 @@ service firebase.storage {
 
 > **Important Note:** The Stanford Screenomics team does not provide or share specific security rules, as these must be developed based on study-specific or institutional policies. This approach ensures that security protocols align with each study’s unique requirements, considering factors such as data sensitivity, regulatory compliance, and ethical guidelines. For a detailed overview of security rules, their structure, and implementation principles, refer to the [Firebase Security Rules Primer](https://firebase.google.com/docs/rules).
 
-d. **Find and Save gs:// URI**
+d. **Find and Save `gs:// URI`**
    - Click on the "**Files**" tab.
    - In the left top corner of the Storage bucket, you will find a link icon followed by the **gs://** URI.
       -  The URI should look like this: `gs://yourstudyname-f6198.firebasestorage.app`
