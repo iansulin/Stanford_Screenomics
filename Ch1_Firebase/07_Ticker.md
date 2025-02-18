@@ -1,4 +1,4 @@
-## 07. Ticker
+## 1.07. Ticker
 
 The `ticker` collection allows for easy monitoring of which app users are actively using the Stanford Screenomics app and transferring data. Once the app has a significant number of users, it can be time consuming to check each user’s Cloud Storage folder or events directory, and make
 sure each one shows recent activity. The `ticker` is designed to streamline this process by distilling the most recent activities of all users into one central location in Firestore. The `ticker` data is sent to the Screenomics Dashboard app for real-time tracking.
