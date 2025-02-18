@@ -1,4 +1,4 @@
-## 01. Overview
+## 1.01. Overview
 
 The **Stanford Screenomics system leverages Firebase’s suite of services** to enable **secure, scalable, and efficient data collection** for research. The system is designed to handle user authentication, event logging, real-time synchronization, and cloud storage, ensuring compliance with HIPAA regulations while providing a seamless experience for researchers and participants.
 
@@ -11,7 +11,7 @@ The _Chapter 1. Firebase_ provides an overview of how Firebase integrates with t
 
 ---
 
-### 01.1. How the Screenomics System Uses Firebase
+### 1.01.1. How the Screenomics System Uses Firebase
 The Screenomics system follows a **cloud-centric design**, where all core functionalities are managed through Firebase services. Below is an overview of key integrations:
 
 **1. Firestore Database (Text-Based Data Storage)**
@@ -41,7 +41,7 @@ The Screenomics system follows a **cloud-centric design**, where all core functi
 
 ---
 
-### 01.2. Developer & Researcher Workflow
+### 1.01.2. Developer & Researcher Workflow
 
 Researchers and developers working with the **Stanford Screenomics system** can leverage Firebase’s capabilities to:
 - **Monitor app activity** and ensure all participants are actively contributing data.
@@ -51,7 +51,7 @@ Researchers and developers working with the **Stanford Screenomics system** can 
 
 ---
 
-### 01.3. Next Steps
+### 1.01.3. Next Steps
 
 The following sections will provide detailed guidance on:
 - The **Firestore database structure** and how different collections store user data.
