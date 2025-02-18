@@ -1,11 +1,11 @@
 
-## 03. Runtime Validation
+## 2.04. Runtime Validation
 
 The **Runtime Validation Process** ensures that the app functions correctly when executed in a simulated environment. This process involves **running the app on an emulator** and **verifying data flow** to ensure proper interaction with the database. Once the app is launched in the emulator, various user actions are simulated to test core functionalities. During this process, the database is actively monitored to confirm that data is being stored, retrieved, and updated correctly. By performing runtime validation, developers can catch potential issues related to app behavior and data flow before deploying the app to real devices.
 
 ---
 
-### 03.1. Simulating the App in an Emulator
+### 2.04.1. Simulating the App in an Emulator
 
 a. **Set Up an Emulator**
   - Click on the **Device Manager** icon in the toolbar (📱 it looks like a phone).
@@ -24,7 +24,7 @@ b. **Run the App on the Emulator**
 
 ---
 
-### 03.2. Test Registration
+### 2.04.2. Test Registration
 
 a. Enter Registration Details
   - On the first launch of your app in the emulator, fill in the required fields:
@@ -50,7 +50,7 @@ c. Check Firebase Console for User Registration
 
 ---
 
-### 03.3. Test Data Collection
+### 2.04.3. Test Data Collection
 
 a. **Grant Required Permissions**
   - After successful registration, the app will request permissions. Grant all necessary permissions for data collection (e.g., screen recording, accessibility services).
