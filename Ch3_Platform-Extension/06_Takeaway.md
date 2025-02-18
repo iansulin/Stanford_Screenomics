@@ -1,10 +1,10 @@
-## 06. Takeaway
+## 3.06. Takeaway
 
 The Stanford Screenomics platform is designed with a **modular architecture** that allows developers to seamlessly extend its functionality by creating new data collection modules. This document provides an overview of how the app's architecture supports modular development and explains how two core base modules—**`moduleManager`** and **`databaseManager`**—enable developers to easily capture, process, store, and upload event data without needing to build these systems from scratch.
 
 ---
 
-### 06.1. Modular Architecture
+### 3.06.1. Modular Architecture
 
 The Stanford Screenomics platform follows a **modular design**, meaning that different types of data collection (e.g., interaction events, network activity, location tracking) are handled by independent **data collection modules**. Each module is responsible for listening to specific system events, extracting relevant data, and passing it through a standardized event processing pipeline.
 
@@ -21,7 +21,7 @@ The Stanford Screenomics platform follows a **modular design**, meaning that dif
 
 ---
 
-### 06.2. Base Modules
+### 3.06.2. Base Modules
 
 The **`moduleManager`** and **`databaseManager`** modules provide a robust framework that automates key processes such as timestamping, metadata management, data formatting, local storage, and Firestore uploads. By using these modules, developers can **focus on capturing new types of data** rather than implementing redundant processing logic.
 
@@ -47,7 +47,7 @@ The **`moduleManager`** and **`databaseManager`** modules provide a robust frame
 
 ---
 
-### 06.3. Developer Responsibilities
+### 3.06.3. Developer Responsibilities
 | **Step** | **Developer Action** | **What Happens Automatically?** |
 |---|---|---|
 | **Capture Event** | Listen for a system event and extract details | No manual formatting required. |
