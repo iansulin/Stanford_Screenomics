@@ -1,151 +1,192 @@
-## Base Modules
+## 02. Capturing Event
 
+Each event is captured by its respective data collection module, which **listens for specific system events** and prepares the data accordingly, and **constructs a `HashMap` containing event data**, before passing it to `EventOperationManager.addEvent`.
 
 ---
 
-### Base Module 1. Module Manager
+### 02.1. Listening for Specific Events
 
-#### **ModuleController** 
+- Listening for events is a dynamic, ongoing process that involves setting up listeners or receivers to capture changes in the system. This step is not a single action but rather a continuous state of readiness to respond to events as they happen.
+- Therefore, the specific implementation of this step can vary widely based on the type of events you want to capture (e.g., network changes, user interactions); **Each type of event might require different classes, methods, and configurations.**
 
-The `ModuleController` class primarily consists of static boolean fields (`true` [module = activated]/`false` [module = deactivated]) that act as flags to activate or deactivate modules in the application. There are no methods defined in this class; it serves mainly as a configuration holder for module activation states.
-
-```
-// Fields
-public static boolean ENABLE_ACTIVITIES = true;
-public static boolean ENABLE_SCREENSHOTS = true;
-public static boolean ENABLE_APPS = true;
-public static boolean ENABLE_INTERACTIONS = true;
-public static boolean ENABLE_LOCATIONS = true;
-public static boolean ENABLE_NETWORK = true;
-public static boolean ENABLE_POWER = true;
-public static boolean ENABLE_SPECS = true;
-public static boolean ENABLE_BATTERY = true;
-```
-
-#### **Reusable Classes/Methods**
-
-The Module Manager module does not utilize any methods or classes from the Database Manager module. However, the Database Manager module does make use of classes and methods from the Module Manager module, specifically the `EventTimestamp` and `ModuleCharacteristics` classes. `EventTimestamp` is focused on time management and formatting, while `ModuleCharacteristics` centralizes the definitions and configurations for various modules in the application. Together, they help manage events effectively by providing time-related data and relevant characteristics for each event type.
-
- * **`EventTimestamp`**
-   * **Purpose**: This class is designed to handle timestamps related to events, providing functionality to capture and format timestamps based on system time or server time.
-   * **Key Features**:
-     * **Timestamps**: It can create timestamps in different formats, including a machine-readable format and a human-friendly format.
-     * **Time Zones**: The class accounts for time zones, allowing for timestamps to be generated in UTC or specific local times (e.g., Los Angeles).
-     * **Serialization**: It supports serialization, enabling timestamps to be preserved across application restarts.
-     * **Reference Time**: It maintains reference values for server time and elapsed real-time to calculate real-world timestamps accurately.
-     * **Methods**:
-       * `getTimestring()`: Returns the best available timestamp string.
-       * `refresh()`: Adjusts the timestamp based on known server time.
-       * `getRealTimeMillis()`: Provides the real-world time in milliseconds since the epoch.
-
-**Example from the `EventData` class:**
-```
-public class EventData {
-    private final String time;
-    private final String timeLocal;
-    private final String type;
-    private final String UniqueEventId;
-    private final Map<String, String> additionalFields;
-
-    // Private constructor to enforce the use of Builder
-    private EventData(Builder builder) {
-        this.time = builder.time;
-        this.UniqueEventId = builder.UniqueEventId;
-        this.timeLocal = builder.timeLocal;
-        this.type = builder.type;
-        this.additionalFields = builder.additionalFields;
-    }
-
-    // Builder Class for creating EventData objects efficiently
-    public static class Builder {
-        private final String type;
-        private final String UniqueEventId;
-        private final String time;
-        private final String timeLocal;
-        private Map<String, String> additionalFields = new HashMap<>();
-        EventTimestamp timestamp = new EventTimestamp();
-
-        public Builder(String type, String UniqueEventId) {
-            this.time = timestamp.getTimestring(); // Get the timestamp for the event.
-            this.UniqueEventId = GenerateEventId(UniqueEventId); // Generate a unique ID.
-            this.timeLocal = timestamp.getSystemClockTimestring(); // Get local timestamp.
-            this.type = type;
-        }
-
-        // Other methods...
+**Example 1. Listening for Network Changes**: You might set up a `BroadcastReceiver` to listen for network connectivity changes.
+```java
+public class NetworkStatusCapture extends BroadcastReceiver {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        // Handle the network status change event
     }
 }
 ```
-> In the `EventData.Builder` class, an instance of `EventTimestamp` is created. The time is set using `timestamp.getTimestring()`, which provides the best available timestamp. It also gets the local time using `timestamp.getSystemClockTimestring()`. This ensures each event has accurate time information.
 
-* **`ModuleCharacteristics`**
-  * **Purpose**: This singleton class defines characteristics for various modules within the application. It contains metadata about different event types and their configurations.
-  * **Key Features**:
-    * **Singleton Pattern**: Ensures only one instance of the class is created, providing a global point of access.
-    * **Event Characteristics**: It provides methods to retrieve characteristics for various events (e.g., location events, battery state, screen on/off, etc.).
-    * **Data Representation**: Each event characteristic is represented as a map, encapsulating details such as event name, type, and other relevant parameters.
-    * **Methods**:
-      * `getLocationEventCharacteristics()`: Returns characteristics related to GPS location events.
-      * `getPowerScreenOnOffCharacteristics()`: Retrieves characteristics for screen on/off events.
-      * ...
-      * Other similar methods for different event types.
-
-**Example from the `EventData` class:**
-```
-public class EventData {
-    // Builder Class for creating EventData objects efficiently
-    public static class Builder {
-        // Other fields...
-
-        public String GenerateEventId(String className) {
-            return className + " " + timestamp + "_" + 
-                   ModuleCharacteristics.getInstance().getLocationEventCharacteristics().get("id");
+**Example 2. Listening for User Interactions**: You could set up an `AccessibilityService` to listen for user interactions like clicks and scrolling.
+```java
+public class UserInteractionCapture extends AccessibilityService {
+    @Override
+    public void onAccessibilityEvent(AccessibilityEvent event) {
+        if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_CLICKED) {
+            // Handle click event
+            Log.d("UserInteraction", "User clicked: " + event.getContentDescription());
+        } else if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_SCROLLED) {
+            // Handle scroll event
+            Log.d("UserInteraction", "User scrolled: " + event.getScrollX());
         }
     }
 }
 ```
-> The `GenerateEventId` method retrieves the ID from the characteristics of a location event using `ModuleCharacteristics.getInstance().getLocationEventCharacteristics().get("id")`. This allows the `EventData` to be associated with its corresponding module characteristics, providing context for what kind of event it represents.
 
 ---
 
-### Base Module 2. Database Manager
+### 02.2. Constructing a HashMap with Event Metadata
 
-The `EventTimestamp` class of Module Manager module is primarily utilized in the `EventOperationManager` class, allowing it to manage event timing effectively within the Database Manager module.
+As described in the [02.1. Listening for Specific Events](#021-listening-for-specific-events), your data collection module listens for specific system events and prepares to capture the relevant details. Once an event occurs, you will **extract the relevant event metadata (e.g., status, activity type) and add timestamps and storing them into a `HashMap`.**. This section covers the process of populating the `HashMap` with event metadata.
 
-**A relevant snippet from the `EventOperationManager` class:**
+- When you create a `HashMap<String, String>`, you have **key-value pairs** where:
+    - **Key**: A descriptive `String` that identifies the type of data (e.g., "activity", "status", "time").
+    - **Value**: The actual `String` data associated with that key (e.g., "scroll-up", "Connected-to-WiFi", "20250216123045678").
+    - **Multiple key-value pairs are added to a single `HashMap`**, each serving a specific purpose (e.g., capturing activity type, timestamps, and metadata)
+
+**Example Representation**. If you are capturing an interaction event with an `activityType`, the `HashMap` might look like this:
+```java
+HashMap<String, String> interactionData = new HashMap<>(); // Step 1: Create empty HashMap
+interactionData.put("activity", actionType); // Step 2: Add event details
+interactionData.put("time", new EventTimestamp().getTimestring()); // Step 3: Add UTC timestamp
+interactionData.put("time-local", new EventTimestamp().getSystemClockTimestring()); // Step 4: Add local timestamp
 ```
-public void addEvent(Map<String, String> moduleInfo, HashMap<String, String> eventDetails) {
-    synchronized (LOCK) {
-        EventData event = new EventData.Builder(moduleInfo.get("type"), moduleInfo.get("className"))
-                .addFields(eventDetails)
-                .build();
 
-        // Use timestamp to log the current time
-        DataStorage.getInstance().addEvent("MostRecentEventTime", timestamp.getTimestringFriendly());
+**Example Look of the HashMap**. In terms of its content, after adding the values, it would look something like this:
+```java
+{
+  "activity": "scroll-up",                // Key: "activity", Value: actionType (e.g., "scroll-up")
+  "time": "20250216123045678",        // Key: "time", Value: UTC timestamp
+  "time-local": "2025-02-16 16:30:45 (PT)" // Key: "time-local", Value: local timestamp
+}
+```
+
+**Actual usage** within data collection modules is extend beyond a simple `HashMap<String, String>` by utilizing **`HashMapPool.getMap()`** and **`HashMapPool.releaseMap(eventMap)`** to optimize memory management. A "pool" refers to a collection of reusable resources—in this case, `HashMap` instances.
+
+- **`HashMapPool.getMap()`: Retrieving a Reusable `HashMap`**
+    - This method retrieves an available HashMap from the pool. If no pre-existing HashMap is available, a new instance is created. This minimizes memory allocation overhead and enhances performance by reusing objects.
+    - **Potential scenarios where the pool may be depleted**:
+        - **High concurrent requests**: Multiple data collection modules simultaneously request HashMap instances.
+        - **Delayed release of instances**: If HashMap instances aren’t returned quickly (e.g., due to long event processing times), new requests may temporarily fail.
+        - **System memory constraints**: Under memory pressure, the system may limit object allocation.
+        - **Spikes in activity**: Sudden bursts of user interactions or system events may exceed the pool’s available supply.
+    - **Java `HashMap` default behavior**:
+        - A HashMap in Java has a **default capacity of 16 buckets** and a **load factor of 0.75**.
+        - This means that when the number of entries exceeds 75% of its capacity (i.e., 12 entries), it will resize (e.g., when adding the 13th entry).
+
+- **`HashMapPool.releaseMap(eventMap)`: Returning a `HashMap` to the Pool**
+    - Once the event data has been processed, this method returns the `HashMap` to the pool for reuse.
+    - **Why releasing `HashMap` matters?**
+        - Prevents memory leaks by ensuring unused HashMap instances don’t remain allocated.
+        - Enables efficient reuse of memory, reducing unnecessary object creation.
+        - Improves performance in continuous data collection scenarios.
+
+**Example** of populating the `HashMapPool.getMap()` and `HashMapPool.releaseMap()` with event metadata. 
+```java
+public void collectData(Event event) {
+    HashMap<String, String> interactionData = HashMapPool.getMap(); // Retrive a HashMap from the pool
+
+    // Extract relevant details
+    String actionType = "scroll-up"; // Example action type
+
+    // Store data in the HashMap
+    interactionData.put("activity", actionType); // Add event details
+
+    // Release the HashMap back to the pool
+    HashMapPool.releaseMap(interactionData);
+}
+```
+
+> - **Benefits of Using `HashMapPool`**
+>     - **Memory Efficiency**: Frequent creation and destruction of `HashMap` instances can lead to increased garbage collection and memory fragmentation. Using a pool minimizes these costs by reusing existing objects.
+>     - **Performance Improvement**: Reusing `HashMap` instances speeds up operations, especially in high-frequency data collection scenarios, as it avoids the overhead associated with object creation.
+>     - **Simplified Resource Management**: The pooling mechanism abstracts away the complexity of managing object lifecycles, allowing developers to focus on data handling rather than memory management.
+
+
+
+---
+
+### 02.3. Event Timestamp Assignment
+
+Each event is then assigned two timestamps using `EventTimestamp` at the time of capture. These timestamps are stored within the `HashMap` along with its metadata, to maintain a precise chronological record of events.
+
+- **`EventTimestamp`** (from `moduleManager/EventTimestamp.java`) generates **two timestamps**:
+    - `getTimestring()`: Provides a Coordinated Universal Time timestamp (UTC; in `yyyyMMddHHmmssSSS` format) for **event logging and Firestore events collection**.
+        - This UTC timestamp ensures all event logs are consistent across different time zones.
+    - `getSystemClockTimestring()`: Provides a human-readable local timestamp (user device's system time; in `yyyy-MM-dd HH:mm:ss` format) for **Firestore ticker updates**.
+
+- **Note**: This `EventTimestamp` class is coming from `moduleManager.EventTimestamp`, NOT `databaseManager.EventTimestamp`.
+    - The `moduleManager.EventTimestamp` is responsible for **generating real-time event timestamps** as they occur.
+    - The `databaseManager.EventTimestamp` is primarily used processing and standardizing timestamps before storing them in the database in a later step.
+
+- When logging events, **developers do NOT need to handle timestamps manually** and instead, should **ALWAYS use `EventTimestamp.getTimestring()` and `timestamp.getSystemClockTimestring()`** to automatically generate two timestamps, to maintain consistency in the system.
+
+**Example** of populating the `HashMap` with event metadata:
+```java
+public void collectData(Event event) {
+    HashMap<String, String> interactionData = HashMapPool.getMap(); // Retrive a HashMap from the pool
+
+    // Extract relevant details
+    String actionType = "scroll-up"; // Example action type
+    String utcTimestamp = new EventTimestamp().getTimestring(); // Get UTC timestamp
+    String localTimestamp = new EventTimestamp().getSystemClockTimestring(); // Get local timestamp
+
+    // Store data in the HashMap
+    interactionData.put("activity", actionType); // Add event details
+    interactionData.put("time", utcTimestamp); // Add UTC timestamp
+    interactionData.put("time-local", localTimestamp); // Add local timestamp
+    // At this point, the `HashMap` is fully constructed and ready to be passed to
+    // `EventOperationManager.addEvent()` for processing, storage, and upload.
+
+    // Release the HashMap back to the pool
+    HashMapPool.releaseMap(interactionData);
+}
+```
+
+After populating the `HashMap` with event metadata and timestamps, the typical next step before releasing the `HashMap` is 
+
+---
+
+### 02.4. From Listening To Logging
+
+**Example.** Listening and logging scroll-up events
+```java
+public class UserInteractionCapture extends AccessibilityService {
+    public void onAccessibilityEvent(AccessibilityEvent event) {
+        // Step 1: Listen for scroll event
+        if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_SCROLLED) {
+            // Step 2: Retrieve a HashMap from the pool
+            HashMap<String, String> interactionData = HashMapPool.getMap();
+
+            // Step 3: Extract relevant details
+            String actionType = "scroll-up"; // Assuming scroll-up for this example
+            String utcTimestamp = new EventTimestamp().getTimestring(); // Get UTC timestamp
+            String localTimestamp = new EventTimestamp().getSystemClockTimestring(); // Get local timestamp
+
+            // Step 4: Store extracted data in the HashMap
+            interactionData.put("activity", actionType);
+            interactionData.put("time", utcTimestamp);
+            interactionData.put("time-local", localTimestamp);
+
+            // Step 5: Pass event data to EventOperationManager for processing, storage, and upload
+            EventOperationManager.getInstance().addEvent(
+                ModuleCharacteristics.getInstance().getInteractionEventCharacteristics(), // Metadata about the event type
+                interactionData
+            );
+
+            // Step 6: Release the HashMap back to the pool after processing
+            HashMapPool.releaseMap(interactionData);
+        }
     }
 }
 ```
-- `EventTimestamp` provides the current timestamp using `timestamp.getTimestringFriendly()`, which is used to log the most recent event time in the `DataStorage` class. This shows how the `EventOperationManager` relies on the `EventTimestamp` class to ensure that all events have accurate and formatted timestamps.
 
 
 
-The `ModuleCharacteristics` class of Module Manager module is utilized to provide metadata about different types of events, **ensuring that each event can be properly identified and contextualized**.
-
-**A relevant snippet from the `ModuleCharacteristics` class:**
-```
-public Map<String, String> getLocationEventCharacteristics() {
-    return new ModuleCharacteristicsData("GPSLocationEvent", "location", "1").toMap();
-}
-
-public Map<String, String> getNetworkEventCharacteristics() {
-    return new ModuleCharacteristicsData("InternetEvent", "Internet", "1").toMap();
-}
-```
-- `getLocationEventCharacteristics` returns a map containing characteristics specific to location events (e.g., event name, type, and an update ticker). `getNetworkEventCharacteristics` returns a similar map for network-related events, allowing the application to understand what data is associated with network changes. This enables different modules to utilize the same characteristics to maintain consistency in how events are handled. For instance, events logged from both the Location module and the Network module can reference the same metadata structure.
-
-#### Reusable Classes/Methods
-
-* **`EventOperationManager`**
 
 
 
+
+[Back To Top](#top)
