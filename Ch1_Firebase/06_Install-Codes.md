@@ -1,4 +1,4 @@
-## 06. Install Codes
+## 1.06. Install Codes
 
 All users, upon opening the app for the first time, generate a unique install code that is stored on their device. These codes are also immediately uploaded to Firestore under the top-level `install` collection. Each entry is an association from a timestamp to an install code, and can be read as “the user with this install code first ran the app at this time.”
 
