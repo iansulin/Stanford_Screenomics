@@ -1,4 +1,4 @@
-## 06. Summary
+## 06. Takeaway
 
 The Stanford Screenomics platform is designed with a **modular architecture** that allows developers to seamlessly extend its functionality by creating new data collection modules. This document provides an overview of how the app's architecture supports modular development and explains how two core base modules—**`moduleManager`** and **`databaseManager`**—enable developers to easily capture, process, store, and upload event data without needing to build these systems from scratch.
 
