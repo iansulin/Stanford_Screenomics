@@ -48,7 +48,7 @@ The **`moduleManager`** and **`databaseManager`** modules provide a robust frame
 ---
 
 ### 3.06.3. Developer Responsibilities
-| **Step** | **Developer Action** | **What Happens Automatically?** |
+| **Step** | **To Do** | **Background Task** |
 |---|---|---|
 | **Capture Event** | Listen for a system event and extract details | No manual formatting required. |
 | **Assign Timestamp** | Use `EventTimestamp.getTimestring()` | UTC and local timestamps generated automatically. |
