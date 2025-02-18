@@ -56,9 +56,6 @@ The **`moduleManager`** and **`databaseManager`** modules provide a robust frame
 | **Pass to `addEvent()`** | Call `EventOperationManager.addEvent()` | Event is formatted, buffered, stored, and uploaded. |
 | **Control Collection** | Use `ModuleController` or `SettingsManager` | Enables dynamic ON/OFF switching and Firestore control. |
 
----
-
-### 06.4. Conclusion
 By leveraging the **modular architecture** of the Screenomics app, developers can extend its functionality without needing to manually handle event processing, storage, or uploads. The **`moduleManager`** and **`databaseManager`** modules provide essential reusable components that standardize metadata, automate timestamps, format event data, and optimize storage and uploads. This ensures that all collected data is processed efficiently, consistently, and with minimal manual intervention.
 
 
