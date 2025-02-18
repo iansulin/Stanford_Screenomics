@@ -1,10 +1,10 @@
-## 02. Capturing Event
+## 3.02. Capturing Event
 
 Each event is captured by its respective data collection module, which **listens for specific system events** and prepares the data accordingly, and **constructs a `HashMap` containing event data**, before passing it to `EventOperationManager.addEvent`.
 
 ---
 
-### 02.1. Listening for Specific Events
+### 3.02.1. Listening for Specific Events
 
 - Listening for events is a dynamic, ongoing process that involves setting up listeners or receivers to capture changes in the system. This step is not a single action but rather a continuous state of readiness to respond to events as they happen.
 - Therefore, the specific implementation of this step can vary widely based on the type of events you want to capture (e.g., network changes, user interactions); **Each type of event might require different classes, methods, and configurations.**
@@ -37,7 +37,7 @@ public class UserInteractionCapture extends AccessibilityService {
 
 ---
 
-### 02.2. Constructing a HashMap with Event Metadata
+### 3.02.2. Constructing a HashMap with Event Metadata
 
 As described in the [02.1. Listening for Specific Events](#021-listening-for-specific-events), your data collection module listens for specific system events and prepares to capture the relevant details. Once an event occurs, you will **extract the relevant event metadata (e.g., status, activity type) and add timestamps and storing them into a `HashMap`.**. This section covers the process of populating the `HashMap` with event metadata.
 
@@ -108,7 +108,7 @@ public void collectData(Event event) {
 
 ---
 
-### 02.3. Event Timestamp Assignment
+### 3.02.3. Event Timestamp Assignment
 
 Each event is then assigned two timestamps using `EventTimestamp` at the time of capture. These timestamps are stored within the `HashMap` along with its metadata, to maintain a precise chronological record of events.
 
@@ -149,7 +149,7 @@ After populating the `HashMap` with event metadata and timestamps, the typical n
 
 ---
 
-### 02.4. From Listening To Logging
+### 3.02.4. From Listening To Logging
 
 **Example.** Listening and logging scroll-up events
 ```java
