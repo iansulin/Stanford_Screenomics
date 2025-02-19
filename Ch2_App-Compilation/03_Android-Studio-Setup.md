@@ -42,7 +42,7 @@ a. **Launch Android Studio**
    - If you haven't opened it yet, start Android Studio.
 
 c. **Open the Project**
-   - Click on **Open an existing Android Studio project**.
+   - Click on **Open**.
    - Navigate to the extracted project folder, select it and click **OK**.
      - If prompted, do **NOT** click on the **Sync Project with Gradle Files** yet.
 
