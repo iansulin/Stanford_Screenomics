@@ -49,23 +49,22 @@ c. **Open the Project**
 d. **Locate "App" Module**
    - In the **Project View** (usually on the left), click the dropdown at the top and select **Android** to display the project structure.
    - Find the **app module** in the project view, which has **a folder icon with a green square**. This module is the main app component that gets built into an APK or AAB (Android App Bundle).
-      - Do not confuse it with the apps module, which has a folder icon with a bar chart.
 
 e.  **Add the JSON File to the "App" Module**
    - Open the folder on your computer where the `google-services.json` file is located.
    - Copy the `google-services.json` file (`Command + C` or `Ctrl + C`).
    - In Android Studio, **Select the App Module** (the folder icon with a green square).
-   - **Paste the JSON file into the App Module**.
+   - **Paste the JSON file into the "App" Module**.
    - If/When a "Copy" or "Replace" window appears, do **NOT** change any settings--simply click **OK**.
 
-f. **Locate "databaseManager" Module**
-   - Find the **databaseManager module**, which has **a folder icon with a bar chart**. This module is one of two core base modules of the Screenomics platform, providing reusable database-related methods for other data collection modules.
+f. **Locate "c_DatabaseManager" Module**
+   - Find the **c_DatabaseManager module**, which has **a folder icon with a bar chart**. This module is one of two core base modules of the Screenomics platform, providing reusable database-related methods for other data collection modules.
 
-g. **Add the JSON File to the "databaseManager" Module**
+g. **Add the JSON File to the "c_DatabaseManager" Module**
    - Open the folder on your computer where the `google-services.json` file is located.
    - Copy the `google-services.json` file (`Command + C` or `Ctrl + C`).
-   - In Android Studio, **Select the databaseManager Module** (the folder icon with a bar chart).
-   - **Paste the JSON file into the App Module**.
+   - In Android Studio, **Select the c_DatabaseManager Module** (the folder icon with a bar chart).
+   - **Paste the JSON file into the "c_DatabaseManager" Module**.
    - If/When a "Copy" or "Replace" window appears, do **NOT** change any settings--simply click **OK**.
 
 > What Does `google-services.json` Do in Android Studio?
@@ -73,10 +72,10 @@ g. **Add the JSON File to the "databaseManager" Module**
 > * **Automatic Configuration**: When you include the Firebase SDKs in your project and apply the `google-services` plugin in your `build.gradle` file, the file ensures that the SDKs know how to connect to your Firebase project and which services are enabled.
 
 > Why Add `google-services.json` to Two Modules?
-> * In a **multi-module** Android project, you need to add `google-services.json` to each module that directly interacts with Firebase services. The reason you must do this twice (once for the app module and once for the databaseManager module) is due to how Firebase and Gradle handle dependencies in a multi-module setup.
-> * In Stanford Screenomics platform, the `databaseManager` module is not just a dependency but a standalone module that provides reusable database-related methods. Since it interacts directly with Firebase services (i.e., **Firestore Database**, **Google Cloud Storage**), it requires its own `google-services.json` file for proper authentication and access.
-> * Other data collection modules do not need their own `google-services.json` file because they rely on the reusable methods provided by `databaseManager`, which already has Firebase access.
-> * The main `app` module does depend on `databaseManager` for database operations, but it still requires its own `google-services.json` file because it **interacts with Firebase directly in ways that databaseManager does not fully cover** (i.e., **Firebase Authentication**, **Crashlytics**).
+> * In a **multi-module** Android project, you need to add `google-services.json` to each module that directly interacts with Firebase services. The reason you must do this twice (once for the app module and once for the c_DatabaseManager module) is due to how Firebase and Gradle handle dependencies in a multi-module setup.
+> * In Stanford Screenomics platform, the `c_DatabaseManager` module is not just a dependency but a standalone module that provides reusable database-related methods. Since it interacts directly with Firebase services (i.e., **Firestore Database**, **Google Cloud Storage**), it requires its own `google-services.json` file for proper authentication and access.
+> * Other data collection modules do not need their own `google-services.json` file because they rely on the reusable methods provided by `c_DatabaseManager`, which already has Firebase access.
+> * The main `app` module does depend on `c_DatabaseManager` for database operations, but it still requires its own `google-services.json` file because it **interacts with Firebase directly in ways that c_DatabaseManager does not fully cover** (i.e., **Firebase Authentication**, **Crashlytics**).
 
 ---
 
@@ -99,7 +98,7 @@ c. **Refactor/Rename `communication` segment**
       - Ensure the option "Rename package 'edu.stanford.communication' and its usages to:" reflects the new name.
    - Click on the "**Refactor**" to apply the changes.
       - The `communication` folder should now be renamed to `yourstudyname` in the package hierarchy.
-      - Open other module folders (e.g., databaseManager) and ensure that all occurrences of `communication` have been successfully renamed to `yourstudyname`.
+      - Open other module folders (e.g., c_DatabaseManager) and ensure that all occurrences of `communication` have been successfully renamed to `yourstudyname`.
 
 d. **Manually Replace Any Remaining References**
    - Press `Command + Shift + R` or `Ctrl + Shift + R` to open the **Find & Replace in Path** tool.
@@ -146,11 +145,11 @@ b. **Save** changes (`Command + S` or `Ctrl + S`)
 
 ### 2.03.7. Module Activation/Deactivation
 
-a. **Locate "moduleManager" Module** 
-   -  Find the **moduleManager module**, which has **a folder icon with a bar chart**. This module is another core base module of the Screenomics platform, that serves as the central control system, overseeing the operational status of various data collection modules.
+a. **Locate "c_ModuleManager" Module** 
+   -  Find the **c_ModuleManager module**, which has **a folder icon with a bar chart**. This module is another core base module of the Screenomics platform, that serves as the central control system, overseeing the operational status of various data collection modules.
 
 b. **Open `ModuleController`**
-   - Navigate to: `moduleManager > java > edu.stanford.yourstudyname.screenomics.modulemanager > ModuleController`.
+   - Navigate to: `c_ModuleManager > src > main > java > edu.stanford.yourstudyname.screenomics.modulemanager > ModuleController`.
    - Double-click to open it.
 
 c. Activate or Deactivate Modules
