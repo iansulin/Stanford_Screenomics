@@ -29,9 +29,25 @@ When the app takes a screenshot, it needs time to process the image and save it 
 #### Can I use one single app for different types of data collection? 
 Yes and no. Some data types, such as `StepCountEvent` and `GPSLocationEvent`, can be dynamically turned on or off throughout the study [See Settings - 05.1. Dynamic Parameters [(Configurable Settings)](../01_Firebase/05_Settings.md)]. This allows researchers to use a single app version for different study groups by configuring settings profiles based on group codes. However, data types requiring fixed activation (those not listed as dynamically configurable) necessitate separate app compilations for each study group. In such cases, participants must download the specific app version assigned to their study group from the Google Play Store.
 
-
-
 ---
+
+### 03. Differences in App behavior by android versions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
