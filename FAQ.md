@@ -45,9 +45,10 @@ Another major change introduced in Android 15 is the option for users to choose 
 
 #### Previews During Screenshot Capture
 Additionally, in Android 15, when screenshot capture is active, message previews and notification content are hidden. This feature is designed on a system level to protect user privacy by preventing sensitive information from being displayed during screen capture. While users still receive notifications, the content remains concealed. Developers cannot modify this behavior, as it is enforced by the operating system to ensure user privacy and security.
+![Hidden Notification Content](https://i.redd.it/yb8lh8ouf6a81.jpg)
 
 #### Potential Impact on Study Compliance
-The combination of the status bar chip (which allows users to stop screen capture at any time), automatic stopping of capture when the screen is turned off, limited screen capture options, and hidden notification previews may reduce user compliance with study procedures by introducing interruptions and additional steps.
+The combination of the status bar chip (which allows users to stop screen capture at any time), automatic stopping of capture when the screen is turned off, limited screen capture options, and inconvicience induced by hidden notification previews may reduce user compliance with study procedures by introducing interruptions and additional steps.
 
 #### No Impact on Other Modules
 No other data collection modules or capabilities are impacted by the Android update. 
