@@ -37,14 +37,17 @@ Android 15 was officially released in August 2023. This update introduced severa
 
 #### Continuous Screenshot Capture
 The only, but significant, difference in our data collection capability between Android 15 and earlier versions pertains to screenshot data collection. The module uses the Media Projection API to capture screenshots. On devices running Android 15, a prominent status bar chip is displayed to notify users of any ongoing screen projection. This chip also shows how long the screenshot module has been active during a session. Users can tap the chip at any time to stop screen recording. Additionally, screenshot capture automatically stops when the device screen is locked. _To ensure continuous screenshot data collection, we have implemented a feature that automatically requests Media Projection permission each time the screen is activated on devices with Android 15_. When the user grants permission, the app resumes screenshot capture. However, this capture stops again once the screen is turned off or deactivated.
+
 ![Media Projection Status Bar Chip](https://developer.android.com/static/media/images/grow/media_projection_status_bar_chip.png)
 
 #### Screen Projection Permission Options
 Another major change introduced in Android 15 is the option for users to choose between "A Single App" or "Entire Screen" when granting Media Projection permission. The “A Single App” option allows users to grant screenshot capture permission to only the specific app (e.g., Instagram or Facebook), while the “Entire Screen” option permits the app to capture all on-screen content, including notifications. In contrast, Android 14 only offered the ability to capture the entire screen, allowing the Screenomics app to access all content displayed on the device, and thus allowing for more comprehensive data capture. Currently, there is no method to detect whether the user selected "A Single App" or "Entire Screen" in Android 15, nor is there a way to enforce the "Entire Screen" option only.
+
 ![Android Screen Recording Permission Choices](https://www.digitaltrends.com/wp-content/uploads/2024/11/android-record-screen.jpeg?resize=1200%2C720&p=1)
 
 #### Previews During Screenshot Capture
 Additionally, in Android 15, when screenshot capture is active, message previews and notification content are hidden. This feature is designed on a system level to protect user privacy by preventing sensitive information from being displayed during screen capture. While users still receive notifications, the content remains concealed. Developers cannot modify this behavior, as it is enforced by the operating system to ensure user privacy and security.
+
 ![Hidden Notification Content](https://androidcentral-data.community.forum/attachments/248/248067-c2f51461992262b8bffb15879d1d0a26.jpg?hash=wvUUYZkiYr)
 
 #### Potential Impact on Study Compliance
