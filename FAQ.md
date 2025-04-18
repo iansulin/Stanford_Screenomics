@@ -31,12 +31,26 @@ Yes and no. Some data types, such as `StepCountEvent` and `GPSLocationEvent`, ca
 
 ---
 
-### 03. Differences in App behavior by android versions
+### 03. Differences in Screenomics App Behavior by Android Version
 
+Android 15 was officially released in August 2023. This update introduced several new features and enhancements, including improved privacy controls and expanded customization options. As of April 2025, approximately 25% of Android users have upgraded to Android 15, while the remaining 75% are still using Android 14 or earlier versions. The proportion of Android 15 users is expected to grow as device manufacturers continue to roll out updates and more users adopt new devices that come pre-installed with the latest version. Analysts predict that by the end of 2024, around 50–60% of users could be on Android 15.
 
+#### Continuous Screenshot Capture
+The only, but significant, difference in our data collection capability between Android 15 and earlier versions pertains to screenshot data collection. The module uses the Media Projection API to capture screenshots. On devices running Android 15, a prominent status bar chip is displayed to notify users of any ongoing screen projection. This chip also shows how long the screenshot module has been active during a session. Users can tap the chip at any time to stop screen recording. Additionally, screenshot capture automatically stops when the device screen is locked. _To ensure continuous screenshot data collection, we have implemented a feature that automatically requests Media Projection permission each time the screen is activated on devices with Android 15_. When the user grants permission, the app resumes screenshot capture. However, this capture stops again once the screen is turned off or deactivated.
 
+#### Screen Projection Permission Options
+Another major change introduced in Android 15 is the option for users to choose between "A Single App" or "Entire Screen" when granting Media Projection permission. The “A Single App” option allows users to grant screenshot capture permission to only the specific app (e.g., Instagram or Facebook), while the “Entire Screen” option permits the app to capture all on-screen content, including notifications. In contrast, Android 14 only offered the ability to capture the entire screen, allowing the Screenomics app to access all content displayed on the device, and thus allowing for more comprehensive data capture. Currently, there is no method to detect whether the user selected "A Single App" or "Entire Screen" in Android 15, nor is there a way to enforce the "Entire Screen" option only.
 
+#### Previews During Screenshot Capture
+Additionally, in Android 15, when screenshot capture is active, message previews and notification content are hidden. This feature is designed on a system level to protect user privacy by preventing sensitive information from being displayed during screen capture. While users still receive notifications, the content remains concealed. Developers cannot modify this behavior, as it is enforced by the operating system to ensure user privacy and security.
 
+#### Potential Impact on Study Compliance
+The combination of the status bar chip (which allows users to stop screen capture at any time), automatic stopping of capture when the screen is turned off, limited screen capture options, and hidden notification previews may reduce user compliance with study procedures by introducing interruptions and additional steps.
+
+#### No Impact on Other Modules
+No other data collection modules or capabilities are impacted by the Android update. 
+
+---
 
 
 
