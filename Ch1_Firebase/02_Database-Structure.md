@@ -34,6 +34,10 @@ Project
                 * [spec]
                 * [...]
         - [...]
+    - user_directory
+        - [username]
+            * email: [email]
+        - [...]
 ```
 ---
 
