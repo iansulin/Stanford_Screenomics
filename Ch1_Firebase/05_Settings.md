@@ -54,6 +54,7 @@ Below is **a list of all dynamic parameters** (total sixteen, as of Feb 2025) th
 | Parameter Name | Unit | Range [Suggested Minimum/Default] | Description |
 |---|---|---|---|
 | `foreground-app-check-interval` | Millisecond (ms) | 1 - infinite [1000] | The interval at which Screenomics checks to see if the foreground app has changed. This effectively determines the temporal resolution of NewForegroundAppEvents. |
+| `specs-check-interval` | Millisecond (ms) | 1 - infinite [86400000] | The interval at which Screenomics reports a user's device specs. This information is valuable for identifying operating system updates and new device usage. |
 | `kill-switch` | True(On)/False(No) | 1/0 [0] | This value is used to immediately force close the app on participants' phones. If the kill-switch is off, the app behaves normally. If the kill-switch is turned on, the app will terminate itself as soon as it synchronizes profile settings with the database. The affected participant(s) will be unable to start up the app manually until the kill-switch is turned off again. |
 - The `kill-switch` could be useful if a participant wants to stop data collection but cannot figure out how to uninstall the app, or if a malicious user is found for whatever reason.
 
