@@ -41,26 +41,26 @@ c. **Extract the ZIP File**
 a. **Launch Android Studio**
    - If you haven't opened it yet, start Android Studio.
 
-c. **Open the Project**
+b. **Open the Project**
    - Click on **Open**.
    - Navigate to the extracted project folder, select it and click **OK**.
      - If prompted, do **NOT** click on the **Sync Project with Gradle Files** yet.
 
-d. **Locate "App" Module**
+c. **Locate "App" Module**
    - In the **Project View** (usually on the left), click the dropdown at the top and select **Android** to display the project structure.
    - Find the **app module** in the project view, which has **a folder icon with a green square**. This module is the main app component that gets built into an APK or AAB (Android App Bundle).
 
-e.  **Add the JSON File to the "App" Module**
+d.  **Add the JSON File to the "App" Module**
    - Open the folder on your computer where the `google-services.json` file is located.
    - Copy the `google-services.json` file (`Command + C` or `Ctrl + C`).
    - In Android Studio, **Select the App Module** (the folder icon with a green square).
    - **Paste the JSON file into the "App" Module**.
    - If/When a "Copy" or "Replace" window appears, do **NOT** change any settings--simply click **OK**.
 
-f. **Locate "c_DatabaseManager" Module**
+e. **Locate "c_DatabaseManager" Module**
    - Find the **c_DatabaseManager module**, which has **a folder icon with a bar chart**. This module is one of two core base modules of the Screenomics platform, providing reusable database-related methods for other data collection modules.
 
-g. **Add the JSON File to the "c_DatabaseManager" Module**
+f. **Add the JSON File to the "c_DatabaseManager" Module**
    - Open the folder on your computer where the `google-services.json` file is located.
    - Copy the `google-services.json` file (`Command + C` or `Ctrl + C`).
    - In Android Studio, **Select the c_DatabaseManager Module** (the folder icon with a bar chart).
