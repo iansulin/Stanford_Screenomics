@@ -64,6 +64,65 @@ c. **Monitor the Build Output**
       - "**BUILD SUCCESSFUL**": This means your project has been built without any errors.
       - "**BUILD FAILED**": This indicates that there were errors during the build process. Check if any previous steps were missed or misconfigured.
 
+---
+
+### 4.02.4 Creating a Keystore
+
+To securely sign your Dashboard App, you **must generate a new Keystore**. 
+Do **NOT** reuse the Keystore from your data collection app, as each app should have its own signing credentials.
+
+a. Create a Keystore
+  - In Android Studio, go to Build in the top menu > select "**Generate Signed Bundle / APK**."
+  - In the dialog that appears, select **APK** and click **Next**.
+  - Click on the "**Create new....**" button.
+  - Fill in the required fields
+    - **Key store path**: Choose a location to save your keystore file.
+    - **Password**: Set a password for the keystore.
+    - **Key alias**: Enter a name (alias) for your key.
+    - **Key password**: Set a password for the key (can be the same as the keystore password).
+    - **Validity (years)**: Set for how many years the key will be valid (e.g., 25).
+    - **Certificate information**: Fill in your name, organization, and other details.
+  - Click **OK** to create and save the keystore.
+
+---
+
+### 4.02.5. Building a Signed APK
+
+a. **Generate the Signed APK**
+  - Select Your **Keystore**
+    - In the `Generate Signed APK` dialog, select the keystore file you just created.
+    - Enter the keystore password and the key alias/password you set earlier.
+  - Select Build Variants
+    - Choose the build variant (e.g., **release**) from the dropdown.
+    - Click **Next**, review the settings, and then click **Finish**.
+  - Locate the APK
+    - Once the build is complete, a dialog box will appear in the bottom-right corner of Android Studio.
+    - Click **Locate** to open the folder where the APK is saved.
+      - Alternatively, manually navigate to the directory: `app/build/outputs/apk/release/`
+
+---
+
+### 4.02.6 Sharing and Installeing the Signed APK
+
+After generating the signed APK, you can share it with researchers, testers, or participants using one of the methods below. Additionally, follow these instructions to ensure successful installation on Android devices.
+
+a. **Sharing the APK**
+- Cloud Storage: Upload the APK to *Google Drive*, *Dropbox*, or *OneDrive*.
+   - Share a secure link with your recipients, making sure to set appropriate access permissions.
+- If you want a simple, no-sign-in-required way to share it, you can use file transfer services such as:
+   - *WeTransfer*, *SendAnywhere*, *TransferXL*, or *Dropbox Transfer*.
+   - These services usually keep files available for a limited time (e.g., 7 days), so be sure to notify recipients accordingly.
+- Email: For small APK files (<25MB), you can email the APK, though **many email services block APK attachments**. Sharing a cloud storage link is usually more reliable.
+
+b. **Installing the APK on Android Devices**
+- For best results, recipients should download the APK directly on the Android device where it will be installed:
+   - Open the shared link on the Android device’s browser.
+   - Download the APK file to the device’s local storage.
+- Before installing, enable installation from unknown sources:
+   - **For Android 8.0 and above:** Go to Settings > Apps & notifications > Special app access > Install unknown apps, then allow the browser or file manager to install APKs.
+   - **For earlier versions:** Go to Settings > Security, and enable Unknown sources.
+- Open the downloaded APK file via the notification or using a file manager.
+- Follow the prompts to install the app.
 
 
 [Back to Top](#top)
