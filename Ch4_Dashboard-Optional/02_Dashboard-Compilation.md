@@ -5,7 +5,8 @@
 **Before you begin:**
 * Compile your data collection app and complete Firebase setup to ensure **Ticker** is fully configured and ready to use [[Complete all sections in Chapter 2](../Ch2_App-Compilation/)].
 * Ensure you have your `google-services.json` file ready. This file can be obtained from the the Firebase console for your project [[See Chapter 2 - Section 02.2.b](../Ch2_App-Compilation/02_Firebase-Setup.md)].
-* A video instruction can be downloaded at: [02_Dashboard-Compilation_Video.mp4](../Ch4_Dashboard-Optional/02_Dashboard-Compilation_Video.mp4)
+* A video instruction file is available here: [02_Dashboard-Compilation_Video.mp4](../Ch4_Dashboard-Optional/02_Dashboard-Compilation_Video.mp4)  
+  → Click the link above, then press the **Download** button (top-right) to save the video.
 
 ---
 
