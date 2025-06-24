@@ -8,7 +8,7 @@ The Screenomics Dashboard App is a lightweight companion tool designed to suppor
 
 The dashboard allows researchers to quickly identify inactive or problematic data streams, investigate event-level details, and initiate communication with participants when needed. With features like login credential reuse, visual activity markers, and a streamlined email interface, the Dashboard App ensures that researchers can proactively track data integrity and respond to technical or compliance issues with minimal friction. This chapter outlines the app’s core features and how to use them effectively for participant oversight and data quality assurance.
 
-![Screenomics Dashboard App](../Assets/Screenomics-Dashboard-App.png)
+![Screenomics Dashboard App](../x_Assets/Screenomics-Dashboard-App.png)
 *Screenomics Dashboard App: Log-in interface, User List view, and Detailed View (left to right).*
 
 ---
