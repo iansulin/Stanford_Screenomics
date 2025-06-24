@@ -4,7 +4,7 @@
 
 ## Dashboard App
 
-The Screenomics Dashboard App is a lightweight companion tool designed to support real-time monitoring and participant management in studies conducted by the Stanford Screenomics Lab. Built with researchers in mind, the app provides a high-level overview of participant activity status using timestamped event data—referred to as the Ticker--a centralized Firestore document that stores the most recent timestamp of each event type collected from the participant [[Refer to Chapter 1. Firebase - 07.1. Ticker](../Ch1_Firebase/07_Ticker.md)]. 
+The Screenomics Dashboard App is a lightweight companion tool designed to support real-time monitoring and participant management in studies conducted by the Stanford Screenomics Lab. Built with researchers in mind, the app provides a high-level overview of participant activity status using timestamped event data—referred to as the Ticker, a Firestore document that stores the most recent timestamp of each event type on a participant level [[Refer to Chapter 1. Firebase - 07.1. Ticker](../Ch1_Firebase/07_Ticker.md)]. 
 
 The dashboard allows researchers to quickly identify inactive or problematic data streams, investigate event-level details, and initiate communication with participants when needed. With features like login credential reuse, visual activity markers, and a streamlined email interface, the Dashboard App ensures that researchers can proactively track data integrity and respond to technical or compliance issues with minimal friction. This chapter outlines the app’s core features and how to use them effectively for participant oversight and data quality assurance.
 
