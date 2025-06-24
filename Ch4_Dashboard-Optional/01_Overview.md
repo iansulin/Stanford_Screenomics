@@ -8,8 +8,8 @@ The Screenomics Dashboard App is a lightweight companion tool designed to suppor
 
 The dashboard allows researchers to quickly identify inactive or problematic data streams, investigate event-level details, and initiate communication with participants when needed. With features like login credential reuse, visual activity markers, and a streamlined email interface, the Dashboard App ensures that researchers can proactively track data integrity and respond to technical or compliance issues with minimal friction. This chapter outlines the app’s core features and how to use them effectively for participant oversight and data quality assurance.
 
-![Screenomics Dashboard App](../x_Assets/Screenomics-Dashboard-App.png)
 *Screenomics Dashboard App: Log-in interface, User List view, and Detailed View (left to right).*
+![Screenomics Dashboard App](../x_Assets/Screenomics-Dashboard-App.png)
 
 ---
 
@@ -23,7 +23,9 @@ Upon launching the app, researchers are prompted to log-in. The login screen mir
 
 The Screenomics Dashboard App is a participant monitoring and communication tool developed to support research conducted by the Stanford Screenomics Lab. It leverages ticker information, stored in a Firestore database, to provide real-time visibility into the status of data collection from each participant. 
 
-In the main interface, users are presented with **an alphabetically ordered list of participant usernames**, formatted as (group code + participant ID). Each entry is prefixed by a green or red status marker that offers an at-a-glance indicator of recent activity:
+In the main interface, users are presented with a list of participant usernames, each formatted as **group code + participant ID**. The list is **primarily ordered by activity status**, with participants who have been **inactive (red)** shown at the top to draw attention to potential follow-up needs. Within each status group (red or green), entries are sorted **alphabetically**.
+
+Each entry is also prefixed by a color-coded status marker:
 - **Green** indicates that the participant has submitted at least one data within the past 48 hours.
 - **Red** indicates that all tracked events have been inactive for more than 48 hours and may require follow-up.
 
