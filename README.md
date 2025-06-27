@@ -1,6 +1,7 @@
 ## Start Here
 
 Before reviewing this documentation or using the associated project files, we strongly recommend reading the following manuscript: https://doi.org/10.1101/2025.06.24.25329707
+
 ![QR code linking to the Screenomics preprint](https://github.com/iansulin/stanford_screenomics/blob/main/x_Assets/qr_screenomics-preprint.png?raw=true)
 
 > Kim, I., Boffa, J., Cho, M., Conroy, D. E., Kline, N., Haber, N., Robinson, T. N., Reeves, B., & Ram, N. (2025). Stanford Screenomics: An open-source platform for unobtrusive multimodal digital trace data collection from Android smartphones. medRxiv. 
