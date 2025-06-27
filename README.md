@@ -6,6 +6,11 @@ Before reviewing this documentation or using the associated project files, we st
 
 The manuscript provides critical background on the motivation, architecture, and intended applications of the Screenomics framework. Familiarity with its content will help ensure that the project is used and interpreted appropriately within your own research or development efforts.
 
+### Access the Preprint via QR Code
+
+Scan the QR code below to read the foundational preprint:
+
+![QR code linking to the Screenomics preprint](https://github.com/iansulin/stanford_screenomics/blob/main/x_Assets/qr_screenomics-preprint.png?raw=true)
 
 
 ## License
