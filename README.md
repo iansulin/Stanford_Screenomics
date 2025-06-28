@@ -13,7 +13,7 @@ What’s in this repo:
 
 ---
 
-## Start from Here
+### Start from Here
 
 Before reviewing this documentation or using the associated project files, we **strongly recommend** reading the following manuscript: https://doi.org/10.1101/2025.06.24.25329707
 
@@ -25,7 +25,7 @@ This manuscript provides key background on the motivation, architecture, and app
 
 ---
 
-## Project Files
+### Project Files
 
 - All Releases: https://github.com/iansulin/stanford_screenomics/releases
 
@@ -35,14 +35,14 @@ This manuscript provides key background on the motivation, architecture, and app
 
 ---
 
-## License
+### License
 
 This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).  
 See the [LICENSE](./LICENSE) file for full terms.
 
 ---
 
-## Contact
+### Contact
 
 For questions about the use of this project or collaboration inquiries, please contact:  
 **Ian Kim** – iank@stanford.edu
