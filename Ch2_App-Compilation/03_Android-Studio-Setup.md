@@ -152,7 +152,7 @@ d. **Locate the Cloud Storage Reference Code and Change Old URL `gs://old-bucket
 ```xml
 <!-- Cloud Storage URL Configuration -->
 <string name="cloud_storage_url">
-   gs://yourstudyname-f6198.firebasestorage.app
+   gs://yourstudyname.firebasestorage.app
 </string>
 ```
 
