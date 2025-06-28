@@ -9,6 +9,14 @@ Before reviewing this documentation or using the associated project files, we st
 The manuscript provides critical background on the motivation, architecture, and intended applications of the Screenomics framework. Familiarity with its content will help ensure that the project is used and interpreted appropriately within your own research or development efforts.
 
 
+## Project Files
+https://github.com/iansulin/stanford_screenomics/releases
+
+[Download Stanford Screenomics App (Data Collection App)](https://github.com/iansulin/stanford_screenomics/releases/download/Project-Files_Stanford-Screenomics/StanfordScreenomics_External_062825.zip)
+
+[Download Screenomics Dashboard App (Optional)](https://github.com/iansulin/stanford_screenomics/releases/download/Project-Files_Screenomics-Dashboard/ScreenomicsDashboard_External_062025.zip)
+
+
 
 ## License
 
