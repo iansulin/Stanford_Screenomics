@@ -125,7 +125,7 @@ b. **Locate the App Name Reference Code and Change `Stanford Screenomics` to You
 ```xml
 <!-- App Name Configuration -->
 <string name="app_name">
-   Stanford Screenomics
+   Your Study Name
 </string>
 ```
 
