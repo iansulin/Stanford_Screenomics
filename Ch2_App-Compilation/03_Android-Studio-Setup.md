@@ -23,15 +23,10 @@ c. **Launch Android Studio**
 
 ### 2.03.2. Download the Project from GitHub
 
-a. **Find the Repository**
-   - [Go to the GitHub page of the Stanford Screenomics Data Collection App project files](../Project-Files)
+a. **Download Project Files**
+   - [Download the most recent version Stanford Screenomics Data Collection App project files](https://github.com/iansulin/stanford_screenomics/releases/download/Project-Files_Stanford-Screenomics/StanfordScreenomics_External_062825.zip)
 
-b. **Download the Project**
-   - Click on the green **Code** button.
-   - Select **Download ZIP** from the dropdown menu.
-   - Save the ZIP file to your computer.
-
-c. **Extract the ZIP File**
+b. **Extract the ZIP File**
    - Locate the downloaded ZIP file and extract it to a folder of your choice.
 
 ---
