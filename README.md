@@ -9,7 +9,7 @@ What’s in this repo:
 1. **Two project files** — a data collection app and a dashboard app — to help you build your own custom tools, tailored to your study, no coding required.
 2. **Step-by-step instructions** — easy-to-follow guides to build and deploy both apps. For developers, we also include guidance on contributing new features or extending the platform to serve your project — or the public — even better.
 3. **Comprehensive documentation** — detailing app features, the types of data collected, the data collection process, and the overall app architecture.
-4. **Q&A section** - answers to common questions to help you troubleshoot and better understand the platform.
+4. **FAQ section** - answers to common questions to help you troubleshoot and better understand the platform.
 
 ---
 
