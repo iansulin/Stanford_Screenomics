@@ -108,42 +108,70 @@ d. **Manually Replace Any Remaining References**
 
 ---
 
-### 2.03.5. Cloud Storage Link Replace
+### 2.03.5. Configure App Name, Password, Cloud Storage Link, and Consent Form
 
-a. **Search** for the old URI in your project
-   - Press `Command + Shift + F` or `Ctrl + Shift + F` to open **Find in Path**.
-   - **Enter the following in the search bar: `gs://old-bucket-name`**.
-      - This will help locate all instances where the Cloud Storage URI is used in your project.
-   - **Locate the Storage Reference Code**
-```java
-mStorageRef = FirebaseStorage.getInstance("gs://old-bucket-name").getReference();
+a. **Locate "c_SharedResources" Module**
+   - Find the **c_SharedResources module**, which has **a folder icon with a bar chart**. This module doesn’t contain any code logic or run independently; its sole purpose is to provide a centralized `config.xml` file. That file holds shared settings (i.e., app name, user password, cloud storage URL, and consent form details, as of June 2025). Centralizing these settings minimizes the need to manually modify values across multiple source files. It's purely a configuration hub.
+
+b. **Locate the App Name Reference Code and Change `Stanford Screenomics` to Your Desired App Name** (line 6)
+   - From
+```xml
+<!-- App Name Configuration -->
+<string name="app_name">
+   Stanford Screenomics
+</string>
 ```
-   - **Replace the old URI with your new URI**
-```java
-mStorageRef = FirebaseStorage.getInstance("gs://yourstudyname-f6198.firebasestorage.app").getReference();
+   - To
+```xml
+<!-- App Name Configuration -->
+<string name="app_name">
+   Stanford Screenomics
+</string>
 ```
-b. **Save** changes (`Command + S` or `Ctrl + S`)
+
+c. **Locate the Password Reference Code and Change `0ldPassword!` to Your Desired Password** (line 11)
+   - From
+```xml
+<!-- Password Configuration -->
+<string name="password_restriction">
+   0ldPassword!
+</string>
+```
+   - To
+```xml
+<!-- Password Configuration -->
+<string name="password_restriction">
+   NewPassw0rd?
+</string>
+```
+
+d. **Locate the Cloud Storage Reference Code and Change Old URL `gs://old-bucket-name` to Your New Storage Link** (line 16)
+   - From
+```xml
+<!-- Cloud Storage URL Configuration -->
+<string name="cloud_storage_url">
+   gs://old-bucket-name
+</string>
+```
+   - To
+```xml
+<!-- Cloud Storage URL Configuration -->
+<string name="cloud_storage_url">
+   gs://yourstudyname-f6198.firebasestorage.app
+</string>
+```
+
+e.  **Locate the Consent Form Reference Code and Update it as needed**
+   - The remainder of the file defines text shown to participants during the app's consent flow (e.g., welcome messages, section headings, descriptive content, and agreement terms). Each field is clearly labeled (e.g., `consent_intro`, `consent_section_heading1`, etc.) and should be updated to match the language and structure relevant to your study.
+   - This consent screen appears before user registration. If users do not agree, they will not be able to register or participate in the study. Consent is a required step for enrollment.
+   - **Note that this in-app consent is separate from the IRB-approved consent form.** It must follow Google Play's policies, particularly those concerning data collection and sensitive permissions. These requirements are frequently updated, so be sure to consult the latest Play Console policy updates to ensure compliance (https://support.google.com/googleplay/android-developer/answer/10144311).
+
+f. **Save Changes** 
+   - `Command + S` or `Ctrl + S`
 
 ---
 
-### 2.03.6. Update Password
-
-a. **Search** for the old password in your project
-   - Press `Command + Shift + F` or `Ctrl + Shift + F` to open **Find in Path**.
-   - **Enter the following in the search bar: `0ldPassword!`**.
-   - **Locate the Password Reference Code**
-```java
-public static final String PASSWORD_RESTRICTION = "0ldPassword!";
-```
-   - **Replace the old password with your new URI**
-```java
-public static final String PASSWORD_RESTRICTION = "NewPassw0rd?";
-```
-b. **Save** changes (`Command + S` or `Ctrl + S`)
-
----
-
-### 2.03.7. Module Activation/Deactivation
+### 2.03.6. Module Activation/Deactivation
 
 a. **Locate "c_ModuleManager" Module** 
    -  Find the **c_ModuleManager module**, which has **a folder icon with a bar chart**. This module is another core base module of the Screenomics platform, that serves as the central control system, overseeing the operational status of various data collection modules.
@@ -184,9 +212,10 @@ public class ModuleController {
     public static boolean ENABLE_BATTERY = true;
     public static boolean ENABLE_POWER = true;
     public static boolean ENABLE_NETWORK = true;
-    public static boolean ENABLE_SPECS = true;
 }
+// SPECS module is always activated.
 ```
+
 
 Example 2. Three modules activated, six modules deactivated.
    - The compiled app will only collect 4 types of event data: `NewForegroundAppEvent` through "Apps" module, `BatteryStateEvent` and `BatteryChargingEvent` from "Battery" module, and `SystemPowerEvent` from "Power" module.  
@@ -202,33 +231,14 @@ public class ModuleController {
     public static boolean ENABLE_BATTERY = true;
     public static boolean ENABLE_POWER = false;
     public static boolean ENABLE_NETWORK = true;
-    public static boolean ENABLE_SPECS = false;
 }
+// SPECS module is always activated.
 ```
 
 ---
 
-### 2.03.8. Change App Name
 
-a. **Locate `strings.xml`**
-   - In the hierarchical structure, navigate to: `app > res > values`
-      - Ensure you open `res` folder, **NOT** `res (generated)` folder.
-      - Remember that the `res` folder is for managing your app's resources, while the `res (generated)` folder is for internal use by the build system and should not be modified directly.
-   - Double-click `strings.xml` file to open it.
-
-b. **Locate the App Name Reference Code** (line 2)
-```java
-<string name="app_name">Screenomics</string>
-```
-
-c. **Change `Screenomics` to your desired app name.**
-```java
-<string name="app_name">Your App Name</string>
-```
-
----
-
-### 2.03.9. Clean and Build the Project
+### 2.03.7. Clean and Build the Project
 
 a. **Clean the Project**
    - Go to the menu bar and select **Build > Clean Project**
