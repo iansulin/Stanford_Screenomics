@@ -26,18 +26,18 @@ b. **Run the App on the Emulator**
 
 ### 2.04.2. Test Registration
 
-a. Enter Registration Details
+a. **Enter Registration Details**
   - On the first launch of your app in the emulator, fill in the required fields:
     - Study Group Code
     - Participant ID
     - Email
     - Password
 
-b. Submit the Form
+b. **Submit the Form**
   - Tap the Register button to submit the form.
   - Observe the app’s behavior to ensure successful registration.
   
-c. Check Firebase Console for User Registration
+c. **Check Firebase Console for User Registration**
   - Go to **Firebase Console**
   - In your Firebase Console, click on **Build > Authentication** in the left sidebar
   - Click on the "**Users**" tab at the top of the Authentication section.
