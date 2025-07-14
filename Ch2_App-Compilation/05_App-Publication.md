@@ -15,6 +15,10 @@ Understanding app publication is essential for ensuring that your Android app re
 * For manual distribution or testing → Use Signed APK
 * For Google Play Store → Use Signed App Bundle (AAB)
 
+**Before you begin:**
+* A video instruction file is available here: [05_App-Publication_Video.mp4](../Ch2_App-Compilation/05_App-Publication_Video.mp4)  
+  → Click the link above, then press the **Download** button (top-right) to save the video.
+
 ---
 
 ### 2.05.1. Creating a Keystore 
