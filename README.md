@@ -23,6 +23,8 @@ Before reviewing this documentation or using the associated project files, we **
 
 This manuscript provides key background on the motivation, architecture, and applications of the Screenomics framework. Familiarity with its content will help ensure you interpret and apply the platform appropriately in your own work.
 
+![Screenome sample](https://raw.githubusercontent.com/iansulin/stanford_screenomics/main/x_Assets/ScreenomeSampleforPublic_2020_0127.gif)
+
 ---
 
 ### Project Files
