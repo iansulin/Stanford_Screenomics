@@ -2,7 +2,9 @@
 
 **Before you begin:**
 * Ensure you have your `google-services.json` file ready. This file can be obtained from the the Firebase console for your project [[See Chapter 2 - Section 02.2.b](../Ch2_App-Compilation/02_Firebase-Setup.md)].
-* Have your Cloud Storage `gs://` URI ready [[See Chapter 2 - Section 02.6.d](../Ch2_App-Compilation/02_Firebase-Setup.md)]. 
+* Have your Cloud Storage `gs://` URI ready [[See Chapter 2 - Section 02.6.d](../Ch2_App-Compilation/02_Firebase-Setup.md)].
+* A video instruction file is available here: [03_Android-Studio-Setup_Video.mp4](../Ch2_App-Compilation/03_Android-Studio-Setup_Video.mp4)  
+  → Click the link above, then press the **Download** button (top-right) to save the video.
 
 ---
 
