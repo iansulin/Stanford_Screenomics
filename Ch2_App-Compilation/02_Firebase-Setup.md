@@ -2,6 +2,8 @@
 
 **Before you begin:**
 * Create a Gmail account, if you haven't already, as it's required to access Firebase services.
+* A video instruction file is available here: [02_Firebase-Setup_Video.mp4](../Ch2_App-Compilation/02_Firebase-Setup_Video.mp4)  
+  → Click the link above, then press the **Download** button (top-right) to save the video.
 
 ---
 
