@@ -1,6 +1,6 @@
 
 
-## Module-and Device-Specific Performance Experiments
+## Optional: Module-and Device-Specific Performance Experiments
 
 This document presents detailed, module-and device-specific performance measurements of the Screenomics platform. Our goal is to provide researchers with (rough) estimates of battery, RAM, CPU, and storage impacts for different modules and devices, enabling better planning of studies, particularly for participants using older or lower-end smartphones. These measurements are intended to help researchers anticipate system demands and potential constraints, especially in populations with varied access to high-performance devices. By sharing these results, we aim to support study planning and reproducibility while highlighting practical considerations for implementing digital phenotyping applications.
 
