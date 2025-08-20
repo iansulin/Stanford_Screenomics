@@ -7,11 +7,11 @@ This guide is designed to help researchers who may not have a programming backgr
 In the following sections, we will cover:
 1. **Backend infrastructure and compliance considerations** – How to ensure your data storage meets IRB and institutional requirements.
 2. **Device selection and study design** – Choosing between participant-owned or study-issued phones, and selecting appropriate devices and operating systems.
-3. Setting up tools and requirements – Installing Android Studio and preparing your computer for app compilation.
+3. **Setting up tools and requirements** – Installing Android Studio and preparing your computer for app compilation.
 4. App compilation and configuration – Building the study and dashboard apps, configuring modules, sampling rates, and screenshot quality.
-5. Participants, data volume, and cost estimation – Understanding storage needs, operational costs, and how to estimate them.
-6. App distribution – Options for distributing the app safely to participants.
-7. Study timeline and planning – Suggested workflow for preparing the study, obtaining approvals, and starting data collection.
+5. **Participants, data volume, and cost estimation** – Understanding storage needs, operational costs, and how to estimate them.
+6. **App distribution** – Options for distributing the app safely to participants.
+7. **Study timeline and planning** – Suggested workflow for preparing the study, obtaining approvals, and starting data collection.
 
 ---
 
