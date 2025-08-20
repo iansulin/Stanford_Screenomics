@@ -49,10 +49,10 @@ Each module was tested independently on all three devices during a 2-hour sessio
 
 The following metrics were measured for each module:
 
-- **Battery consumption (% per hour)**: This metric represents the proportion of the device’s battery drained per hour while running a specific module. It is important because high battery usage may reduce participant compliance, especially in studies where participants are expected to carry the device throughout the day. Understanding battery impact helps researchers anticipate constraints and optimize module settings.
+- **Storage requirements (MB)**: Storage requirements measure how much data the module generates and saves locally (or remotely) over time. This is critical for ensuring that devices have enough space to store collected data without disrupting normal usage or causing data loss.
 - **RAM usage (MB)**: RAM usage indicates the amount of active memory the module consumes while running. High RAM usage can slow down the device or interfere with other apps, particularly on older or low-memory smartphones. Measuring RAM usage ensures that the platform can run smoothly without causing system instability.
 - **CPU load (% average)**: CPU load represents the average processing power used by the module over time. High CPU usage can generate heat, reduce battery life, and affect the performance of other apps. Knowing CPU demands helps researchers understand the computational cost of each module and plan accordingly.
-- **Storage requirements (MB)**: Storage requirements measure how much data the module generates and saves locally (or remotely) over time. This is critical for ensuring that devices have enough space to store collected data without disrupting normal usage or causing data loss.
+- **Battery consumption (% per hour)**: This metric represents the proportion of the device’s battery drained per hour while running a specific module. It is important because high battery usage may reduce participant compliance, especially in studies where participants are expected to carry the device throughout the day. Understanding battery impact helps researchers anticipate constraints and optimize module settings.
 
 ---
 
