@@ -26,6 +26,9 @@ Before beginning a Screenomics study, the research team must carefully evaluate 
 #### b. Default Backend: Firebase
 The Screenomics framework is built on **Google Firebase**, which provides a turnkey backend solution with three main components:  
 
+> **Backend**: The backend refers to the server-side systems and services that manage authentication, databases, and data storage. 
+
+
 - **Firebase Authentication**: Handles secure user login and identity management.  
 - **Firestore Database**: Stores structured data, such as logs, metadata, or survey responses.  
 - **Cloud Storage**: Stores large unstructured data files, such as screenshots or audio.  
@@ -230,9 +233,11 @@ The following table illustrates approximate costs under different study designs,
 
 **Notes:**  
 - Costs are approximate and depend on resolution, sampling rates, and Google Cloud’s current pricing.  
-- Firestore costs are dominated by write operations, not storage.  
-- Download costs only apply if the full dataset is exported out of the cloud.  
-- Using compressed image formats or longer sampling intervals significantly reduces costs.  
+- Firestore costs are dominated by write operations, not storage.
+- Using compressed image formats or longer sampling intervals significantly reduces costs.
+- The “Total Est. Cost” column reflects data collection costs only and does not include download/transfer charges or long-term storage fees.
+- Additional charges would apply if data are exported, transferred, or stored beyond the study period.
+- Download costs apply if the full dataset is exported out of the cloud.
 
 
 **Tips:**
