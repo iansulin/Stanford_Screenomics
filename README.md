@@ -1,3 +1,15 @@
+# ⚠️ This Repository Has Moved
+
+This repository is no longer maintained here. Please visit the new repository:
+
+➡️ [Stanford Screenomics Platform](https://github.com/StanfordScreenomics/Platform)
+
+Thank you!
+
+
+
+---
+
 ## Hey there!
 
 You’ve probably heard about Stanford Screenomics, our open-source platform for collecting digital trace data from Android smartphones. If not, welcome — you’re in the right place!
